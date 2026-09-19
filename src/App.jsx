@@ -1,14 +1,13 @@
-import React, {createContext, useCallback, useContext, useEffect, useReducer, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useReducer, useRef, useState} from 'react';
 import {flushSync} from 'react-dom';
 import {initialState, reducer} from './state.js';
+import {DemoContext} from './context.js';
 import {scenarios, rules, metrics, inspectCapture} from './engine.js';
 import {createReport, download, hash, reportHtml} from './reports.js';
 import {Icon} from './icons.jsx';
 import {Badge, Modal} from './components.jsx';
 import {Overview, Sessions, Findings, SimulationLab, CaptureAnalysis, Reports, SessionDetails, Scoring} from './pages.jsx';
 
-const DemoContext = createContext(null);
-export const useDemo = () => useContext(DemoContext);
 const navigation = [
   ['Overview', 'grid'], ['Capture analysis', 'layers'], ['Sessions', 'activity'],
   ['Findings', 'alert'], ['Simulation lab', 'play'], ['Reports', 'file'],

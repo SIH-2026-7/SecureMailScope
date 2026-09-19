@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDemo} from './App.jsx';
+import {useDemo} from './context.js';
 import {Badge, Button, DetailGrid, Heading, Panel} from './components.jsx';
 import {Icon} from './icons.jsx';
 import {findings, generateScenario, metrics, rules, scenarios, scoreSession, severity, trace} from './engine.js';
