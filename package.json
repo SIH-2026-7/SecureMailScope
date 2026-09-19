@@ -1,0 +1,13 @@
+{
+  "name": "securemailscope-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline-capable email cryptography forensic demonstration",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test tests/engine.test.js",
+    "check": "node --check dist/app.js && node --check dist/engine.js"
+  }
+}

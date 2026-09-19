@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {generateScenario,metrics,scoreSession,severity,findings,trace,inspectCapture} from '../dist/engine.js';
+test('enterprise scenario: consistent evidence counts and risk',()=>{const ss=generateScenario();assert.equal(ss.length,84);assert.equal(metrics(ss).critical,2);assert.equal(metrics(ss).findings,46);assert.equal(findings(ss).reduce((n,f)=>n+f.sessions.length,0),46);assert.equal(severity(ss[0]),'Critical');assert.equal(scoreSession(ss[0]),25);assert.ok(trace(ss[0]).some(t=>t[2].includes('REDACTED')));});
+test('partial handshake is unknown and excluded from posture',()=>{const ss=generateScenario();const s=ss.find(s=>s.issues.includes('partial'));assert.equal(s.tls,'Unknown');assert.equal(s.pfs,'Unknown');assert.equal(metrics([s]).score,null);assert.equal(metrics(ss).score,metrics(ss.filter(x=>x!==s)).score);});
+test('hardened baseline has no triggered rules',()=>{const ss=generateScenario('secure');assert.equal(metrics(ss).score,100);assert.equal(metrics(ss).findings,0);assert.equal(metrics(ss).encrypted,36);});
+test('risk increases in downgrade scenario',()=>{assert.ok(metrics(generateScenario('downgrade')).score<metrics(generateScenario()).score);});
+function pcap(){const b=new ArrayBuffer(44),v=new DataView(b);v.setUint32(0,0xa1b2c3d4,true);v.setUint16(4,2,true);v.setUint16(6,4,true);v.setUint32(16,65535,true);v.setUint32(20,1,true);v.setUint32(32,4,true);v.setUint32(36,4,true);return b;}
+test('valid PCAP counts records, reports link type',()=>{assert.deepEqual(inspectCapture(pcap()),{format:'PCAP',packets:1,linkType:1,bytes:44});});
+test('rejects invalid and truncated captures',()=>{assert.throws(()=>inspectCapture(new ArrayBuffer(2)),/short/);assert.throws(()=>inspectCapture(new ArrayBuffer(32)),/magic/);assert.throws(()=>inspectCapture(pcap().slice(0,43)),/Truncated/);});
+test('PCAPNG validates section lengths and byte order',()=>{const b=new ArrayBuffer(28),v=new DataView(b);v.setUint32(0,0x0a0d0d0a);v.setUint32(4,28,true);v.setUint32(8,0x1a2b3c4d,true);v.setUint32(24,28,true);assert.equal(inspectCapture(b).format,'PCAPNG');v.setUint32(24,24,true);assert.throws(()=>inspectCapture(b),/length/);});
