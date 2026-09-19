@@ -1,0 +1,2168 @@
+I’ll turn this into an implementable SIH submission package: architecture, MVP-to-final build plan, AI/ML design, evaluation strategy, demo flow, and a judging-oriented presentation. I’ll first inspect the workspace to see whether there is an existing project or slide template, then I’ll generate the solution artifacts and validate them.# SecureMailScope: End-to-End SIH 2026 Solution
+
+**Problem Statement ID:** 26159  
+**Title:** SecureMailScope: AI-Assisted Cryptographic Security Posture Assessment for Secure Email Communications
+
+## 1. Executive Proposal
+
+**SecureMailScope** is a passive network-forensic platform that accepts email-related PCAP/PCAPNG files and produces:
+
+- Reconstructed SMTP, IMAP, and POP3 sessions
+- STARTTLS transition analysis
+- TLS version, cipher suite, extension, and key-exchange analysis
+- X.509 certificate extraction and validation
+- Forward-secrecy assessment
+- Cryptographic weakness detection
+- AI-based risk classification and anomaly detection
+- Security posture score
+- Prioritized remediation recommendations
+- Interactive dashboard
+- JSON, HTML, and PDF forensic reports
+
+The core differentiator is that SecureMailScope does not merely show packets. It converts raw packet evidence into an explainable security decision:
+
+> “This email service is vulnerable because STARTTLS was advertised but not enforced, TLS 1.0 was negotiated, the server certificate is expired, and the session lacks forward secrecy. Remediate in this order.”
+
+NIST TLS guidance emphasizes TLS 1.2 with approved cipher suites and migration toward TLS 1.3, while RFC 8314 recommends TLS 1.2 or greater for email submission and access, discourages cleartext email protocols, and prefers implicit TLS for submission and access services. ([csrc.nist.gov](https://csrc.nist.gov/Pubs/sp/800/52/r2/Final?utm_source=openai))
+
+---
+
+# 2. Proposed System Architecture
+
+```text
+                         +-----------------------+
+                         |       Web Dashboard   |
+                         | React / Plotly / D3    |
+                         +-----------+-----------+
+                                     |
+                                     v
+                         +-----------------------+
+                         | FastAPI REST Backend  |
+                         | Job Manager / Reports |
+                         +-----------+-----------+
+                                     |
+                  +------------------+------------------+
+                  |                                     |
+                  v                                     v
+       +------------------------+             +------------------------+
+       | PCAP Analysis Pipeline |             | AI Risk Engine         |
+       |                        |             |                        |
+       | 1. File Intake         |             | Rule + ML Hybrid       |
+       | 2. Packet Decode       |             | Risk Classification     |
+       | 3. TCP Reassembly      |             | Anomaly Detection       |
+       | 4. Email Detection     |             | Posture Scoring         |
+       | 5. TLS Parsing         |             | Recommendations         |
+       | 6. X.509 Analysis      |             +------------------------+
+       +-----------+------------+
+                   |
+                   v
+       +------------------------+
+       | Normalized Evidence DB |
+       | PostgreSQL / SQLite    |
+       | JSON Evidence Store    |
+       +-----------+------------+
+                   |
+                   v
+       +------------------------+
+       | Report Generator       |
+       | JSON / HTML / PDF      |
+       +------------------------+
+```
+
+## Recommended Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | Python, FastAPI |
+| PCAP parsing | TShark/Wireshark CLI, PyShark, Scapy fallback |
+| TCP reconstruction | TShark follow-stream output plus custom sequence-aware reassembler |
+| TLS parsing | TShark TLS fields, Scapy TLS, Python `cryptography` |
+| Certificate validation | Python `cryptography`, OpenSSL |
+| ML | scikit-learn, XGBoost or LightGBM |
+| Anomaly detection | Isolation Forest, Local Outlier Factor, autoencoder extension |
+| Database | PostgreSQL for deployment, SQLite for demo |
+| Queue | Celery + Redis, or FastAPI background tasks for MVP |
+| Dashboard | React, TypeScript, Tailwind CSS, Plotly |
+| Reports | Jinja2 HTML, WeasyPrint PDF, Pydantic JSON |
+| Packaging | Docker Compose |
+| Deployment | Offline-first local deployment, optional secure SOC deployment |
+
+TShark supports PCAP/PCAPNG reading, field extraction, JSON output, protocol filtering, TCP stream following, and TLS field inspection. ([wireshark.org](https://www.wireshark.org/docs/man-pages/tshark.html?utm_source=openai))
+
+---
+
+# 3. End-to-End Processing Pipeline
+
+## Stage 1: PCAP Intake
+
+The user uploads a `.pcap`, `.pcapng`, or compressed capture.
+
+Validation checks:
+
+- File extension and magic bytes
+- Maximum file size
+- PCAP readability
+- Packet count
+- Capture start and end time
+- Link-layer type
+- Presence of TCP traffic
+- SHA-256 evidence hash
+
+Every analysis should store:
+
+```json
+{
+  "evidence_id": "pcap-2026-001",
+  "file_name": "enterprise-mail.pcapng",
+  "sha256": "....",
+  "capture_start": "2026-08-12T10:00:00Z",
+  "capture_end": "2026-08-12T10:12:24Z",
+  "packet_count": 182340,
+  "analyzer_version": "1.0.0"
+}
+```
+
+The evidence hash gives the forensic report integrity and supports chain-of-custody verification.
+
+---
+
+## Stage 2: Protocol Identification
+
+Identify candidate email sessions using:
+
+### Port-based detection
+
+| Protocol | Cleartext / STARTTLS | Implicit TLS |
+|---|---:|---:|
+| SMTP | 25, 587 | 465 |
+| IMAP | 143 | 993 |
+| POP3 | 110 | 995 |
+
+### Content-based detection
+
+Port numbers alone are insufficient. Use application signatures:
+
+#### SMTP
+
+```text
+220 mail.example.com ESMTP
+EHLO client.example.com
+250-STARTTLS
+STARTTLS
+220 Ready to start TLS
+```
+
+#### IMAP
+
+```text
+* OK IMAP4rev1 Service Ready
+A001 CAPABILITY
+* CAPABILITY IMAP4rev1 STARTTLS AUTH=PLAIN
+A002 STARTTLS
+A002 OK Begin TLS negotiation now
+```
+
+#### POP3
+
+```text
++OK POP3 server ready
+STLS
++OK Begin TLS negotiation now
+```
+
+### Confidence model
+
+```text
+protocol_confidence =
+    0.35 * port_match +
+    0.35 * banner_match +
+    0.20 * command_sequence_match +
+    0.10 * tls_context_match
+```
+
+The detector should output `SMTP`, `IMAP`, `POP3`, or `UNKNOWN`, together with an evidence explanation.
+
+---
+
+## Stage 3: TCP Stream Reconstruction
+
+For every TCP 5-tuple:
+
+```text
+(source_ip, source_port, destination_ip, destination_port, protocol)
+```
+
+perform:
+
+1. SYN/SYN-ACK/ACK identification
+2. Direction assignment
+3. TCP sequence-number ordering
+4. Retransmission removal
+5. Duplicate segment removal
+6. Out-of-order segment buffering
+7. Gap detection
+8. FIN/RST session termination detection
+9. Stream byte reconstruction
+
+Output:
+
+```json
+{
+  "stream_id": 42,
+  "client": "10.10.1.25:50214",
+  "server": "10.10.2.10:587",
+  "protocol": "SMTP",
+  "bytes_client_to_server": 1842,
+  "bytes_server_to_client": 2380,
+  "retransmissions": 4,
+  "missing_bytes": false,
+  "start_time": "...",
+  "end_time": "..."
+}
+```
+
+### Important forensic limitation
+
+A PCAP may be incomplete. If packets are missing, the system must not silently claim that a handshake or certificate is valid. It should mark evidence quality as:
+
+- `COMPLETE`
+- `PARTIAL`
+- `TRUNCATED`
+- `AMBIGUOUS`
+
+---
+
+## Stage 4: STARTTLS Detection and Validation
+
+STARTTLS must be treated as a state transition.
+
+```text
+PLAINTEXT
+    |
+    | capability advertised
+    v
+STARTTLS_AVAILABLE
+    |
+    | client sends STARTTLS/STLS
+    v
+UPGRADE_REQUESTED
+    |
+    | server accepts
+    v
+TLS_EXPECTED
+    |
+    | TLS ClientHello detected
+    v
+ENCRYPTED
+```
+
+### SMTP validation rules
+
+RFC 3207 defines SMTP STARTTLS and requires the client to begin TLS negotiation after receiving a successful `220` response. ([rfc-editor.org](https://www.rfc-editor.org/rfc/rfc3207.html?utm_source=openai))
+
+SecureMailScope should detect:
+
+| Finding | Condition |
+|---|---|
+| STARTTLS not offered | Server banner/capability lacks STARTTLS |
+| STARTTLS offered but unused | Capability advertised, client continues cleartext |
+| STARTTLS rejected | Server returns `454` or another failure response |
+| STARTTLS downgrade suspicion | One endpoint previously offered STARTTLS but later sessions do not |
+| TLS handshake missing | Server accepts STARTTLS but no ClientHello follows |
+| Cleartext authentication | Credentials or authentication commands observed before encryption |
+| Post-upgrade cleartext | Application commands appear after TLS transition outside expected boundaries |
+
+For IMAP, analyze `CAPABILITY` and `STARTTLS`.  
+For POP3, analyze `STLS` and the server response.
+
+### Critical security insight
+
+The system must distinguish:
+
+```text
+STARTTLS available
+```
+
+from:
+
+```text
+STARTTLS successfully negotiated and subsequently used
+```
+
+This distinction is central to downgrade and opportunistic-encryption analysis.
+
+---
+
+## Stage 5: TLS Handshake Reconstruction
+
+Extract the following:
+
+### ClientHello
+
+- Legacy version field
+- Supported TLS versions
+- Cipher suites offered
+- Supported groups
+- Key share groups
+- Signature algorithms
+- SNI
+- ALPN
+- Session resumption indicators
+- GREASE values
+- TLS extensions
+
+### ServerHello
+
+- Negotiated version
+- Selected cipher suite
+- Selected group
+- Key share
+- Resumption status
+
+### Certificate messages
+
+- Certificate chain
+- Subject
+- Issuer
+- SAN
+- Serial number
+- Validity period
+- Public key algorithm
+- Public key size
+- Signature algorithm
+- Basic constraints
+- Key usage
+- Extended key usage
+- Authority Key Identifier
+- Subject Key Identifier
+- SHA-256 fingerprints
+
+### TLS alerts
+
+- Fatal alerts
+- Protocol version failures
+- Handshake failures
+- Certificate failures
+- Internal errors
+- Repeated failed handshakes
+
+Scapy provides TLS record and handshake parsing capabilities, while TShark exposes TLS protocol fields for structured extraction. ([wireshark.org](https://www.wireshark.org/docs/dfref/t/tls.html?utm_source=openai))
+
+---
+
+# 4. Certificate Analysis
+
+## Certificate checks
+
+### Identity validation
+
+- Does the certificate SAN match observed SNI?
+- Is the certificate issued for the observed server name?
+- Is the certificate self-signed?
+- Is the certificate chain complete?
+- Is the issuer trusted by the configured trust store?
+
+### Time validation
+
+```text
+not_before <= capture_time <= not_after
+```
+
+Findings:
+
+- Expired certificate
+- Certificate not yet valid
+- Certificate expires soon
+- Excessively long validity period
+- Invalid validity ordering
+
+### Cryptographic validation
+
+Flag:
+
+- RSA key below 2048 bits
+- DSA certificates
+- EC keys using weak curves
+- SHA-1 signatures
+- MD5 signatures
+- Unknown or unsupported algorithms
+- Weak certificate signature chains
+
+### Chain validation
+
+The platform should report separate states:
+
+```text
+CHAIN_PRESENT
+CHAIN_COMPLETE
+CHAIN_SIGNATURE_VALID
+CHAIN_TRUSTED
+IDENTITY_MATCHED
+TIME_VALID
+```
+
+Do not collapse these into a single “valid/invalid” value.
+
+### Offline analysis limitation
+
+A passive PCAP-based system can validate certificates using the certificate chain present in the capture and a local trust store. It cannot reliably prove real-time revocation status unless OCSP/CRL traffic or an authorized online validation service is available. The report should explicitly label revocation as:
+
+- `VALIDATED`
+- `NOT_OBSERVED`
+- `NOT_CHECKED_OFFLINE`
+- `REVOKED`
+
+This makes the product more trustworthy than tools that overclaim certificate validation.
+
+---
+
+# 5. Cryptographic Weakness Rules
+
+## TLS version rules
+
+| TLS version | Severity |
+|---|---|
+| SSLv2 / SSLv3 | Critical |
+| TLS 1.0 | High |
+| TLS 1.1 | High |
+| TLS 1.2 | Acceptable with strong configuration |
+| TLS 1.3 | Recommended |
+
+RFC 8314 recommends TLS 1.2 or greater for email submission and access and prefers implicit TLS for these services. ([rfc-editor.org](https://www.rfc-editor.org/rfc/rfc8314.html?utm_source=openai))
+
+## Cipher suite rules
+
+### Critical or high-risk
+
+- NULL encryption
+- Anonymous authentication
+- Export-grade cipher suites
+- RC4
+- DES
+- 3DES
+- MD5
+- Static RSA key exchange
+- CBC-only suites where policy disallows them
+- Weak or unknown cipher suites
+
+### Recommended
+
+TLS 1.2:
+
+```text
+ECDHE_RSA_WITH_AES_128_GCM_SHA256
+ECDHE_RSA_WITH_AES_256_GCM_SHA384
+ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+```
+
+TLS 1.3:
+
+```text
+TLS_AES_128_GCM_SHA256
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+```
+
+### TLS 1.3 implementation detail
+
+In TLS 1.3, the cipher suite does not fully describe the key-exchange mechanism. SecureMailScope must inspect `supported_groups` and `key_share` extensions to assess the negotiated group and forward secrecy.
+
+## Forward secrecy rules
+
+```text
+forward_secrecy = true
+```
+
+when the session uses:
+
+- ECDHE
+- DHE
+- TLS 1.3 ephemeral key exchange
+
+```text
+forward_secrecy = false
+```
+
+when the session uses:
+
+- Static RSA key exchange
+- Anonymous or unknown key exchange
+- Incomplete handshake evidence
+
+---
+
+# 6. Security Posture Scoring
+
+Use a transparent hybrid score rather than relying only on an ML model.
+
+```text
+posture_score =
+    100
+    - version_penalty
+    - cipher_penalty
+    - certificate_penalty
+    - protocol_penalty
+    - fs_penalty
+    - anomaly_penalty
+    - evidence_penalty
+```
+
+Clamp the score to `0..100`.
+
+## Example penalties
+
+| Finding | Penalty |
+|---|---:|
+| SSLv2/SSLv3 | 40 |
+| TLS 1.0/1.1 | 25 |
+| Cleartext authentication | 35 |
+| STARTTLS downgrade indication | 30 |
+| NULL/anonymous/export cipher | 40 |
+| RC4/DES/3DES | 25 |
+| Static RSA key exchange | 15 |
+| Expired certificate | 25 |
+| SAN mismatch | 30 |
+| Self-signed certificate | 20 |
+| RSA key below 2048 bits | 25 |
+| Missing certificate chain | 15 |
+| No forward secrecy | 15 |
+| Suspicious handshake anomaly | 5-25 |
+| Incomplete PCAP evidence | 0-15 |
+
+## Score bands
+
+| Score | Classification |
+|---:|---|
+| 90-100 | Strong |
+| 75-89 | Acceptable |
+| 50-74 | Weak |
+| 25-49 | High Risk |
+| 0-24 | Critical |
+
+The final score must always show the reasons behind it.
+
+Example:
+
+```json
+{
+  "score": 42,
+  "label": "HIGH_RISK",
+  "drivers": [
+    "TLS 1.0 negotiated",
+    "Certificate expired",
+    "No forward secrecy",
+    "STARTTLS accepted but authentication occurred before upgrade"
+  ]
+}
+```
+
+---
+
+# 7. AI/ML Design
+
+## Principle
+
+AI should assist deterministic cryptographic analysis, not replace it.
+
+Use:
+
+```text
+deterministic evidence rules
+        +
+supervised risk classifier
+        +
+unsupervised anomaly detector
+        +
+explainable recommendations
+```
+
+This avoids a black-box security score.
+
+## Feature vector
+
+### Protocol features
+
+```text
+protocol
+port
+uses_starttls
+starttls_advertised
+starttls_accepted
+starttls_used
+plaintext_bytes_before_tls
+authentication_before_tls
+session_duration
+retransmission_rate
+packet_loss_indicator
+```
+
+### TLS features
+
+```text
+tls_version
+offered_version_count
+cipher_suite
+cipher_strength_bits
+key_exchange
+key_exchange_group
+forward_secrecy
+sni_present
+alpn_present
+renegotiation_seen
+session_resumption
+handshake_failures
+alert_count
+```
+
+### Certificate features
+
+```text
+certificate_expired
+certificate_not_yet_valid
+san_match
+chain_complete
+chain_trusted
+self_signed
+rsa_key_bits
+ec_curve
+signature_algorithm
+days_to_expiry
+issuer_reuse_count
+fingerprint_reuse_count
+```
+
+### Behavioral features
+
+```text
+same_server_version_distribution
+cipher_suite_change_rate
+client_fingerprint_change_rate
+handshake_failure_ratio
+rare_tls_extension_count
+unusual_port_usage
+downgrade_pattern
+```
+
+## Model 1: Cryptographic risk classification
+
+Recommended initial model:
+
+```text
+XGBoost or Random Forest
+```
+
+Classes:
+
+- `LOW`
+- `MEDIUM`
+- `HIGH`
+- `CRITICAL`
+
+Training labels can initially be generated from expert rules. Later, domain experts can review and correct those labels.
+
+Example:
+
+```python
+risk_features = [
+    "tls_version_code",
+    "weak_cipher",
+    "certificate_expired",
+    "san_mismatch",
+    "chain_invalid",
+    "forward_secrecy",
+    "starttls_downgrade",
+    "cleartext_auth",
+    "handshake_failure_ratio",
+    "anomaly_score",
+]
+```
+
+## Model 2: TLS anomaly detection
+
+Use Isolation Forest for the first version.
+
+Train primarily on known-good sessions and identify:
+
+- Rare cipher selection
+- Unexpected TLS version changes
+- Multiple failed handshakes
+- Server identity changes
+- Certificate fingerprint changes
+- Unusual extension combinations
+- STARTTLS behavior inconsistent with the baseline
+- Repeated downgrade-like patterns
+
+Output:
+
+```json
+{
+  "anomaly_score": 0.87,
+  "anomaly": true,
+  "explanation": [
+    "Cipher suite differs from 98% of sessions for this server",
+    "Certificate fingerprint changed within the capture",
+    "Three failed TLS handshakes preceded a successful TLS 1.0 session"
+  ]
+}
+```
+
+## Explainable AI
+
+Every AI decision should include:
+
+- Model probability
+- Top contributing features
+- Rule-based findings
+- Evidence packet numbers
+- Confidence level
+- “Insufficient evidence” status when applicable
+
+Avoid using a generative AI model to invent vulnerabilities. If an LLM is added, use it only to summarize structured findings and generate remediation language from a controlled knowledge base.
+
+---
+
+# 8. Risk Prioritization
+
+Risk priority should combine technical severity with operational context.
+
+```text
+priority =
+    severity
+    * confidence
+    * exposure
+    * affected_session_count
+    * asset_criticality
+```
+
+Example priority values:
+
+| Finding | Severity | Priority |
+|---|---|---|
+| TLS 1.0 on internal test server | High | Medium |
+| TLS 1.0 on government mail gateway | High | Critical |
+| Expiring certificate in 2 days | High | Critical |
+| STARTTLS offered but unused once | Medium | Medium |
+| Repeated downgrade behavior on public SMTP | Critical | Critical |
+
+The dashboard should support sorting by:
+
+- Severity
+- Number of affected sessions
+- Asset
+- Protocol
+- Confidence
+- Remediation effort
+- Compliance category
+
+---
+
+# 9. Data Model
+
+## Session table
+
+```sql
+CREATE TABLE sessions (
+    id UUID PRIMARY KEY,
+    capture_id UUID NOT NULL,
+    protocol VARCHAR(16) NOT NULL,
+    client_ip INET,
+    client_port INTEGER,
+    server_ip INET,
+    server_port INTEGER,
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    tcp_stream_id INTEGER,
+    evidence_quality VARCHAR(16),
+    tls_detected BOOLEAN,
+    starttls_detected BOOLEAN,
+    starttls_used BOOLEAN,
+    posture_score INTEGER,
+    risk_level VARCHAR(16),
+    anomaly_score DOUBLE PRECISION
+);
+```
+
+## TLS handshake table
+
+```sql
+CREATE TABLE tls_handshakes (
+    id UUID PRIMARY KEY,
+    session_id UUID REFERENCES sessions(id),
+    offered_versions JSONB,
+    negotiated_version VARCHAR(16),
+    offered_ciphers JSONB,
+    negotiated_cipher VARCHAR(128),
+    key_exchange VARCHAR(64),
+    negotiated_group VARCHAR(64),
+    sni VARCHAR(255),
+    alpn JSONB,
+    forward_secrecy BOOLEAN,
+    handshake_success BOOLEAN
+);
+```
+
+## Certificate table
+
+```sql
+CREATE TABLE certificates (
+    id UUID PRIMARY KEY,
+    session_id UUID REFERENCES sessions(id),
+    fingerprint_sha256 VARCHAR(128),
+    subject TEXT,
+    issuer TEXT,
+    san JSONB,
+    not_before TIMESTAMP,
+    not_after TIMESTAMP,
+    public_key_algorithm VARCHAR(64),
+    public_key_bits INTEGER,
+    signature_algorithm VARCHAR(128),
+    chain_complete BOOLEAN,
+    chain_trusted BOOLEAN,
+    san_match BOOLEAN,
+    expired BOOLEAN
+);
+```
+
+## Findings table
+
+```sql
+CREATE TABLE findings (
+    id UUID PRIMARY KEY,
+    session_id UUID REFERENCES sessions(id),
+    rule_id VARCHAR(64),
+    title TEXT,
+    severity VARCHAR(16),
+    confidence DOUBLE PRECISION,
+    evidence JSONB,
+    impact TEXT,
+    recommendation TEXT,
+    remediation_effort VARCHAR(16),
+    status VARCHAR(16) DEFAULT 'OPEN'
+);
+```
+
+---
+
+# 10. Backend API
+
+## Upload PCAP
+
+```http
+POST /api/v1/captures
+Content-Type: multipart/form-data
+```
+
+Response:
+
+```json
+{
+  "capture_id": "8b9d...",
+  "status": "QUEUED"
+}
+```
+
+## Start analysis
+
+```http
+POST /api/v1/captures/{capture_id}/analyze
+```
+
+## Get analysis status
+
+```http
+GET /api/v1/captures/{capture_id}/status
+```
+
+## List sessions
+
+```http
+GET /api/v1/captures/{capture_id}/sessions
+```
+
+## Session detail
+
+```http
+GET /api/v1/sessions/{session_id}
+```
+
+## Findings
+
+```http
+GET /api/v1/captures/{capture_id}/findings?severity=critical
+```
+
+## Dashboard summary
+
+```http
+GET /api/v1/captures/{capture_id}/summary
+```
+
+## Export report
+
+```http
+GET /api/v1/captures/{capture_id}/report?format=json
+GET /api/v1/captures/{capture_id}/report?format=html
+GET /api/v1/captures/{capture_id}/report?format=pdf
+```
+
+---
+
+# 11. Analysis Worker Flow
+
+```python
+def analyze_capture(capture_path: str, capture_id: str) -> dict:
+    evidence = validate_capture(capture_path)
+
+    packets = tshark_extract_packets(capture_path)
+
+    tcp_streams = reconstruct_tcp_streams(packets)
+
+    sessions = []
+
+    for stream in tcp_streams:
+        protocol = identify_email_protocol(stream)
+
+        if protocol not in {"SMTP", "IMAP", "POP3"}:
+            continue
+
+        application_state = detect_email_state_machine(
+            stream,
+            protocol=protocol
+        )
+
+        tls_handshake = parse_tls_handshake(stream)
+
+        certificates = extract_certificates(tls_handshake)
+
+        certificate_results = validate_certificates(
+            certificates,
+            observed_sni=tls_handshake.sni,
+            capture_time=stream.start_time
+        )
+
+        crypto_findings = evaluate_crypto_posture(
+            protocol=protocol,
+            application_state=application_state,
+            tls=tls_handshake,
+            certificates=certificate_results
+        )
+
+        feature_vector = build_feature_vector(
+            stream=stream,
+            protocol=protocol,
+            application_state=application_state,
+            tls=tls_handshake,
+            certificates=certificate_results
+        )
+
+        ai_result = classify_and_detect_anomaly(feature_vector)
+
+        findings = merge_rule_and_ai_findings(
+            crypto_findings,
+            ai_result
+        )
+
+        score = calculate_posture_score(findings)
+
+        sessions.append({
+            "protocol": protocol,
+            "tls": tls_handshake,
+            "certificates": certificate_results,
+            "findings": findings,
+            "score": score,
+            "evidence_quality": assess_evidence_quality(stream)
+        })
+
+    report = build_report(
+        capture_id=capture_id,
+        evidence=evidence,
+        sessions=sessions
+    )
+
+    persist_report(report)
+
+    return report
+```
+
+---
+
+# 12. Rule Engine
+
+Use versioned rules instead of hard-coded scattered conditions.
+
+```yaml
+rules:
+  - id: TLS-001
+    title: Deprecated TLS version
+    severity: high
+    when:
+      field: negotiated_version
+      in:
+        - TLSv1.0
+        - TLSv1.1
+    impact: >
+      The session uses a deprecated TLS protocol version with
+      reduced cryptographic assurance.
+    recommendation: >
+      Disable TLS 1.0 and TLS 1.1. Require TLS 1.2 or TLS 1.3.
+
+  - id: CERT-001
+    title: Certificate expired
+    severity: high
+    when:
+      field: certificate.expired
+      equals: true
+    impact: >
+      Certificate validity cannot be established at capture time.
+    recommendation: >
+      Replace the certificate and deploy automated renewal monitoring.
+
+  - id: SMTP-001
+    title: STARTTLS advertised but not used
+    severity: high
+    when:
+      all:
+        - field: starttls_advertised
+          equals: true
+        - field: starttls_used
+          equals: false
+    impact: >
+      The connection remained in cleartext despite TLS upgrade support.
+    recommendation: >
+      Enforce TLS on submission and access services and reject
+      authentication before encryption.
+
+  - id: TLS-002
+    title: No forward secrecy
+    severity: medium
+    when:
+      field: forward_secrecy
+      equals: false
+    impact: >
+      Captured traffic may be exposed if the server private key is
+      compromised in the future.
+    recommendation: >
+      Prefer ECDHE, DHE, or TLS 1.3 cipher suites.
+```
+
+---
+
+# 13. Dashboard Design
+
+## Main dashboard
+
+Display:
+
+- Overall security posture score
+- Critical/high/medium/low finding counts
+- Protocol distribution
+- TLS version distribution
+- Cipher suite distribution
+- Certificate health
+- STARTTLS success/failure rate
+- Sessions with no forward secrecy
+- Anomalous sessions
+- Top affected servers
+
+## Session explorer
+
+Columns:
+
+```text
+Timestamp
+Protocol
+Client
+Server
+Port
+TLS version
+Cipher suite
+Certificate status
+Forward secrecy
+Risk
+Evidence quality
+```
+
+## Session detail view
+
+Sections:
+
+1. Timeline
+2. TCP stream metadata
+3. Email protocol state machine
+4. STARTTLS transition
+5. TLS handshake
+6. Certificate chain
+7. Findings
+8. AI explanation
+9. Recommended remediation
+10. Relevant packet/frame numbers
+
+## Visuals
+
+Recommended charts:
+
+- Donut chart: risk distribution
+- Stacked bar: protocol versus risk
+- Timeline: plaintext-to-TLS transitions
+- Heatmap: server versus weakness category
+- Sankey-style flow: protocol → TLS version → cipher → risk
+- Certificate expiry calendar
+- Anomaly scatter plot
+
+---
+
+# 14. Report Format
+
+## JSON report
+
+```json
+{
+  "report_metadata": {
+    "product": "SecureMailScope",
+    "version": "1.0.0",
+    "generated_at": "2026-09-11T10:30:00Z",
+    "capture_sha256": "..."
+  },
+  "summary": {
+    "overall_score": 61,
+    "risk_level": "WEAK",
+    "sessions_analyzed": 84,
+    "critical_findings": 2,
+    "high_findings": 7,
+    "medium_findings": 11
+  },
+  "protocols": {
+    "smtp": 42,
+    "imap": 26,
+    "pop3": 16
+  },
+  "findings": [],
+  "sessions": []
+}
+```
+
+## HTML report
+
+Use:
+
+- Executive summary
+- Scope and evidence integrity
+- Methodology
+- Overall score
+- Finding matrix
+- Protocol findings
+- TLS findings
+- Certificate findings
+- Anomaly findings
+- Remediation plan
+- Technical appendix
+
+## PDF report
+
+Generate PDF from the same HTML template to ensure consistency between HTML and PDF outputs.
+
+---
+
+# 15. Synthetic Dataset Generation
+
+The problem statement permits participants to generate synthetic SMTP, IMAPS, POP3S, and SMTPS data.
+
+Create a controlled lab with:
+
+```text
+Client containers
+    |
+    +-- Postfix SMTP server
+    +-- Dovecot IMAP server
+    +-- Dovecot POP3 server
+    |
+    +-- Traffic generator
+    +-- tcpdump/tshark capture
+```
+
+## Dataset scenarios
+
+### Secure scenarios
+
+- SMTP submission over TLS 1.3
+- IMAPS over TLS 1.3
+- POP3S over TLS 1.2
+- ECDHE with AES-GCM
+- Valid certificate chain
+- Correct SAN
+- Successful STARTTLS upgrade
+
+### Weak scenarios
+
+- TLS 1.0
+- TLS 1.1
+- Expired certificate
+- Self-signed certificate
+- SAN mismatch
+- RSA 1024-bit key
+- SHA-1 certificate signature
+- Static RSA cipher suite
+- RC4
+- 3DES
+- No forward secrecy
+- STARTTLS advertised but ignored
+- STARTTLS rejected
+- Authentication before encryption
+- Failed TLS handshake
+- Certificate fingerprint changed during capture
+- Partial packet loss
+- Incorrect server name
+- Cleartext SMTP/IMAP/POP3
+
+## Ground-truth manifest
+
+```json
+{
+  "capture": "tls10_expired_cert.pcapng",
+  "expected": {
+    "protocol": "SMTP",
+    "tls_version": "TLSv1.0",
+    "certificate_expired": true,
+    "forward_secrecy": false,
+    "risk": "CRITICAL"
+  }
+}
+```
+
+The manifest allows automated evaluation instead of relying on screenshots.
+
+---
+
+# 16. Testing and Evaluation
+
+## Functional tests
+
+- Detect SMTP from banner and command sequence
+- Detect IMAP from tagged commands
+- Detect POP3 from server greeting
+- Detect STARTTLS advertisement
+- Detect successful upgrade
+- Detect TLS ClientHello after STARTTLS
+- Reconstruct out-of-order TCP packets
+- Remove retransmissions
+- Extract certificates
+- Detect expired certificates
+- Detect SAN mismatch
+- Detect weak key length
+- Detect deprecated TLS versions
+- Detect weak cipher suites
+- Assess forward secrecy
+- Generate JSON report
+- Generate HTML report
+- Generate PDF report
+
+## Accuracy metrics
+
+| Component | Metric |
+|---|---|
+| Protocol detection | Precision, recall, F1 |
+| STARTTLS detection | Precision, recall |
+| Certificate extraction | Extraction success rate |
+| Weakness detection | Precision, recall |
+| Risk classifier | Macro F1, confusion matrix |
+| Anomaly detector | Precision at top-k |
+| Report generation | Schema validation |
+| Stream reconstruction | Byte-level comparison |
+
+## Target demo metrics
+
+Use measured values only after testing. Suggested targets:
+
+```text
+Protocol identification F1: >= 0.98
+STARTTLS detection F1: >= 0.95
+Known weakness detection recall: >= 0.95
+Certificate extraction success: >= 0.95
+JSON schema validity: 100%
+Reproducible scoring: 100%
+```
+
+Do not present these as achieved results until your team has measured them.
+
+---
+
+# 17. Security and Privacy Controls
+
+Because PCAP files can contain credentials, message metadata, and sensitive enterprise traffic:
+
+- Run all analysis locally or in an isolated deployment
+- Never upload PCAP files to public AI services
+- Redact email addresses where possible
+- Do not reconstruct or display message bodies by default
+- Hash identifiers in the dashboard
+- Encrypt stored evidence
+- Apply role-based access control
+- Log analyst actions
+- Use read-only evidence storage
+- Sandbox TShark and parser processes
+- Enforce upload size and execution time limits
+- Delete temporary extracted streams after processing
+- Prevent command injection in file paths
+- Validate all generated report fields
+- Avoid logging raw packet payloads
+
+For the AI component:
+
+- Use structured feature input
+- Version the model and training dataset
+- Validate predictions against deterministic rules
+- Require analyst review for critical conclusions
+- Record model version and feature values
+- Test resistance to poisoned or malformed input
+
+OWASP guidance emphasizes data provenance, anomaly detection, model monitoring, and human oversight for AI-enabled security systems. ([cheatsheetseries.owasp.org](https://cheatsheetseries.owasp.org/cheatsheets/Secure_AI_Model_Ops_Cheat_Sheet.html?utm_source=openai))
+
+---
+
+# 18. What Makes This Solution Competitive
+
+## Differentiator 1: Email-aware state machine
+
+Most packet tools show TLS packets. SecureMailScope explains the relationship between:
+
+```text
+SMTP/IMAP/POP3 command
+        ->
+STARTTLS request
+        ->
+TLS handshake
+        ->
+encrypted session
+```
+
+## Differentiator 2: Evidence-first AI
+
+The model never operates on arbitrary raw packet text. It operates on normalized cryptographic features extracted from evidence.
+
+## Differentiator 3: Explainable scoring
+
+Every score can be traced to:
+
+```text
+finding
+    ->
+packet/frame evidence
+    ->
+technical impact
+    ->
+remediation
+```
+
+## Differentiator 4: Offline and deployable
+
+The system can run in a disconnected SOC or forensic lab without sending sensitive PCAP files to external services.
+
+## Differentiator 5: Configuration drift detection
+
+Repeated captures can be compared to detect:
+
+- Certificate changes
+- Cipher-suite changes
+- TLS version regression
+- Increased failed handshakes
+- New STARTTLS failures
+- New weak servers
+
+## Differentiator 6: Compliance mapping
+
+Map findings to:
+
+- NIST TLS guidance
+- RFC 8314 email security recommendations
+- Organization-specific cryptographic policy
+- Custom government or enterprise baselines
+
+---
+
+# 19. Suggested Team Division
+
+| Team Member | Responsibility |
+|---|---|
+| Member 1 | PCAP parsing and TCP stream reconstruction |
+| Member 2 | SMTP/IMAP/POP3 protocol state machines |
+| Member 3 | TLS and X.509 extraction |
+| Member 4 | Rule engine and posture scoring |
+| Member 5 | AI/ML and anomaly detection |
+| Member 6 | Dashboard, reports, integration, demo |
+
+---
+
+# 20. Recommended Development Plan
+
+## Phase 1: Working parser
+
+- PCAP upload
+- TShark integration
+- Protocol detection
+- Session list
+- Basic TLS extraction
+
+## Phase 2: Security engine
+
+- STARTTLS state machine
+- Certificate extraction
+- Weakness rules
+- Score calculation
+- JSON report
+
+## Phase 3: Dashboard
+
+- React dashboard
+- Session details
+- Finding filters
+- Charts
+- HTML/PDF export
+
+## Phase 4: AI
+
+- Feature extraction
+- Synthetic labels
+- Risk classifier
+- Isolation Forest
+- Explainability
+
+## Phase 5: Competition polish
+
+- Docker deployment
+- Offline mode
+- Reproducible dataset
+- Ground-truth tests
+- 3-minute demo
+- Architecture poster
+- Performance benchmarking
+
+---
+
+# Complete Solution PPT
+
+Use the following as the final presentation deck. It is deliberately structured for an SIH judging panel: problem, innovation, working prototype, technical depth, measurable impact, feasibility, and scale.
+
+## Slide 1: Title
+
+**SecureMailScope**
+
+**AI-Assisted Cryptographic Security Posture Assessment for Secure Email Communications**
+
+```text
+Problem Statement ID: 26159
+Organization: National Technical Research Organisation
+Theme: Blockchain & Cybersecurity
+```
+
+Footer:
+
+```text
+Passive PCAP Forensics | Explainable AI | Email TLS Security
+```
+
+Speaker message:
+
+> SecureMailScope converts passive email traffic captures into an explainable cryptographic security posture report.
+
+---
+
+## Slide 2: The Problem
+
+**Email security is not binary.**
+
+An organization may have TLS enabled and still be vulnerable due to:
+
+- TLS 1.0 or TLS 1.1
+- Weak cipher suites
+- Expired certificates
+- SAN mismatch
+- STARTTLS downgrade
+- Cleartext authentication
+- Missing forward secrecy
+- Inconsistent server configuration
+
+Speaker message:
+
+> Existing tools expose packets. Security teams need prioritized decisions.
+
+---
+
+## Slide 3: Why Existing Tools Are Not Enough
+
+| Existing visibility | Missing security intelligence |
+|---|---|
+| Packet decoding | Overall posture score |
+| TCP/TLS details | Email protocol transition context |
+| Certificate display | Business-prioritized findings |
+| Manual filters | AI-assisted anomaly detection |
+| Raw logs | Actionable remediation |
+| One-session inspection | Organization-wide drift analysis |
+
+Speaker message:
+
+> Analysts currently spend time manually correlating SMTP, IMAP, POP3, STARTTLS, TLS, and certificates.
+
+---
+
+## Slide 4: Our Solution
+
+**SecureMailScope**
+
+```text
+PCAP
+  ->
+Email session reconstruction
+  ->
+STARTTLS and TLS analysis
+  ->
+Certificate validation
+  ->
+AI-assisted risk assessment
+  ->
+Prioritized remediation report
+```
+
+Key output:
+
+```text
+Risk: HIGH
+Cause: TLS 1.0 + expired certificate + no forward secrecy
+Action: Disable TLS 1.0, renew certificate, require ECDHE/TLS 1.3
+```
+
+---
+
+## Slide 5: Core Innovation
+
+**From packet inspection to cryptographic reasoning**
+
+1. Reconstruct complete email sessions
+2. Identify plaintext-to-TLS transitions
+3. Correlate email commands with TLS handshakes
+4. Validate certificate identity and chain
+5. Detect weak cryptographic posture
+6. Use AI to detect behavior outside the normal baseline
+7. Explain every conclusion with packet evidence
+
+---
+
+## Slide 6: End-to-End Architecture
+
+Show this diagram:
+
+```text
+PCAP Upload
+    |
+Evidence Integrity
+    |
+TShark + TCP Reassembly
+    |
+SMTP / IMAP / POP3 State Machine
+    |
+TLS Handshake + X.509 Extraction
+    |
+Rule Engine + AI/ML
+    |
+Posture Score + Prioritized Findings
+    |
+Dashboard + JSON + HTML + PDF
+```
+
+Speaker message:
+
+> The architecture is modular, offline-capable, and deployable inside a SOC or forensic lab.
+
+---
+
+## Slide 7: Email Protocol Intelligence
+
+**Supported protocols**
+
+```text
+SMTP: 25, 465, 587
+IMAP: 143, 993
+POP3: 110, 995
+```
+
+**Detection methods**
+
+- Port intelligence
+- Server banners
+- Protocol commands
+- STARTTLS/STLS transitions
+- TLS context
+- Session behavior
+
+**Output**
+
+```text
+Protocol: SMTP
+Confidence: 99.2%
+Transport: STARTTLS
+TLS upgrade: Successful
+```
+
+---
+
+## Slide 8: STARTTLS Security Analysis
+
+Show the transition:
+
+```text
+PLAINTEXT
+    |
+    | EHLO / CAPABILITY
+    v
+STARTTLS OFFERED
+    |
+    | STARTTLS / STLS
+    v
+SERVER ACCEPTS
+    |
+    | ClientHello
+    v
+ENCRYPTED SESSION
+```
+
+Detect:
+
+- STARTTLS advertised but ignored
+- STARTTLS rejected
+- ClientHello missing after acceptance
+- Authentication before encryption
+- Cleartext session after upgrade
+- Downgrade-like behavior
+
+Speaker message:
+
+> Advertising STARTTLS is not the same as successfully using STARTTLS.
+
+RFC 3207 specifies the SMTP STARTTLS command and the required transition to TLS after a successful server response. ([rfc-editor.org](https://www.rfc-editor.org/rfc/rfc3207.html?utm_source=openai))
+
+---
+
+## Slide 9: TLS Handshake Intelligence
+
+**Extracted fields**
+
+- Offered TLS versions
+- Negotiated TLS version
+- Offered cipher suites
+- Selected cipher suite
+- Key-exchange group
+- Signature algorithms
+- SNI
+- ALPN
+- Session resumption
+- Handshake alerts
+- Forward secrecy
+
+**Example**
+
+```text
+Negotiated version: TLS 1.2
+Cipher: ECDHE_RSA_WITH_AES_256_GCM_SHA384
+Key exchange: ECDHE
+Forward secrecy: Yes
+SNI: mail.gov.example
+```
+
+---
+
+## Slide 10: X.509 Certificate Intelligence
+
+**Checks**
+
+- Subject and issuer
+- SAN and observed SNI
+- Validity dates
+- Chain completeness
+- Trust status
+- Public key type and length
+- Signature algorithm
+- Self-signed status
+- Certificate fingerprint
+- Certificate changes over time
+
+**Example finding**
+
+```text
+CERT-002: Certificate identity mismatch
+Observed SNI: imap.example.org
+Certificate SAN: mail.example.org
+Severity: HIGH
+```
+
+---
+
+## Slide 11: Cryptographic Risk Engine
+
+**Hybrid decision system**
+
+```text
+Expert rules
+      +
+Security baseline
+      +
+Machine-learning classification
+      +
+Anomaly detection
+      =
+Explainable risk assessment
+```
+
+Risk categories:
+
+- Critical
+- High
+- Medium
+- Low
+- Informational
+
+Speaker message:
+
+> The AI supports the analyst; deterministic cryptographic checks remain authoritative.
+
+---
+
+## Slide 12: AI/ML Pipeline
+
+```text
+Normalized session features
+             |
+             v
++---------------------------+
+| Risk Classifier           |
+| Random Forest / XGBoost   |
++---------------------------+
+             |
+             +--> Risk probability
+             |
+             v
++---------------------------+
+| Isolation Forest          |
+| TLS anomaly detection     |
++---------------------------+
+             |
+             v
+Explainable finding output
+```
+
+Features include:
+
+- TLS version
+- Cipher strength
+- Certificate health
+- Forward secrecy
+- STARTTLS state
+- Handshake failure rate
+- Certificate fingerprint changes
+- Server behavior baseline
+
+---
+
+## Slide 13: Explainable AI Output
+
+**Not just “Anomaly Detected”**
+
+```text
+Anomaly score: 0.87
+
+Reasons:
+1. Server selected TLS 1.0 while 94% of sessions use TLS 1.3
+2. Certificate fingerprint changed within 8 minutes
+3. Four failed handshakes preceded successful negotiation
+4. Selected cipher has no forward secrecy
+```
+
+Speaker message:
+
+> Analysts can verify the model’s conclusion using the original packet evidence.
+
+---
+
+## Slide 14: Security Posture Score
+
+Show a gauge from `0` to `100`.
+
+```text
+Overall score: 61 / 100
+Classification: WEAK
+```
+
+Score contributors:
+
+```text
+TLS version                  -25
+Certificate expiry           -25
+No forward secrecy           -15
+STARTTLS correctly used       +10
+Evidence completeness         +5
+```
+
+Score classifications:
+
+```text
+90-100 Strong
+75-89  Acceptable
+50-74  Weak
+25-49  High Risk
+0-24   Critical
+```
+
+---
+
+## Slide 15: Prioritized Findings
+
+Example table:
+
+| Priority | Finding | Severity | Affected sessions |
+|---:|---|---|---:|
+| 1 | TLS 1.0 negotiated | Critical | 12 |
+| 2 | Expired certificate | High | 8 |
+| 3 | STARTTLS not enforced | High | 6 |
+| 4 | No forward secrecy | Medium | 21 |
+| 5 | Certificate chain incomplete | Medium | 4 |
+
+Speaker message:
+
+> The SOC does not receive an unfiltered list. It receives an ordered remediation queue.
+
+---
+
+## Slide 16: Dashboard
+
+Show mock screens for:
+
+- Overall posture score
+- Risk distribution
+- TLS version chart
+- Certificate health chart
+- Protocol distribution
+- Anomalous session list
+- Top affected servers
+- Finding severity filters
+
+Suggested dashboard label:
+
+```text
+SecureMailScope SOC Console
+Capture: enterprise-mail-aug-2026.pcapng
+Sessions analyzed: 84
+Critical findings: 2
+Posture: 61 / 100
+```
+
+---
+
+## Slide 17: Forensic Reports
+
+**Export formats**
+
+- JSON for automation and SIEM integration
+- HTML for analysts and management
+- PDF for audit and evidence submission
+
+Every report contains:
+
+- Evidence SHA-256
+- Capture metadata
+- Session inventory
+- TLS negotiation data
+- Certificate details
+- Findings
+- Packet/frame references
+- AI explanations
+- Remediation steps
+- Tool and model version
+
+---
+
+## Slide 18: Synthetic Dataset and Testing
+
+**Dataset scenarios**
+
+- Secure TLS 1.3 SMTP
+- Secure IMAPS
+- Secure POP3S
+- TLS 1.0
+- TLS 1.1
+- Expired certificate
+- SAN mismatch
+- Weak RSA key
+- SHA-1 signature
+- Static RSA
+- STARTTLS downgrade
+- Cleartext authentication
+- Packet loss and retransmissions
+
+**Ground truth**
+
+Each PCAP is paired with a machine-readable expected-result manifest.
+
+---
+
+## Slide 19: Performance and Accuracy
+
+Use this slide only after measuring your prototype.
+
+Recommended layout:
+
+```text
+Protocol detection F1              XX%
+STARTTLS detection F1              XX%
+Certificate extraction success     XX%
+Weakness detection recall          XX%
+Average analysis time per 100 MB   XX seconds
+Maximum tested PCAP size           XX GB
+```
+
+Important:
+
+> Do not use invented numbers. Replace `XX` with measured results from your test dataset.
+
+---
+
+## Slide 20: Deployment Model
+
+```text
+Offline forensic workstation
+        |
+        +-- Docker Compose
+        +-- Local PCAP storage
+        +-- Local trust store
+        +-- Local ML model
+        +-- Local dashboard
+```
+
+Optional enterprise deployment:
+
+```text
+SOC Upload Portal
+        |
+Analysis Worker Cluster
+        |
+PostgreSQL + Object Storage
+        |
+SIEM / SOAR Integration
+```
+
+Security properties:
+
+- No cloud dependency
+- No raw PCAP transmission to third-party AI
+- Role-based access
+- Evidence hashing
+- Audit logging
+- Analyst approval for critical actions
+
+---
+
+## Slide 21: Impact
+
+### For SOC teams
+
+- Faster triage
+- Reduced manual packet analysis
+- Prioritized alerts
+- Repeatable cryptographic audits
+
+### For forensic investigators
+
+- Evidence-preserving workflow
+- Packet-linked findings
+- Timeline reconstruction
+- Exportable reports
+
+### For enterprises
+
+- Certificate expiry monitoring
+- Configuration drift detection
+- Compliance reporting
+- Remediation tracking
+
+### For national infrastructure
+
+- Offline deployment
+- Sensitive-data protection
+- Custom cryptographic policy
+- Cross-organization posture comparison
+
+---
+
+## Slide 22: Scalability and Future Scope
+
+Future enhancements:
+
+- Live interface capture
+- Zeek sensor integration
+- SIEM connectors
+- MTA-STS and DANE policy correlation
+- Organization-wide configuration drift
+- Threat-intelligence enrichment
+- Certificate transparency monitoring
+- QUIC and HTTP/3 support
+- Federated learning across organizations
+- Post-quantum readiness indicators
+- Policy-as-code for government environments
+
+---
+
+## Slide 23: Limitations and Responsible Claims
+
+SecureMailScope is a **passive forensic assessment tool**.
+
+It cannot:
+
+- Decrypt TLS application content without keys
+- Prove endpoint compromise from cryptographic metadata alone
+- Guarantee real-time certificate revocation status from an isolated PCAP
+- Determine security of traffic that was not captured
+- Replace full email-content or endpoint malware analysis
+
+This slide increases credibility. It demonstrates that the team understands passive network forensics and avoids overclaiming.
+
+---
+
+## Slide 24: Closing
+
+**SecureMailScope**
+
+```text
+Capture the evidence.
+Understand the transition.
+Measure the posture.
+Prioritize the risk.
+Fix the weakness.
+```
+
+Final statement:
+
+> SecureMailScope transforms encrypted email traffic from a packet-analysis problem into an explainable, actionable cryptographic security assessment.
+
+---
+
+# 21. Three-Minute Demo Script
+
+## 0:00-0:20: Problem
+
+> This PCAP contains SMTP, IMAP, and POP3 communication. A normal packet analyzer can show us packets and TLS records, but it does not tell us whether the email infrastructure is secure overall.
+
+## 0:20-0:45: Upload
+
+Upload:
+
+```text
+synthetic-enterprise-mail.pcapng
+```
+
+Show:
+
+```text
+84 sessions detected
+SMTP: 42
+IMAP: 26
+POP3: 16
+```
+
+## 0:45-1:15: Dashboard
+
+Show:
+
+```text
+Posture score: 61
+Critical: 2
+High: 7
+Medium: 11
+```
+
+Click the TLS-version chart and show TLS 1.0 sessions.
+
+## 1:15-1:45: Session detail
+
+Open one session and show:
+
+```text
+SMTP port 587
+STARTTLS advertised: Yes
+STARTTLS accepted: Yes
+TLS version: TLS 1.0
+Cipher: static RSA
+Forward secrecy: No
+Certificate: Expired
+```
+
+## 1:45-2:10: AI explanation
+
+Show:
+
+```text
+Anomaly score: 0.87
+Reason:
+- unusual TLS version
+- rare cipher selection
+- expired certificate
+- failed handshakes before success
+```
+
+## 2:10-2:40: Remediation
+
+Show prioritized recommendation:
+
+```text
+1. Disable TLS 1.0 and TLS 1.1
+2. Renew and correctly bind the server certificate
+3. Require ECDHE or TLS 1.3
+4. Reject authentication before TLS
+5. Monitor certificate and cipher drift
+```
+
+## 2:40-3:00: Export
+
+Download:
+
+```text
+JSON report
+HTML report
+PDF forensic report
+```
+
+Closing:
+
+> The result is not just a packet trace. It is an evidence-backed cryptographic posture assessment that a SOC analyst can act on immediately.
+
+---
+
+# 22. Recommended Final Submission Positioning
+
+Use this one-line pitch:
+
+> **SecureMailScope is an offline-first, explainable AI platform that reconstructs SMTP, IMAP, and POP3 sessions from PCAP files, verifies their TLS and X.509 posture, detects downgrade and anomaly behavior, and produces prioritized forensic remediation reports.**
+
+Use this technical positioning:
+
+```text
+Deterministic cryptographic evidence
++
+Email-aware protocol state machines
++
+Explainable machine learning
++
+Offline forensic deployment
+```
+
+Avoid claiming that the solution will definitely “win.” Instead, optimize for the judging criteria that usually matter most:
+
+- A working prototype
+- Strong problem alignment
+- Technical depth
+- Clear novelty
+- Reproducible testing
+- Measurable performance
+- Secure deployment
+- High-quality demo
+- Honest limitations
+- Actionable real-world impact
+
+The standards basis for the proposal is defensible: RFC 8314 recommends TLS 1.2 or greater for email access and submission and prefers implicit TLS, while NIST SP 800-52 Rev. 2 provides TLS implementation and certificate guidance for modern deployments. ([csrc.nist.gov](https://csrc.nist.gov/Pubs/sp/800/52/r2/Final?utm_source=openai))
