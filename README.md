@@ -1,14 +1,15 @@
 # SecureMailScope
 
-A complete browser-based demonstration of SIH 2026 problem statement 26159, based on the supplied Crypterpillars proposal. No installation or API keys are needed beyond Node.js 20+.
+A complete browser-based demonstration of SIH 2026 problem statement 26159, based on the supplied Crypterpillars proposal. Built with React 19 and Vite. Requires Node.js 22.12+ and npm; no API keys are needed.
 
 ## Run
 
 ```sh
+npm install
 npm start
 ```
 
-Open http://127.0.0.1:5173. Set `PORT` to use another port. The server binds to the local machine only. Alternatively, serve `dist/` with any static HTTP server. Do not open the HTML through `file://`; browser module loading requires HTTP.
+Open http://127.0.0.1:5173. Use `npm run dev -- --port 5174` to select another port. The development server binds to the local machine only. Run `npm run build` to produce `dist/`, then `npm run preview` to preview the production build, or serve `dist/` with any static HTTP server. Do not open the HTML through `file://`; browser module loading requires HTTP.
 
 ## Demonstration flow
 
@@ -31,14 +32,22 @@ Open http://127.0.0.1:5173. Set `PORT` to use another port. The server binds to 
 - JSON exports contain a SHA-256 hash of `JSON.stringify(sessions)` encoded as UTF-8. The hash verifies the exported synthetic evidence, not a PCAP.
 - Capture processing and reports stay in the browser. Google Fonts is optional; local fallback fonts keep the app usable offline.
 
-## Source
+## React architecture
 
-- `dist/index.html`: application entrypoint and metadata.
-- `dist/style.css`: responsive console styling.
-- `dist/engine.js`: deterministic scenarios, evidence, scoring, and binary capture validation.
-- `dist/app.js`: views, simulation state, accessible detail panels, filtering, report generation.
-- `server.js`: dependency-free static server.
-- `tests/engine.test.js`: scenario consistency and capture validation tests.
+- `src/main.jsx`: React root and StrictMode.
+- `src/App.jsx`: application context, navigation, simulation lifecycle, uploads and exports.
+- `src/pages.jsx`: React components for all six views and evidence details.
+- `src/components.jsx`: reusable buttons, panels, badges, detail grids and accessible modal.
+- `src/state.js`: immutable reducer for scenarios, filters and remediation.
+- `src/engine.js`: framework-independent scoring, evidence and capture validation.
+- `src/reports.js`: JSON integrity hashes and standalone report generation.
+- `src/style.css`: preserved responsive styling.
+- `vite.config.js`: React compilation, development and production build configuration.
+- `dist/`: generated production assets; edit source files instead.
+- `server.js`: optional dependency-free server for an existing production build.
+- `tests/`: engine, reducer and report-integrity regression tests.
+
+The UI uses JSX, controlled inputs, React events, hooks and an immutable reducer. It does not wrap the legacy HTML renderer or use `dangerouslySetInnerHTML`. Standalone HTML report exports remain independent printable documents.
 
 ## Validation
 

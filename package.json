@@ -5,9 +5,19 @@
   "type": "module",
   "description": "Offline-capable email cryptography forensic demonstration",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "test": "node --test tests/engine.test.js",
-    "check": "node --check dist/app.js && node --check dist/engine.js"
+    "start": "vite --host 127.0.0.1",
+    "dev": "vite --host 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "check": "npm run build",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
   }
 }

@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {generateScenario,metrics,scoreSession,severity,findings,trace,inspectCapture} from '../dist/engine.js';
+import {generateScenario,metrics,scoreSession,severity,findings,trace,inspectCapture} from '../src/engine.js';
 test('enterprise scenario: consistent evidence counts and risk',()=>{const ss=generateScenario();assert.equal(ss.length,84);assert.equal(metrics(ss).critical,2);assert.equal(metrics(ss).findings,46);assert.equal(findings(ss).reduce((n,f)=>n+f.sessions.length,0),46);assert.equal(severity(ss[0]),'Critical');assert.equal(scoreSession(ss[0]),25);assert.ok(trace(ss[0]).some(t=>t[2].includes('REDACTED')));});
 test('partial handshake is unknown and excluded from posture',()=>{const ss=generateScenario();const s=ss.find(s=>s.issues.includes('partial'));assert.equal(s.tls,'Unknown');assert.equal(s.pfs,'Unknown');assert.equal(metrics([s]).score,null);assert.equal(metrics(ss).score,metrics(ss.filter(x=>x!==s)).score);});
 test('hardened baseline has no triggered rules',()=>{const ss=generateScenario('secure');assert.equal(metrics(ss).score,100);assert.equal(metrics(ss).findings,0);assert.equal(metrics(ss).encrypted,36);});
