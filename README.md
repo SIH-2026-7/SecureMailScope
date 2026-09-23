@@ -60,7 +60,45 @@ The existing React 19/Vite app is preserved instead of downgrading to the brief'
 npm test
 npm run check
 backend/.venv/Scripts/python.exe -m pytest backend/tests -q
+backend/.venv/Scripts/python.exe -m pytest tests/test_synthetic_fixtures.py -q
 ```
+
+## Synthetic PCAPNG Fixture Suite
+
+SecureMailScope includes a reproducible, deterministic synthetic PCAPNG generation framework built with Scapy and the `cryptography` library. It generates valid, parseable wire-format PCAPNG captures with realistic Ethernet/IP/TCP layers, accurate sequence numbers, non-decreasing timestamps, and synthetic application payloads for SMTP, IMAP, POP3, and TLS.
+
+All timestamps are deterministic, anchored at `2026-09-19 10:00:00 UTC` (`1789812000.0`), and all network endpoints utilize private documentation IP ranges (`10.24.1.10`–`10.24.1.250`) and example domains (`mail.example.test`). Credentials and mailbox contents are dummy values (`demo-user`, `demo-password`).
+
+### Setup and Quickstart
+
+```bash
+python -m venv .venv
+.venv/Scripts/activate
+pip install -r requirements.txt
+python generate_pcaps.py
+python validate_pcaps.py
+tshark -r captures/cleartext_auth_smtp.pcapng -V
+```
+
+### Generated Scenarios (`captures/`)
+
+| Scenario | Protocol & Port | Key Mechanisms & Attributes | Expected Findings | Severity |
+| :--- | :--- | :--- | :--- | :--- |
+| `hardened_smtp` | SMTP (587) | STARTTLS, TLS 1.3, `TLS_AES_256_GCM_SHA384`, forward secrecy | None (Clean) | None (Score 100) |
+| `hardened_imap` | IMAP (143) | STARTTLS upgrade, TLS 1.3, encrypted authentication | None (Clean) | None (Score 100) |
+| `hardened_pop3` | POP3 (110) | STLS upgrade, TLS 1.3, USER/PASS only after encryption | None (Clean) | None (Score 100) |
+| `cleartext_auth_smtp` | SMTP (587) | Server advertises AUTH before STARTTLS; cleartext `AUTH LOGIN` | `AUTH-001` | Critical |
+| `cleartext_auth_imap` | IMAP (143) | Cleartext `LOGIN demo-user demo-password` before STARTTLS | `AUTH-001` | Critical |
+| `cleartext_auth_pop3` | POP3 (110) | Cleartext `USER demo-user` and `PASS demo-password` before STLS | `AUTH-001` | Critical |
+| `starttls_downgrade` | SMTP (587) | STARTTLS requested, server fails (454), client downgrades to plaintext `AUTH` | `STARTTLS-001`, `AUTH-001` | Critical |
+| `expired_certificate` | SMTP (587) | TLS 1.2 handshake carrying X.509 cert expired before capture date | `CERT-001`, `CERT-003` | High |
+| `san_mismatch` | SMTP (587) | TLS 1.2 SNI `mail.example.test` vs cert SAN `other.example.test` | `CERT-002`, `CERT-003` | High |
+| `weak_crypto` | SMTP (587) | TLS 1.0, RC4 cipher (`TLS_RSA_WITH_RC4_128_SHA`), 1024-bit RSA key, no PFS | `TLS-002`, `CIPHER-001`, `CIPHER-002`, `CERT-004` | Critical |
+| `partial_capture` | SMTP (587) | TLS handshake initiated but truncated before completion | Unassessed (`complete=False`) | None (Score None) |
+| `multi_protocol_mix` | SMTP, IMAP, POP3 | 4 concurrent interleaved sessions across ports 587, 143, 110 | Multi-session independent findings | Mixed |
+
+Every generated capture file is indexed with SHA-256 hashes, byte sizes, and exact frame evidence markers in `captures/manifest.json`.
+
 
 Tests cover PCAP/PCAPNG, all three protocols, fragmented records, expiry/SAN validation, redaction, retransmission, partial evidence, score math, invalid uploads, job polling and all exports. Browser checks cover upload-through-demo, session evidence and dashboard. Docker, PostgreSQL and the TShark branch need a host with those services for verification.
 
