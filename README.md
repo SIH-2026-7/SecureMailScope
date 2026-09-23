@@ -1,59 +1,84 @@
 # SecureMailScope
 
-A complete browser-based demonstration of SIH 2026 problem statement 26159, based on the supplied Crypterpillars proposal. Built with React 19 and Vite. Requires Node.js 22.12+ and npm; no API keys are needed.
+Local email-traffic security analysis plus the original browser simulation. Upload PCAP/PCAPNG, reconstruct TCP and SMTP/IMAP/POP3 sessions, inspect TLS/X.509 evidence, evaluate deterministic rules and a separately labeled ML signal, and export JSON, HTML or PDF reports.
 
-## Run
+## Run locally
 
-```sh
+Node.js 22.12+ and Python 3.11 are required. Setup downloads dependencies; analysis makes no external API calls. The backend virtual environment has already been created in this workspace.
+
+```powershell
 npm install
+# First-time backend setup (uv, or py -3.11 -m venv backend/.venv):
+uv venv --python 3.11 backend/.venv
+uv pip install --python backend/.venv/Scripts/python.exe -r backend/requirements.txt
 npm start
 ```
 
-Open http://127.0.0.1:5173. Use `npm run dev -- --port 5174` to select another port. The development server binds to the local machine only. Run `npm run build` to produce `dist/`, then `npm run preview` to preview the production build, or serve `dist/` with any static HTTP server. Do not open the HTML through `file://`; browser module loading requires HTTP.
+Open [SecureMailScope](http://127.0.0.1:5173). `npm start` launches the API on port 8000 and Vite on port 5173. To run separately: `npm run api` and `npm run dev`. On Linux/macOS, create `backend/.venv` with Python 3.11 and install using `backend/.venv/bin/pip install -r backend/requirements.txt`; the launcher chooses the correct interpreter.
 
-## Demonstration flow
+TShark is optional locally. When installed at OS level it is the primary extractor; otherwise Scapy is used. Set `PACKET_EXTRACTOR=scapy` to force the fallback. Docker includes TShark. PyShark is pinned as an available wrapper; the implemented primary path calls TShark directly.
 
-1. Start on **Overview**: 84 synthetic sessions, protocol distribution, explainable posture score, and priority findings.
-2. Open **Simulation lab**, select **STARTTLS downgrade**, then **Run simulation**. Watch the five pipeline stages complete.
-3. Open the assessment and inspect a critical session. Follow the synthetic TCP/SMTP/STARTTLS timeline and redacted authentication evidence.
-4. In **Findings**, apply individual simulated fixes or **Simulate all fixes**. Revisit the overview or lab to compare the recalculated score.
-5. Switch to **Hardened baseline** to demonstrate a clean environment.
-6. In **Reports**, export JSON, standalone HTML, or open the printable report and use the browser's Save as PDF option.
-7. **Capture analysis** also accepts real PCAP/PCAPNG files for local structural validation, packet-record counting, and SHA-256 hashing. Uploaded captures are explicitly unassessed, separate from the simulation.
+## Demo flow
 
-## Scope and honest limitations
+The app opens on the product landing page. **Open workspace** leads to **Capture analysis**, with its own Overview, Sessions, Findings and Reports tabs. Open `/#workspace` to go directly to analysis. Dark mode is the default; the theme switch persists your preference locally. The sidebar's **Browser simulation** preserves the original synthetic demonstration and simulated remediation. These results remain separate from uploaded captures.
 
-- All forensic sessions and certificate attributes are deterministic synthetic fixtures. They are not obtained by analyzing real traffic.
-- Risk explanations use transparent weighted rules, not a trained ML model. There are no claimed accuracy metrics.
-- The score averages assessed sessions, each scored from 100 minus triggered penalties, clamped to zero. Partial handshakes are excluded and shown as unknown.
-- Real capture upload validates container structure only; it does not decode TCP/TLS, validate trust chains, decrypt messages, or infer a security posture.
-- TLS 1.3 certificates are encrypted on the wire. Their displayed details are explicitly lab ground truth.
-- Remediation affects in-memory simulation state only. Refreshing resets the demo; no mail servers are contacted.
-- JSON exports contain a SHA-256 hash of `JSON.stringify(sessions)` encoded as UTF-8. The hash verifies the exported synthetic evidence, not a PCAP.
-- Capture processing and reports stay in the browser. Google Fonts is optional; local fallback fonts keep the app usable offline.
+1. **Modern TLS baseline**: analyze the demo PCAP, show a 90+ observed score, and explain the unknown TLS 1.3 certificate state.
+2. **Cleartext authentication**: inspect critical AUTH-001 findings across SMTP, IMAP and POP3. Open a session for the originating frame and redacted command.
+3. **Expired certificate**: inspect capture-time expiration, SAN, key strength, chain and fingerprint.
+4. **STARTTLS failure**: show plaintext authentication continuing after an upgrade request.
+5. Show separate ML signals and score deductions. AI uses normalized cryptographic features, not raw packet content.
+6. **Reports → Download PDF** produces an actual backend-generated PDF. JSON is the source of truth; HTML is self-contained.
 
-## React architecture
+The 20 bundled PCAPs are constructed packet fixtures, not live-server recordings. They use the same API/parser as user uploads. See [dataset generation](dataset_generation/README.md) for labels, training, optional live Postfix/Dovecot containers and limitations.
 
-- `src/main.jsx`: React root and StrictMode.
-- `src/App.jsx`: application context, navigation, simulation lifecycle, uploads and exports.
-- `src/pages.jsx`: React components for all six views and evidence details.
-- `src/components.jsx`: reusable buttons, panels, badges, detail grids and accessible modal.
-- `src/state.js`: immutable reducer for scenarios, filters and remediation.
-- `src/engine.js`: framework-independent scoring, evidence and capture validation.
-- `src/reports.js`: JSON integrity hashes and standalone report generation.
-- `src/style.css`: preserved responsive styling.
-- `vite.config.js`: React compilation, development and production build configuration.
-- `dist/`: generated production assets; edit source files instead.
-- `server.js`: optional dependency-free server for an existing production build.
-- `tests/`: engine, reducer and report-integrity regression tests.
+## API and persistence
 
-The UI uses JSX, controlled inputs, React events, hooks and an immutable reducer. It does not wrap the legacy HTML renderer or use `dangerouslySetInnerHTML`. Standalone HTML report exports remain independent printable documents.
+- `POST /api/upload`: multipart `file`, 50 MB limit, HTTP 202 with job_id/status.
+- `GET /api/analysis/{job_id}`: processing, done with report, or error with a safe message.
+- `GET /api/report/{job_id}/export?format=json|html|pdf`: download completed report.
+- `GET /api/health`: local service health.
+
+Reports persist in SQLite under `backend/data`. Override `DATA_DIR` or set `DATABASE_URL` (`postgresql+psycopg://...` for PostgreSQL). Raw captures are deleted after processing. SHA-256 identifies uploaded bytes. Interrupted jobs are marked failed on restart and can be reuploaded. Use one API worker for this local demo.
+
+## Architecture
+
+- `backend/app/core/pipeline.py`: run_analysis(pcap_path) → Report.
+- `integrity.py`, `pcap_extractor.py`, `stream_reassembly.py`: container validation, TShark/Scapy extraction, sequence ordering and retransmission/gap flags.
+- `protocol_parser.py`, `tls_parser.py`: enums/transitions, redacted commands, segmented TLS records/handshakes, supported_versions, cipher and SNI extraction.
+- `cert_validator.py`: capture-time validity, SAN/key/signature/extension checks and chain verification against bundled certifi roots.
+- `rule_engine.py`: pure-function registry; findings include frame, timestamp and remediation.
+- `ml/`: 11 normalized features, Random Forest, XGBoost challenger, Isolation Forest and scenario-separated evaluation.
+- `posture_score.py`: rule deductions 30/15/7/2/0 plus ML penalties 20/10/5/0, clamped to 0–100. Overall score averages assessed sessions.
+- `report_builder.py`: escaped HTML and multipage ReportLab PDF.
+- `src/CaptureWorkspace.tsx`, `src/api/client.ts`: typed capture workflow and API client; Tailwind supplements the existing design and Plotly renders the gauge.
+
+The existing React 19/Vite app is preserved instead of downgrading to the brief's React 18 scaffold. Existing simulation pages remain JSX; new capture features are TypeScript. No external fonts/CDN assets are requested at runtime. Plotly is bundled and lazy-loaded (roughly 4.4 MB uncompressed).
 
 ## Validation
 
-```sh
+```powershell
 npm test
 npm run check
+backend/.venv/Scripts/python.exe -m pytest backend/tests -q
 ```
 
-Future production work: add FastAPI/TShark TCP reconstruction and TLS extraction, X.509 trust evaluation, persistent case storage, and a separately evaluated ML pipeline. This demo intentionally makes no production forensic claims.
+Tests cover PCAP/PCAPNG, all three protocols, fragmented records, expiry/SAN validation, redaction, retransmission, partial evidence, score math, invalid uploads, job polling and all exports. Browser checks cover upload-through-demo, session evidence and dashboard. Docker, PostgreSQL and the TShark branch need a host with those services for verification.
+
+## Docker
+
+```sh
+docker compose up --build
+```
+
+Serves the frontend at localhost:5173, proxies API requests and persists reports in a named volume. Building requires internet; runtime is offline. `npm run preview` alone has no API proxy; use Docker for the complete production-build demo.
+
+## Evidence boundaries
+
+- Demonstrative passive analysis, not a production forensic/compliance tool. No email decryption or TLS Finished verification.
+- TLS 1.3 certificates/authentication are encrypted. Missing certificate/SNI/revocation evidence stays unknown; OCSP acknowledgment alone does not establish good revocation status.
+- Missing connection openings or stream gaps exclude a session from the overall score. No supported sessions means no score, not 100.
+- IP fragment reassembly, SSLv2 records, QUIC and unknown applications are unsupported. TLS-001 evaluates SSLv3; its rule also supports SSLv2 metadata from future extractors. Nonstandard ports are retained when a recognizable ClientHello is present.
+- Chain validation can fail for private CAs, expiry, hostname or constraints. CERT-003 means validation failed, not proof of a malicious certificate.
+- Synthetic ML metrics are not real-world accuracy. Limited normal-feature diversity constrains anomaly detection; evaluation metadata documents splits and class coverage.
+- Responses are reduced to status codes and safe capability labels. Authentication arguments, SASL continuations and message bodies are never exported/logged.
+- No multi-user authentication, durable queue or tenant isolation. The service binds to loopback for a single local demonstration.

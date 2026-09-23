@@ -2,3 +2,9 @@ node_modules/
 tmp/
 .sites-runtime/
 *.log
+backend/.venv/
+backend/data/
+__pycache__/
+.pytest_cache/
+*.pyc
+dist/

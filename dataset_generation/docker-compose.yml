@@ -1,0 +1,89 @@
+x-lab: &lab
+  build: ./lab
+  networks: [isolated-lab]
+  volumes: ["./captures:/captures"]
+  cap_add: [NET_ADMIN, NET_RAW]
+services:
+  hardened:
+    <<: *lab
+    hostname: hardened
+    environment: {SCENARIO: hardened}
+  imap_hardened:
+    <<: *lab
+    hostname: imap_hardened
+    environment: {SCENARIO: imap_hardened}
+  pop3_hardened:
+    <<: *lab
+    hostname: pop3_hardened
+    environment: {SCENARIO: pop3_hardened}
+  tls13_alt:
+    <<: *lab
+    hostname: tls13_alt
+    environment: {SCENARIO: tls13_alt}
+  cleartext_auth:
+    <<: *lab
+    hostname: cleartext_auth
+    environment: {SCENARIO: cleartext_auth}
+  imap_cleartext:
+    <<: *lab
+    hostname: imap_cleartext
+    environment: {SCENARIO: imap_cleartext}
+  pop3_cleartext:
+    <<: *lab
+    hostname: pop3_cleartext
+    environment: {SCENARIO: pop3_cleartext}
+  expired_cert:
+    <<: *lab
+    hostname: expired_cert
+    environment: {SCENARIO: expired_cert}
+  imap_expired:
+    <<: *lab
+    hostname: imap_expired
+    environment: {SCENARIO: imap_expired}
+  san_mismatch:
+    <<: *lab
+    hostname: san_mismatch
+    environment: {SCENARIO: san_mismatch}
+  static_rsa:
+    <<: *lab
+    hostname: static_rsa
+    environment: {SCENARIO: static_rsa}
+  pop3_static_rsa:
+    <<: *lab
+    hostname: pop3_static_rsa
+    environment: {SCENARIO: pop3_static_rsa}
+  self_signed:
+    <<: *lab
+    hostname: self_signed
+    environment: {SCENARIO: self_signed}
+  weak_key:
+    <<: *lab
+    hostname: weak_key
+    environment: {SCENARIO: weak_key}
+  sha1_sig:
+    <<: *lab
+    hostname: sha1_sig
+    environment: {SCENARIO: sha1_sig}
+  tls10_weak:
+    <<: *lab
+    hostname: tls10_weak
+    environment: {SCENARIO: tls10_weak}
+  tls11:
+    <<: *lab
+    hostname: tls11
+    environment: {SCENARIO: tls11}
+  client:
+    image: python:3.11-slim
+    profiles: [client]
+    networks: [isolated-lab]
+    volumes: ["./live_clients.py:/live_clients.py:ro"]
+    entrypoint: [python, /live_clients.py]
+  starttls_stripped:
+    image: python:3.11-slim
+    networks: [isolated-lab]
+    volumes: ["./starttls_proxy.py:/proxy.py:ro"]
+    command: [python, /proxy.py]
+    depends_on: [self_signed]
+networks:
+  isolated-lab:
+    internal: true

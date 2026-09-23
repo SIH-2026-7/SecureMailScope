@@ -4,7 +4,7 @@ import {Badge, Button, DetailGrid, Heading, Panel} from './components.jsx';
 import {Icon} from './icons.jsx';
 import {findings, generateScenario, metrics, rules, scenarios, scoreSession, severity, trace} from './engine.js';
 
-const colors = ['#73e6bc', '#659dec', '#ad9ceb'];
+const colors = ['#b8b8b8', '#cf946d', '#777777'];
 const protocols = ['SMTP', 'IMAP', 'POP3'];
 const textButton = 'textbutton';
 
@@ -48,19 +48,19 @@ export function Overview() {
       <Panel title="TLS distribution" extra={<small>Sessions</small>}><div className="panelbody">
         {['TLS 1.3', 'TLS 1.2', 'TLS 1.1', 'TLS 1.0'].map((tls, i) => {
           const count = sessions.filter(s => s.tls === tls).length;
-          return <div className="barrow" key={tls}><div className="barlabel"><Button className={textButton} style={{color: 'inherit'}} onClick={() => {navigate('Sessions'); dispatch({type: 'filter', values: {filter: tls}});}}>{tls}</Button><span>{count} <span className="muted">/ {sessions.length}</span></span></div><div className="bar"><i style={{width: `${count / sessions.length * 100}%`, background: ['#73e6bc', '#659dec', '#eeb96b', '#fb8189'][i]}} /></div></div>;
+          return <div className="barrow" key={tls}><div className="barlabel"><Button className={textButton} style={{color: 'inherit'}} onClick={() => {navigate('Sessions'); dispatch({type: 'filter', values: {filter: tls}});}}>{tls}</Button><span>{count} <span className="muted">/ {sessions.length}</span></span></div><div className="bar"><i style={{width: `${count / sessions.length * 100}%`, background: ['#b8b8b8', '#888888', '#cfad70', '#d78979'][i]}} /></div></div>;
         })}
         <div className="tlssummary">{weak} legacy sessions · {plain} plaintext · {partial} unknown</div>
       </div></Panel>
       <Panel title="Email protocols" extra={<small>Coverage</small>}><div className="panelbody">
         <svg width="100%" height="139" viewBox="0 0 260 139" role="img" aria-label="Protocol distribution">
-          <path d="M45 123a85 85 0 0 1 170 0" stroke="#25313a" strokeWidth="27" fill="none" />
+          <path d="M45 123a85 85 0 0 1 170 0" stroke="var(--surface-raised)" strokeWidth="27" fill="none" />
           {protocols.map((protocol, i) => {
             const count = sessions.filter(s => s.protocol === protocol).length / sessions.length * 100;
             const offset = protocols.slice(0, i).reduce((n, p) => n + sessions.filter(s => s.protocol === p).length / sessions.length * 100, 0);
             return <path key={protocol} d="M45 123a85 85 0 0 1 170 0" pathLength="100" stroke={colors[i]} strokeWidth="27" fill="none" strokeDasharray={`${count} ${100 - count}`} strokeDashoffset={-offset} />;
           })}
-          <text x="130" y="103" textAnchor="middle" fill="#e2e8ef" fontSize="30" fontFamily="Manrope">{sessions.length}</text><text x="130" y="123" textAnchor="middle" fill="#87929f" fontSize="11">TOTAL SESSIONS</text>
+          <text x="130" y="103" textAnchor="middle" fill="var(--ink)" fontSize="30" fontFamily="system-ui">{sessions.length}</text><text x="130" y="123" textAnchor="middle" fill="var(--muted)" fontSize="11">TOTAL SESSIONS</text>
         </svg>
         {protocols.map((protocol, i) => <div key={protocol} className="barlabel" style={{margin: '15px 0 0'}}><span><i style={{display: 'inline-block', width: 7, height: 7, background: colors[i], borderRadius: 2, marginRight: 7}} />{protocol}</span><span>{sessions.filter(s => s.protocol === protocol).length} <span className="muted">sessions</span></span></div>)}
       </div></Panel>

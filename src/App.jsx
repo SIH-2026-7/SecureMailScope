@@ -7,13 +7,31 @@ import {createReport, download, hash, reportHtml} from './reports.js';
 import {Icon} from './icons.jsx';
 import {Badge, Modal} from './components.jsx';
 import {Overview, Sessions, Findings, SimulationLab, CaptureAnalysis, Reports, SessionDetails, Scoring} from './pages.jsx';
+import CaptureWorkspace from './CaptureWorkspace.tsx';
+import Landing from './Landing.jsx';
 
 const navigation = [
-  ['Overview', 'grid'], ['Capture analysis', 'layers'], ['Sessions', 'activity'],
+  ['Capture analysis', 'layers'], ['Overview', 'grid'], ['Sessions', 'activity'],
   ['Findings', 'alert'], ['Simulation lab', 'play'], ['Reports', 'file'],
 ];
 
 export default function App() {
+  const [workspace, setWorkspace] = useState(() => /^#(workspace|frame-)/.test(window.location.hash));
+  const [theme, setTheme] = useState(() => {try {return localStorage.getItem('sms-theme') === 'light' ? 'light' : 'dark';} catch {return 'dark';}});
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try {localStorage.setItem('sms-theme', theme);} catch {}
+  }, [theme]);
+  useEffect(() => {
+    const sync = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#frame-')) return;
+      setWorkspace(hash.startsWith('#workspace'));
+      setDetail(null);
+    };
+    window.addEventListener('hashchange', sync);
+    return () => window.removeEventListener('hashchange', sync);
+  }, []);
   const [state, dispatch] = useReducer(reducer, undefined, initialState);
   const [detail, setDetail] = useState(null);
   const [message, setMessage] = useState('');
@@ -129,24 +147,29 @@ export default function App() {
 
   const value = {state, dispatch, navigate, runSimulation, exportReport, uploadCapture, uploading, fix, reset,
     openSession: id => setDetail({sessionId: id}), showScoring: () => setDetail({scoring: true})};
-  const pages = {Overview, Sessions, Findings, 'Simulation lab': SimulationLab, 'Capture analysis': CaptureAnalysis, Reports};
+  const pages = {Overview, Sessions, Findings, 'Simulation lab': SimulationLab, 'Capture analysis': CaptureWorkspace, Reports};
   const Page = pages[state.page];
   const session = state.sessions.find(item => item.id === detail?.sessionId);
+  function enterWorkspace(page = 'Capture analysis') {navigate(page); window.location.hash = 'workspace'; setWorkspace(true);}
+  const themeButton = <button className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}><Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} /><span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span></button>;
+
+  if (!workspace) return <Landing onEnter={enterWorkspace} themeButton={themeButton} />;
 
   return <DemoContext.Provider value={value}>
     <div className="layout">
       <aside>
-        <div className="brand"><Icon name="shield" size={30} /><div>SecureMailScope<small>CRYPTOGRAPHIC INTELLIGENCE</small></div></div>
-        <div className="navlabel">WORKSPACE</div>
+        <a className="brand" href="#" aria-label="SecureMailScope home"><Icon name="mail" size={30} /><div>SecureMailScope<small>READ BETWEEN THE PACKETS</small></div></a>
+        <button className="new-capture" onClick={() => {navigate('Capture analysis'); requestAnimationFrame(() => document.querySelector('.upload')?.scrollIntoView({block: 'center', behavior: 'smooth'}));}}><Icon name="plus" /> Analyze capture</button>
+        <div className="navlabel">ANALYSIS WORKSPACE</div>
         <nav className="nav" aria-label="Main navigation">{navigation.map(([name, icon]) =>
-          <button key={name} className={state.page === name ? 'active' : ''} aria-current={state.page === name ? 'page' : undefined} onClick={() => navigate(name)}>
+          <React.Fragment key={name}>{name === 'Overview' && <div className="navlabel">BROWSER SIMULATION</div>}<button className={state.page === name ? 'active' : ''} aria-current={state.page === name ? 'page' : undefined} onClick={() => navigate(name)}>
             <Icon name={icon} />{name}{name === 'Findings' && <span className="count">{metrics(state.sessions).findings}</span>}
-          </button>)}</nav>
-        <div className="sidebottom"><div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; Local analysis</strong><br /><span className="muted">Your captures stay on this device.</span></div>
+          </button></React.Fragment>)}</nav>
+        <div className="sidebottom">{themeButton}<div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; Local analysis</strong><br /><span className="muted">Your captures stay on this device.</span></div>
           <div className="profile"><div className="avatar">CP</div><div>Crypterpillars<small>SIH 2026 · PS 26159</small></div></div></div>
       </aside>
-      <main className="main"><div className="topbar"><span>Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><Badge><Icon name="play" size={12} /> INTERACTIVE DEMO</Badge></div>
-        <div className="content"><Page /><div className="footnote"><span><Icon name="shield" size={13} /> SecureMailScope · Passive email security assessment</span><span>Synthetic evidence · Rules-based demonstration</span></div></div>
+      <main className="main"><div className="topbar"><span><Icon name="mail" size={18} /> &nbsp; Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><div className="topbar-tools"><Badge><span className="status-dot" /> {state.page === 'Capture analysis' ? 'LOCAL CAPTURE ANALYSIS' : 'SYNTHETIC SIMULATION'}</Badge><div className="mobile-theme">{themeButton}</div><a href="#" className="home-link">About the project <Icon name="arrow" size={15}/></a></div></div>
+        <div className="content"><Page /><div className="footnote"><span><Icon name="shield" size={13} /> SecureMailScope · Passive email security assessment</span><span>{state.page === 'Capture analysis' ? 'Capture evidence · Local backend' : 'Synthetic evidence · Rules-based demonstration'}</span></div></div>
       </main>
     </div>
     {detail && <Modal title={detail.scoring ? 'How posture is scored' : `${session?.id} · ${session?.protocol}`} onClose={closeDetails}>

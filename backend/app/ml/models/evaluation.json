@@ -1,0 +1,170 @@
+{
+  "status": "synthetic_training_demo",
+  "sample_count": 440,
+  "seed": 0,
+  "features": [
+    "tls_version_ordinal",
+    "cipher_strength_score",
+    "forward_secrecy",
+    "starttls_used",
+    "auth_before_tls",
+    "cert_days_until_expiry",
+    "cert_key_bits",
+    "cert_self_signed",
+    "cert_sig_algo_weak",
+    "num_rule_findings",
+    "max_finding_severity_ordinal"
+  ],
+  "classifier": "RandomForest",
+  "challenger": "XGBoost",
+  "anomaly": "IsolationForest",
+  "split": {
+    "train": [
+      "cleartext_auth",
+      "expired_cert",
+      "export_cipher",
+      "hardened",
+      "imap_cleartext",
+      "imap_expired",
+      "imap_hardened",
+      "pop3_cleartext",
+      "pop3_static_rsa",
+      "san_mismatch",
+      "self_signed",
+      "starttls_downgrade",
+      "static_rsa",
+      "tls10_weak"
+    ],
+    "validation": [
+      "pop3_hardened",
+      "tls11",
+      "tls13_alt"
+    ],
+    "test": [
+      "des_cipher",
+      "null_cipher",
+      "weak_key"
+    ]
+  },
+  "test": {
+    "Critical": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 40.0
+    },
+    "High": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "Low": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Medium": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1-score": 0.5,
+      "support": 60.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 60.0
+    }
+  },
+  "validation": {
+    "Critical": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "High": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 20.0
+    },
+    "Low": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 40.0
+    },
+    "Medium": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1-score": 0.5,
+      "support": 60.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 60.0
+    }
+  },
+  "xgboost_test": {
+    "Critical": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 40.0
+    },
+    "High": {
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1-score": 0.6666666666666666,
+      "support": 20.0
+    },
+    "Low": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "Medium": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "accuracy": 0.6666666666666666,
+    "macro avg": {
+      "precision": 0.375,
+      "recall": 0.375,
+      "f1-score": 0.3333333333333333,
+      "support": 60.0
+    },
+    "weighted avg": {
+      "precision": 0.8333333333333334,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6666666666666666,
+      "support": 60.0
+    }
+  },
+  "anomaly_precision_at_k": 1.0,
+  "anomaly_k": 20,
+  "rule_ml_agreement": 1.0,
+  "limitations": "Synthetic wire fixtures with low within-scenario feature diversity. Not a production accuracy estimate. Rule-derived features make agreement partly circular; unseen classes may have zero test support."
+}

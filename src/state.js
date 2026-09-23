@@ -1,7 +1,7 @@
 import {generateScenario, rules, scenarios} from './engine.js';
 
 export function initialState() {
-  return {page: 'Overview', scenario: 'enterprise', selected: 'enterprise',
+  return {page: 'Capture analysis', scenario: 'enterprise', selected: 'enterprise',
     sessions: generateScenario(), busy: false, step: 0, logs: [],
     filter: 'All', protocol: 'All', query: '', fixes: [], capture: null};
 }
