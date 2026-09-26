@@ -1,0 +1,254 @@
+[
+  {
+    "pcap": "hardened.pcap",
+    "scenario": "hardened",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.3",
+    "expected_risk_class": "Low",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "cleartext_auth.pcap",
+    "scenario": "cleartext_auth",
+    "protocol": "ALL",
+    "expected_tls_version": null,
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "AUTH-001",
+      "STARTTLS-002"
+    ],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "expired_cert.pcap",
+    "scenario": "expired_cert",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CERT-001",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "starttls_downgrade.pcap",
+    "scenario": "starttls_downgrade",
+    "protocol": "SMTP",
+    "expected_tls_version": null,
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "STARTTLS-001",
+      "STARTTLS-002",
+      "AUTH-001"
+    ],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "tls10_weak.pcap",
+    "scenario": "tls10_weak",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.0",
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "TLS-002",
+      "CIPHER-001",
+      "CIPHER-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "san_mismatch.pcap",
+    "scenario": "san_mismatch",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CERT-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "static_rsa.pcap",
+    "scenario": "static_rsa",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CIPHER-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "self_signed.pcap",
+    "scenario": "self_signed",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "Medium",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "weak_key.pcap",
+    "scenario": "weak_key",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CERT-003",
+      "CERT-004"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "tls11.pcap",
+    "scenario": "tls11",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.1",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "TLS-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "imap_hardened.pcap",
+    "scenario": "imap_hardened",
+    "protocol": "IMAP",
+    "expected_tls_version": "TLS1.3",
+    "expected_risk_class": "Low",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "pop3_hardened.pcap",
+    "scenario": "pop3_hardened",
+    "protocol": "POP3",
+    "expected_tls_version": "TLS1.3",
+    "expected_risk_class": "Low",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "imap_cleartext.pcap",
+    "scenario": "imap_cleartext",
+    "protocol": "IMAP",
+    "expected_tls_version": null,
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "AUTH-001"
+    ],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "pop3_cleartext.pcap",
+    "scenario": "pop3_cleartext",
+    "protocol": "POP3",
+    "expected_tls_version": null,
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "AUTH-001"
+    ],
+    "expected_cert_valid": null
+  },
+  {
+    "pcap": "imap_expired.pcap",
+    "scenario": "imap_expired",
+    "protocol": "IMAP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CERT-001",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "pop3_static_rsa.pcap",
+    "scenario": "pop3_static_rsa",
+    "protocol": "POP3",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "High",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CIPHER-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "export_cipher.pcap",
+    "scenario": "export_cipher",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.0",
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "TLS-002",
+      "CIPHER-001",
+      "CIPHER-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "null_cipher.pcap",
+    "scenario": "null_cipher",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.2",
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "CIPHER-001",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "des_cipher.pcap",
+    "scenario": "des_cipher",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.0",
+    "expected_risk_class": "Critical",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [
+      "TLS-002",
+      "CIPHER-001",
+      "CIPHER-002",
+      "CERT-003"
+    ],
+    "expected_cert_valid": false
+  },
+  {
+    "pcap": "tls13_alt.pcap",
+    "scenario": "tls13_alt",
+    "protocol": "SMTP",
+    "expected_tls_version": "TLS1.3",
+    "expected_risk_class": "Low",
+    "provenance": "Constructed wire-format laboratory fixture, not a live server capture",
+    "expected_findings": [],
+    "expected_cert_valid": null
+  }
+]

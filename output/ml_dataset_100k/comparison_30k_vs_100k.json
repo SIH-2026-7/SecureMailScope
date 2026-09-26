@@ -1,0 +1,42 @@
+{
+  "previous_corpus_rows": 30000,
+  "current_corpus_rows": 100000,
+  "previous_test_rows": 4640,
+  "current_test_rows": 15000,
+  "previous_rf_accuracy": 1.0,
+  "current_rf_accuracy": 1.0,
+  "previous_normal_false_positive_rate": 0.15089722675367048,
+  "current_normal_false_positive_rate": 0.11146666666666667,
+  "current_normal_false_positives": 418,
+  "current_normal_test_rows": 3750,
+  "current_anomaly_proxy_report": {
+    "0": {
+      "precision": 0.2377283105022831,
+      "recall": 0.8885333333333333,
+      "f1-score": 0.3750985027580772,
+      "support": 3750.0
+    },
+    "1": {
+      "precision": 0.5752032520325203,
+      "recall": 0.05031111111111111,
+      "f1-score": 0.09252901749223476,
+      "support": 11250.0
+    },
+    "accuracy": 0.2598666666666667,
+    "macro avg": {
+      "precision": 0.40646578126740174,
+      "recall": 0.4694222222222222,
+      "f1-score": 0.23381376012515598,
+      "support": 15000.0
+    },
+    "weighted avg": {
+      "precision": 0.49083451664996103,
+      "recall": 0.2598666666666667,
+      "f1-score": 0.1631713888086954,
+      "support": 15000.0
+    }
+  },
+  "settings_changed": false,
+  "test_used_for_tuning": false,
+  "interpretation": "Descriptive comparison across different corpus sizes, seeds and group proportions; not a controlled estimate of dataset-size effect."
+}

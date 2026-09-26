@@ -1,0 +1,29 @@
+{
+  "rows": 100000,
+  "train_rows": 85000,
+  "test_rows": 15000,
+  "unique_recommended_vectors": 100000,
+  "all_15_rule_ids_covered": [
+    "AUTH-001",
+    "CERT-001",
+    "CERT-002",
+    "CERT-003",
+    "CERT-004",
+    "CERT-005",
+    "CERT-006",
+    "CERT-007",
+    "CIPHER-001",
+    "CIPHER-002",
+    "STARTTLS-001",
+    "STARTTLS-002",
+    "TLS-001",
+    "TLS-002",
+    "TLS-003"
+  ],
+  "all_classes_in_each_split": true,
+  "configuration_groups_disjoint": true,
+  "feature_hashes_disjoint": true,
+  "split_files_exactly_match_master_rows": true,
+  "repeat_generation_byte_identical": true,
+  "dataset_sha256": "ca6a307f2f28ee6f7180f8a5d0ba6c19cb3d5059ddb7f315223638a98e36397a"
+}

@@ -1,0 +1,69 @@
+/* Bundled fonts keep the landing page typography available offline. */
+@font-face { font-family: Outfit; src: url('/fonts/Outfit.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: Newsreader; src: url('/fonts/Newsreader-Italic.ttf') format('truetype'); font-weight: 200 800; font-style: italic; font-display: swap; }
+.landing { font-family: Outfit, 'Segoe UI', sans-serif; }
+.landing h1, .landing h2, .landing h3, .landing .brand { font-family: Outfit, 'Segoe UI', sans-serif; }
+.landing h1 { font-size: clamp(78px, 7.4vw, 132px); font-weight: 500; letter-spacing: -.055em; line-height: 1.03; }
+.landing em { font-family: Newsreader, Georgia, serif; font-weight: 450; letter-spacing: -.045em; }
+.landing h2 { font-size: clamp(40px, 4.2vw, 64px); font-weight: 500; letter-spacing: -.04em; }
+.landing .brand { font-size: 22px; font-weight: 650; }
+.landing .landing-header nav a { font-size: 14px; }
+.landing .landing-header-actions > button { font-size: 14px; }
+.landing .hero-intro { font-size: 20px; line-height: 1.65; max-width: 440px; }
+.landing .landing-cta { font-size: 16px; }
+.landing .quiet-cta { font-size: 15px; }
+.landing .hero-fineprint { font-size: 12px; }
+.landing .eyebrow { font-size: 12px; }
+.landing .section-index { font-size: 11px; }
+.landing .evidence-overline, .landing .hero-motion-toggle { font-size: 10px; }
+.landing .evidence-slip h3 { font-size: 30px; letter-spacing: -.03em; }
+.landing .evidence-slip p { font-size: 13px; line-height: 1.65; }
+.landing .slip-index, .landing .risk-text, .landing .slip-bottom { font-size: 10px; letter-spacing: .5px; }
+.landing .hero-baseline { font-size: 11px; }
+.landing .solution-heading p, .landing .evidence-story-copy > p, .landing .capabilities-heading > p { font-size: 17px; line-height: 1.75; max-width: 460px; }
+.landing .process-line h3 { font-size: 25px; }
+.landing .process-line p { font-size: 14px; line-height: 1.7; }
+.landing .process-line small { font-size: 10px; }
+.landing .process-line > div > span { font-size: 12px; }
+.landing .trace-tabs button { font-size: 15px; }
+.landing .example-disclaimer { font-size: 11px; }
+.landing .trace-title, .landing .trace-endpoints { font-size: 12px; }
+.landing .trace-lines code { font-size: 12px; }
+.landing .trace-lines > div > span { font-size: 11px; }
+.landing .trace-verdict > span { font-size: 15px; }
+.landing .trace-verdict p { font-size: 14px; max-width: 420px; }
+.landing .capability-list h3 { font-size: 23px; }
+.landing .capability-list p, .landing .honesty-note p { font-size: 16px; line-height: 1.75; }
+.landing .capability-list article > span { font-size: 12px; }
+.landing .honesty-note h3 { font-size: 24px; }
+.landing .landing-close h2 { font-size: clamp(64px, 7vw, 104px); }
+.landing .landing-close p { font-size: 18px; }
+.landing .landing-footer > span { font-size: 12px; }
+.landing .landing-footer .brand { font-size: 20px; }
+@media (min-width: 761px) {
+  .landing .hero-evidence { max-width: clamp(340px, calc(100svh - 310px), 540px); }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .landing .landing-header { gap: 14px; }
+  .landing .landing-header .brand { font-size: 17px; }
+  .landing .landing-header nav { gap: 12px; }
+  .landing .landing-header nav a, .landing .landing-header-actions > button { font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .landing h1 { font-size: clamp(58px, 15vw, 92px); }
+  .landing h2, .landing .solution-pin h2 { font-size: 38px; }
+  .landing .landing-header .brand { font-size: 14px; }
+  .landing .landing-header-actions > button { font-size: 10px; }
+  .landing .hero-intro { font-size: 18px; }
+  .landing .eyebrow { font-size: 9px; letter-spacing: .8px; }
+  .landing .evidence-overline, .landing .hero-motion-toggle { font-size: 8px; }
+  .landing .evidence-slip h3 { font-size: 25px; }
+  .landing .evidence-slip p { font-size: 12px; }
+  .landing .slip-index, .landing .risk-text, .landing .slip-bottom { font-size: 8px; }
+  .landing .hero-baseline { font-size: 9px; letter-spacing: .3px; }
+  .landing .process-line h3 { font-size: 22px; }
+  .landing .process-line small { font-size: 9px; letter-spacing: .2px; }
+  .landing .trace-endpoints { font-size: 10px; }
+  .landing .trace-lines code { font-size: 11px; }
+  .landing .landing-footer > span { font-size: 10px; }
+}

@@ -1,0 +1,27 @@
+{
+  "rows": 30000,
+  "unique_recommended_vectors": 30000,
+  "all_15_rule_ids_covered": [
+    "AUTH-001",
+    "CERT-001",
+    "CERT-002",
+    "CERT-003",
+    "CERT-004",
+    "CERT-005",
+    "CERT-006",
+    "CERT-007",
+    "CIPHER-001",
+    "CIPHER-002",
+    "STARTTLS-001",
+    "STARTTLS-002",
+    "TLS-001",
+    "TLS-002",
+    "TLS-003"
+  ],
+  "reproducible_csv_sha256": "9da3985f9164c377a6684561a282d64774d876b9dfb4a2a36d99700ec70665e8",
+  "second_generation_byte_identical": true,
+  "duplicate_ids": 0,
+  "missing_numeric_fields": 0,
+  "data_type": "synthetic_session_metadata",
+  "holdout": "configuration groups disjoint; vector hashes disjoint"
+}

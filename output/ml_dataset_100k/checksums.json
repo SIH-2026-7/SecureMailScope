@@ -1,0 +1,14 @@
+{
+  "build_training_corpus.py": "42a73f3d55e16b0583b63ff63d89dbdee5866d1f4269805ec09d4e704f14c2b2",
+  "candidate_models.pkl": "6434abfaaea97e6426ca6546cf446f583cef28b27e3248b8747ec6b695876504",
+  "comparison_30k_vs_100k.json": "86c9aae5a4f3b040f96c62f89803ea25caad0803a79781f0a9b1d999da3789f5",
+  "dataset.csv": "ca6a307f2f28ee6f7180f8a5d0ba6c19cb3d5059ddb7f315223638a98e36397a",
+  "evaluation.json": "7abe1c0002a1a5306efb0c09e9ff1cdb95d8cbb3349158607f76c764790eaf1b",
+  "feature_dictionary.csv": "79ddab9e3ef05debde5782eaa5cdfc632ae9fd72b53d8c90284c83ce84467172",
+  "metadata.json": "4f440b5a10b5d2fe7d5de10938050c4211f98be7b9be51fe3e35fd3ee4196679",
+  "README.md": "6596e92e3cf90ea652fb55dfc6761adcc658b31fe5bf766ead6c6407054488e7",
+  "test.csv": "b72f0ae8bca1f7a4866d047611552102340f1f1038db934b4316de24e80f55a0",
+  "train.csv": "1ca2a594f0ad8203728c73de08710b2df38837e19981b28a738a76997cec8c9d",
+  "validate_training_corpus.py": "5b16402c1dc0d31fa27eb4d6663c1eb930e2662746755da8ecf3ac29f880b61b",
+  "validation_checks.json": "5a20787b5003bb1888348fcdd53560b3a5da0b14afe11f4c4c4d0fe91d87c587"
+}

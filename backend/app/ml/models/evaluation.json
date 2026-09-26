@@ -1,7 +1,7 @@
 {
   "status": "synthetic_training_demo",
-  "sample_count": 440,
-  "seed": 0,
+  "sample_count": 1500,
+  "split_seed": 0,
   "features": [
     "tls_version_ordinal",
     "cipher_strength_score",
@@ -13,51 +13,105 @@
     "cert_self_signed",
     "cert_sig_algo_weak",
     "num_rule_findings",
-    "max_finding_severity_ordinal"
+    "max_finding_severity_ordinal",
+    "protocol_ordinal",
+    "port_is_implicit_tls",
+    "starttls_advertised",
+    "starttls_requested",
+    "plaintext_after_starttls",
+    "handshake_complete",
+    "session_complete",
+    "num_commands",
+    "cert_chain_length",
+    "cert_hostname_match",
+    "cert_trust_status_ordinal",
+    "tls_ocsp_stapled"
   ],
+  "num_features": 23,
   "classifier": "RandomForest",
+  "classifier_params": {
+    "n_estimators": 200,
+    "max_depth": 10,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2
+  },
   "challenger": "XGBoost",
-  "anomaly": "IsolationForest",
+  "anomaly_detector": "IsolationForest",
   "split": {
     "train": [
       "cleartext_auth",
-      "expired_cert",
+      "des_cipher",
       "export_cipher",
       "hardened",
-      "imap_cleartext",
       "imap_expired",
       "imap_hardened",
+      "imaps_expired",
+      "imaps_hardened",
+      "imaps_san_mismatch",
       "pop3_cleartext",
-      "pop3_static_rsa",
-      "san_mismatch",
+      "pop3s_hardened",
+      "pop3s_weak_key",
       "self_signed",
-      "starttls_downgrade",
+      "smtps_hardened",
+      "smtps_static_rsa",
       "static_rsa",
-      "tls10_weak"
+      "tls11",
+      "tls13_alt",
+      "weak_key"
     ],
     "validation": [
+      "null_cipher",
       "pop3_hardened",
-      "tls11",
-      "tls13_alt"
+      "pop3_static_rsa",
+      "smtps_legacy_tls10"
     ],
     "test": [
-      "des_cipher",
-      "null_cipher",
-      "weak_key"
+      "expired_cert",
+      "imap_cleartext",
+      "san_mismatch",
+      "starttls_downgrade",
+      "tls10_weak"
     ]
+  },
+  "cv_accuracy_mean": 1.0,
+  "cv_accuracy_std": 0.0,
+  "feature_importances": {
+    "max_finding_severity_ordinal": 0.20769637796182258,
+    "num_rule_findings": 0.20087583466718612,
+    "tls_version_ordinal": 0.13799060232215915,
+    "cipher_strength_score": 0.08292788711176032,
+    "forward_secrecy": 0.04719633395059405,
+    "cert_trust_status_ordinal": 0.0388880421624072,
+    "cert_self_signed": 0.0386626739474367,
+    "cert_hostname_match": 0.03784607914762386,
+    "cert_chain_length": 0.03462721826684945,
+    "cert_key_bits": 0.034274162342860855,
+    "num_commands": 0.03072895806173203,
+    "starttls_advertised": 0.02118145588019141,
+    "handshake_complete": 0.021118529038559982,
+    "auth_before_tls": 0.016237094114000466,
+    "protocol_ordinal": 0.015116687188313454,
+    "starttls_requested": 0.00942875977298666,
+    "port_is_implicit_tls": 0.009364449860387309,
+    "starttls_used": 0.008687154165811641,
+    "cert_days_until_expiry": 0.00715170003731684,
+    "cert_sig_algo_weak": 0.0,
+    "plaintext_after_starttls": 0.0,
+    "session_complete": 0.0,
+    "tls_ocsp_stapled": 0.0
   },
   "test": {
     "Critical": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 40.0
+      "support": 150.0
     },
     "High": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 20.0
+      "support": 100.0
     },
     "Low": {
       "precision": 0.0,
@@ -76,33 +130,33 @@
       "precision": 0.5,
       "recall": 0.5,
       "f1-score": 0.5,
-      "support": 60.0
+      "support": 250.0
     },
     "weighted avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 60.0
+      "support": 250.0
     }
   },
   "validation": {
     "Critical": {
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1-score": 0.0,
-      "support": 0.0
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 100.0
     },
     "High": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 20.0
+      "support": 50.0
     },
     "Low": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 40.0
+      "support": 50.0
     },
     "Medium": {
       "precision": 0.0,
@@ -112,30 +166,30 @@
     },
     "accuracy": 1.0,
     "macro avg": {
-      "precision": 0.5,
-      "recall": 0.5,
-      "f1-score": 0.5,
-      "support": 60.0
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 200.0
     },
     "weighted avg": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 60.0
+      "support": 200.0
     }
   },
   "xgboost_test": {
     "Critical": {
       "precision": 1.0,
-      "recall": 0.5,
-      "f1-score": 0.6666666666666666,
-      "support": 40.0
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150.0
     },
     "High": {
-      "precision": 0.5,
+      "precision": 1.0,
       "recall": 1.0,
-      "f1-score": 0.6666666666666666,
-      "support": 20.0
+      "f1-score": 1.0,
+      "support": 100.0
     },
     "Low": {
       "precision": 0.0,
@@ -149,22 +203,57 @@
       "f1-score": 0.0,
       "support": 0.0
     },
-    "accuracy": 0.6666666666666666,
+    "accuracy": 1.0,
     "macro avg": {
-      "precision": 0.375,
-      "recall": 0.375,
-      "f1-score": 0.3333333333333333,
-      "support": 60.0
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1-score": 0.5,
+      "support": 250.0
     },
     "weighted avg": {
-      "precision": 0.8333333333333334,
-      "recall": 0.6666666666666666,
-      "f1-score": 0.6666666666666666,
-      "support": 60.0
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 250.0
     }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Critical",
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "matrix": [
+      [
+        150,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
   },
   "anomaly_precision_at_k": 1.0,
   "anomaly_k": 20,
+  "anomaly_detected_count": 0,
   "rule_ml_agreement": 1.0,
-  "limitations": "Synthetic wire fixtures with low within-scenario feature diversity. Not a production accuracy estimate. Rule-derived features make agreement partly circular; unseen classes may have zero test support."
+  "limitations": "Synthetic wire fixtures with controlled feature diversity. Not a production accuracy estimate. Rule-derived features (num_rule_findings, max_finding_severity_ordinal) make agreement partly circular; unseen attack classes may have zero test support."
 }

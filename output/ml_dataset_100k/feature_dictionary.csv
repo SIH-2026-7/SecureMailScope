@@ -1,0 +1,42 @@
+field,role,encoding_or_meaning
+tls_version_ordinal,model_input,-1 missing; 0 SSLv3; 1 TLS1.0; 2 TLS1.1; 3 TLS1.2; 4 TLS1.3. Legacy code also maps SSLv2 to -1; corpus uses SSLv3.
+cipher_strength_score,model_input,"0 broken/missing, 2 other adequate, 3 GCM or ChaCha20; 1 currently unused by extractor."
+forward_secrecy,model_input,0/1 from cipher ECDHE/DHE or TLS1.3 heuristic; not a verified key exchange.
+starttls_used,model_input,0/1 TLS observed after upgrade request.
+auth_before_tls,model_input,"0/1 authentication exposed before encryption, even if encryption starts later."
+cert_days_until_expiry,model_input,Integer simulated days to expiry at capture time; 0 if no certificate.
+cert_key_bits,model_input,Simulated RSA public key size; 0 if certificate absent.
+cert_self_signed,model_input,0/1 simulated self-issued flag; 0 default when certificate absent.
+cert_sig_algo_weak,model_input,0/1 weak signature flag; 0 default when certificate absent.
+num_rule_findings,metadata_or_excluded,Number of matched rule findings; exclude from recommended model.
+max_finding_severity_ordinal,metadata_or_excluded,"0 no/Info,1 Low,2 Medium,3 High,4 Critical; exclude from recommended model."
+protocol_ordinal,model_input,"0 SMTP,1 IMAP,2 POP3; legacy 3 generic TLS unused here."
+port_is_implicit_tls,model_input,0/1 port in 465/993/995.
+starttls_advertised,model_input,0/1 upgrade advertised by server.
+starttls_requested,model_input,0/1 client requested upgrade.
+plaintext_after_starttls,model_input,0/1 plaintext command after upgrade request.
+handshake_complete,model_input,0/1 ServerHello plus encrypted-record marker/ChangeCipherSpec heuristic; no Finished verification.
+session_complete,model_input,Always 1 in this severity corpus; unassessed sessions are excluded.
+num_commands,model_input,8..180 simulated parsed command/handshake event count.
+cert_chain_length,model_input,0 certificate absent; 1 self-issued; simulated 2..4 certificate chain otherwise.
+cert_hostname_match,model_input,"1 match,0 mismatch,-1 unknown/absent."
+cert_trust_status_ordinal,model_input,"0 validation_failed,1 unknown_no_hostname (also absent),2 trusted simulated validator status."
+tls_ocsp_stapled,model_input,0/1 status_request acknowledgement only; not proof of good revocation status.
+certificate_observed,model_input,0/1 certificate evidence available; always 0 for TLS1.3 in this passive corpus.
+tls_observed,model_input,0/1 selected TLS version available.
+certificate_expired,model_input,0/1 simulated validity failure; -1 certificate absent.
+certificate_not_yet_valid,model_input,0/1 simulated validity start after capture; -1 absent.
+certificate_extensions_valid,model_input,0/1 CA=false and serverAuth policy; -1 absent.
+certificate_weak_key,model_input,0/1 validator key-strength result; -1 absent.
+client_offered_higher_version,model_input,0/1 offered version ordinal exceeds selected version.
+severity_label,target,"Supervised target: Low,Medium,High,Critical. Predefined scenario policy."
+scenario,metadata_or_excluded,Synthetic scenario family; metadata only.
+session_id,metadata_or_excluded,Unique synthetic row identifier; metadata only.
+protocol,metadata_or_excluded,Human-readable protocol; use protocol_ordinal in model.
+server_port,metadata_or_excluded,Human-readable service port; use port_is_implicit_tls in model.
+is_anomaly,metadata_or_excluded,"severity_label != Low proxy; evaluation only, never a feature."
+finding_ids,metadata_or_excluded,Rule consistency evidence; never a model feature.
+configuration_group,metadata_or_excluded,Template hash used to segregate splits; never a feature.
+split,metadata_or_excluded,Fixed train/validation/test assignment; never a feature.
+feature_sha256,metadata_or_excluded,SHA-256 of ordered recommended feature values; deduplication audit only.
+provenance,metadata_or_excluded,Always synthetic_session_metadata.

@@ -17,7 +17,12 @@ from scapy.all import Ether, IP, TCP, Raw, wrpcap
 
 ROOT = Path(__file__).resolve().parents[1]
 CAPTURE_TIME = datetime(2026, 9, 19, 10, tzinfo=timezone.utc)
+IMPLICIT_TLS_PORTS = {465, 993, 995}
+
+# Tuple format: (protocol, tls_version, cipher_hex, risk_class[, port_override])
+# When port_override is present, it indicates implicit TLS (no STARTTLS exchange).
 SCENARIOS = {
+    # --- Existing STARTTLS scenarios ---
     'hardened': ('SMTP', 'TLS1.3', 0x1301, 'Low'),
     'cleartext_auth': ('ALL', None, 0, 'Critical'),
     'expired_cert': ('SMTP', 'TLS1.2', 0xc02f, 'High'),
@@ -38,6 +43,15 @@ SCENARIOS = {
     'null_cipher': ('SMTP', 'TLS1.2', 0, 'Critical'),
     'des_cipher': ('SMTP', 'TLS1.0', 0x000a, 'Critical'),
     'tls13_alt': ('SMTP', 'TLS1.3', 0x1302, 'Low'),
+    # --- New implicit TLS scenarios (SMTPS/IMAPS/POP3S) ---
+    'smtps_hardened': ('SMTP', 'TLS1.3', 0x1301, 'Low', 465),
+    'imaps_hardened': ('IMAP', 'TLS1.3', 0x1302, 'Low', 993),
+    'pop3s_hardened': ('POP3', 'TLS1.3', 0x1303, 'Low', 995),
+    'imaps_expired': ('IMAP', 'TLS1.2', 0xc02f, 'High', 993),
+    'pop3s_weak_key': ('POP3', 'TLS1.2', 0xc02f, 'High', 995),
+    'smtps_static_rsa': ('SMTP', 'TLS1.2', 0x009c, 'High', 465),
+    'imaps_san_mismatch': ('IMAP', 'TLS1.2', 0xc02f, 'High', 993),
+    'smtps_legacy_tls10': ('SMTP', 'TLS1.0', 0x0005, 'Critical', 465),
 }
 
 
@@ -78,16 +92,26 @@ def certificate(name, bits=2048, expired=False):
 
 
 def generate(name, count=1, seed=42, disorder=False):
-    protocol, version, cipher, risk = SCENARIOS[name]
+    scenario = SCENARIOS[name]
+    protocol, version, cipher, risk = scenario[:4]
+    port_override = scenario[4] if len(scenario) > 4 else None
+    implicit_tls = port_override in IMPLICIT_TLS_PORTS if port_override else False
     rng, packets = random.Random(seed), []
     cert = None
+    cert_name = 'mail.example.test'
+    if 'san_mismatch' in name:
+        cert_name = 'wrong.example.test'
+    cert_bits = 1024 if 'weak_key' in name else 2048
+    cert_expired = 'expired' in name
     if version and version != 'TLS1.3':
-        cert = certificate('wrong.example.test' if name == 'san_mismatch' else 'mail.example.test',
-                           1024 if name == 'weak_key' else 2048, 'expired' in name)
+        cert = certificate(cert_name, cert_bits, cert_expired)
     for i in range(count):
         protocols = ['SMTP', 'IMAP', 'POP3'] if protocol == 'ALL' else [protocol]
         for offset, proto in enumerate(protocols):
-            port = {'SMTP': 587, 'IMAP': 143, 'POP3': 110}[proto]
+            if port_override:
+                port = port_override
+            else:
+                port = {'SMTP': 587, 'IMAP': 143, 'POP3': 110}[proto]
             sport = 40000 + i * 3 + offset
             seq = {'client': 1000, 'server': 9000}
             timestamp = CAPTURE_TIME.timestamp() + i * 3 + offset * 0.1
@@ -102,13 +126,19 @@ def generate(name, count=1, seed=42, disorder=False):
                 seq[direction] += len(payload) + int('S' in flags or 'F' in flags)
                 packets.append(item)
             packet('client', flags='S'); packet('server', flags='SA'); packet('client', flags='A')
-            packet('server', {'SMTP': b'220 mail.example.test ESMTP\r\n', 'IMAP': b'* OK IMAP ready\r\n', 'POP3': b'+OK POP3 ready\r\n'}[proto])
-            if proto == 'SMTP':
-                packet('client', b'EHLO client.example.test\r\n')
-                packet('server', b'250-mail.example.test\r\n250 STARTTLS\r\n')
-            if version or name == 'starttls_downgrade':
-                packet('client', {'SMTP': b'STARTTLS\r\n', 'IMAP': b'a1 STARTTLS\r\n', 'POP3': b'STLS\r\n'}[proto])
-                packet('server', {'SMTP': b'220 Ready for TLS\r\n', 'IMAP': b'a1 OK Begin TLS\r\n', 'POP3': b'+OK Begin TLS\r\n'}[proto])
+            if implicit_tls:
+                # Implicit TLS: TLS handshake starts immediately after TCP handshake
+                # No plaintext greeting or STARTTLS negotiation
+                pass
+            else:
+                # Explicit TLS (STARTTLS) flow
+                packet('server', {'SMTP': b'220 mail.example.test ESMTP\r\n', 'IMAP': b'* OK IMAP ready\r\n', 'POP3': b'+OK POP3 ready\r\n'}[proto])
+                if proto == 'SMTP':
+                    packet('client', b'EHLO client.example.test\r\n')
+                    packet('server', b'250-mail.example.test\r\n250 STARTTLS\r\n')
+                if version or name == 'starttls_downgrade':
+                    packet('client', {'SMTP': b'STARTTLS\r\n', 'IMAP': b'a1 STARTTLS\r\n', 'POP3': b'STLS\r\n'}[proto])
+                    packet('server', {'SMTP': b'220 Ready for TLS\r\n', 'IMAP': b'a1 OK Begin TLS\r\n', 'POP3': b'+OK Begin TLS\r\n'}[proto])
             if version:
                 client_hello, server_hello = hello_pair(version, cipher)
                 # Segment ClientHello and Certificate to exercise stream reassembly.

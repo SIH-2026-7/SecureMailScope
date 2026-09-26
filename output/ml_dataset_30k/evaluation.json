@@ -1,0 +1,321 @@
+{
+  "scope": "Synthetic configuration-group holdout; not real-world accuracy",
+  "validation_checks": "Passed row count, numeric schema, unique IDs/features, all classes, all profiles, split disjointness and checksum",
+  "recommended_features": [
+    "tls_version_ordinal",
+    "cipher_strength_score",
+    "forward_secrecy",
+    "starttls_used",
+    "auth_before_tls",
+    "cert_days_until_expiry",
+    "cert_key_bits",
+    "cert_self_signed",
+    "cert_sig_algo_weak",
+    "protocol_ordinal",
+    "port_is_implicit_tls",
+    "starttls_advertised",
+    "starttls_requested",
+    "plaintext_after_starttls",
+    "handshake_complete",
+    "session_complete",
+    "num_commands",
+    "cert_chain_length",
+    "cert_hostname_match",
+    "cert_trust_status_ordinal",
+    "tls_ocsp_stapled",
+    "certificate_observed",
+    "tls_observed",
+    "certificate_expired",
+    "certificate_not_yet_valid",
+    "certificate_extensions_valid",
+    "certificate_weak_key",
+    "client_offered_higher_version"
+  ],
+  "train_rows": 21239,
+  "validation_rows": 4121,
+  "test_rows": 4640,
+  "normal_training_rows": 5405,
+  "validation": {
+    "random_forest": {
+      "Critical": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 890.0
+      },
+      "High": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1142.0
+      },
+      "Low": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 869.0
+      },
+      "Medium": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1220.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4121.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4121.0
+      }
+    },
+    "confusion_labels": [
+      "Low",
+      "Medium",
+      "High",
+      "Critical"
+    ],
+    "confusion_matrix": [
+      [
+        869,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1220,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1142,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        890
+      ]
+    ],
+    "anomaly_proxy_average_precision": 0.760288423280915,
+    "anomaly_proxy_roc_auc": 0.4794033095681935,
+    "anomaly_proxy_report": {
+      "0": {
+        "precision": 0.19736842105263158,
+        "recall": 0.9148446490218642,
+        "f1-score": 0.32468858484786606,
+        "support": 869.0
+      },
+      "1": {
+        "precision": 0.20430107526881722,
+        "recall": 0.005842558425584256,
+        "f1-score": 0.011360239162929745,
+        "support": 3252.0
+      },
+      "accuracy": 0.19752487260373697,
+      "macro avg": {
+        "precision": 0.20083474816072439,
+        "recall": 0.46034360372372424,
+        "f1-score": 0.1680244120053979,
+        "support": 4121.0
+      },
+      "weighted avg": {
+        "precision": 0.2028391785170906,
+        "recall": 0.19752487260373697,
+        "f1-score": 0.07743214704941595,
+        "support": 4121.0
+      }
+    },
+    "normal_false_positive_rate": 0.08515535097813579,
+    "precision_at_100": 0.23
+  },
+  "test": {
+    "random_forest": {
+      "Critical": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1212.0
+      },
+      "High": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 972.0
+      },
+      "Low": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1226.0
+      },
+      "Medium": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1230.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4640.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 4640.0
+      }
+    },
+    "confusion_labels": [
+      "Low",
+      "Medium",
+      "High",
+      "Critical"
+    ],
+    "confusion_matrix": [
+      [
+        1226,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1230,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        972,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1212
+      ]
+    ],
+    "anomaly_proxy_average_precision": 0.7047727117566767,
+    "anomaly_proxy_roc_auc": 0.49403342058561284,
+    "anomaly_proxy_report": {
+      "0": {
+        "precision": 0.2406380027739251,
+        "recall": 0.8491027732463295,
+        "f1-score": 0.375,
+        "support": 1226.0
+      },
+      "1": {
+        "precision": 0.410828025477707,
+        "recall": 0.037785588752196834,
+        "f1-score": 0.06920600858369098,
+        "support": 3414.0
+      },
+      "accuracy": 0.2521551724137931,
+      "macro avg": {
+        "precision": 0.32573301412581607,
+        "recall": 0.4434441809992632,
+        "f1-score": 0.22210300429184548,
+        "support": 4640.0
+      },
+      "weighted avg": {
+        "precision": 0.3658597134443371,
+        "recall": 0.2521551724137931,
+        "f1-score": 0.15000416235015537,
+        "support": 4640.0
+      }
+    },
+    "normal_false_positive_rate": 0.15089722675367048,
+    "precision_at_100": 0.24
+  },
+  "legacy_23_feature_test": {
+    "Critical": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1212.0
+    },
+    "High": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 972.0
+    },
+    "Low": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1226.0
+    },
+    "Medium": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1230.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4640.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 4640.0
+    }
+  },
+  "feature_importances": {
+    "cert_trust_status_ordinal": 0.1288299589099513,
+    "auth_before_tls": 0.12527926104028844,
+    "cipher_strength_score": 0.12303658568119484,
+    "forward_secrecy": 0.09966888632276043,
+    "client_offered_higher_version": 0.09865101057052944,
+    "tls_version_ordinal": 0.06679035273457139,
+    "cert_sig_algo_weak": 0.04419488984999613,
+    "certificate_weak_key": 0.04210571772638108,
+    "certificate_extensions_valid": 0.04005055828362854,
+    "cert_hostname_match": 0.03712741627804199,
+    "certificate_not_yet_valid": 0.03552562466851538,
+    "cert_key_bits": 0.028407969803880863,
+    "cert_days_until_expiry": 0.027976565064276565,
+    "cert_self_signed": 0.027704098897451544,
+    "certificate_expired": 0.02421221638501633,
+    "cert_chain_length": 0.019650506268927247,
+    "starttls_requested": 0.005983863252507295,
+    "plaintext_after_starttls": 0.003916309448168137,
+    "num_commands": 0.0037662248233404937,
+    "certificate_observed": 0.0030560559474007206,
+    "tls_observed": 0.002879019814095006,
+    "handshake_complete": 0.002329568406978615,
+    "starttls_used": 0.0023095421660716147,
+    "starttls_advertised": 0.0022330221074599197,
+    "port_is_implicit_tls": 0.0019327141616194419,
+    "protocol_ordinal": 0.0018946209723612038,
+    "tls_ocsp_stapled": 0.000487440414586105,
+    "session_complete": 0.0
+  },
+  "limitations": [
+    "Test scenarios belong to the same synthetic scenario families as training; deployment templates are held out.",
+    "Anomaly metrics use non-Low severity as a proxy, not independently labeled novel attacks.",
+    "Candidate models require the 28 listed inputs; current app supplies 23. No deployment or app-model replacement was performed.",
+    "The 23-feature comparison includes direct rule outputs and must not be cited as independent ML detection."
+  ]
+}

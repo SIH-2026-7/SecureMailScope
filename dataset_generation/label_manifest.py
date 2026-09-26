@@ -16,6 +16,13 @@ EXPECTED = {
     'export_cipher': ['TLS-002', 'CIPHER-001', 'CIPHER-002', 'CERT-003'],
     'null_cipher': ['CIPHER-001', 'CERT-003'],
     'des_cipher': ['TLS-002', 'CIPHER-001', 'CIPHER-002', 'CERT-003'],
+    # Implicit TLS scenarios (SMTPS/IMAPS/POP3S)
+    'smtps_hardened': [], 'imaps_hardened': [], 'pop3s_hardened': [],
+    'imaps_expired': ['CERT-001', 'CERT-003'],
+    'pop3s_weak_key': ['CERT-003', 'CERT-004'],
+    'smtps_static_rsa': ['CIPHER-002', 'CERT-003'],
+    'imaps_san_mismatch': ['CERT-002', 'CERT-003'],
+    'smtps_legacy_tls10': ['TLS-002', 'CIPHER-001', 'CIPHER-002', 'CERT-003'],
 }
 
 
