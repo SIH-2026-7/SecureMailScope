@@ -17,7 +17,7 @@ const navigation = [
   ['Findings', 'alert'], ['Simulation lab', 'play'], ['Reports', 'file'],
 ];
 
-export default function App() {
+export default function App({auth}) {
   const [guide, setGuide] = useState(() => window.location.hash === '#guide');
   const [workspace, setWorkspace] = useState(() => /^#(workspace|frame-)/.test(window.location.hash));
   const [theme, setTheme] = useState(() => {try {return localStorage.getItem('sms-theme') === 'light' ? 'light' : 'dark';} catch {return 'dark';}});
@@ -178,7 +178,8 @@ export default function App() {
           <React.Fragment key={name}>{name === 'Overview' && <div className="navlabel">BROWSER SIMULATION</div>}<button className={state.page === name ? 'active' : ''} aria-current={state.page === name ? 'page' : undefined} onClick={() => navigate(name)}>
             <Icon name={icon} />{name}{name === 'Findings' && <span className="count">{metrics(state.sessions).findings}</span>}
           </button></React.Fragment>)}</nav>
-        <div className="sidebottom">{themeButton}<div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; Local analysis</strong><br /><span className="muted">Your captures stay on this device.</span></div>
+        <div className="sidebottom">{themeButton}<div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; {auth?.required ? 'Private workspace' : 'Local analysis'}</strong><br /><span className="muted">{auth?.required ? 'Your captures belong to your account.' : 'Your captures stay on this device.'}</span></div>
+          {auth?.user && <div className="account-controls"><small>{auth.user.email}</small><button onClick={auth.signOut}>Sign out</button></div>}
           <div className="profile"><div className="avatar">CP</div><div>Crypterpillars<small>SIH 2026 · PS 26159</small></div></div></div>
       </aside>
       <main className="main"><div className="topbar"><span><Icon name="mail" size={18} /> &nbsp; Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><div className="topbar-tools"><Badge><span className="status-dot" /> {isCapturePage ? 'LOCAL CAPTURE ANALYSIS' : 'SYNTHETIC SIMULATION'}</Badge><div className="mobile-theme">{themeButton}</div><a href="#guide" className="home-link">About the project <Icon name="arrow" size={15}/></a></div></div>

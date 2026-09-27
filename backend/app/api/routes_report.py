@@ -1,6 +1,7 @@
 import json
 from typing import Literal
-from fastapi import APIRouter, HTTPException, Response
+from fastapi import APIRouter, HTTPException, Response, Depends
+from .routes_auth import current_user
 from .routes_analysis import get_job
 from ..core.report_builder import html_report, pdf_report
 
@@ -8,8 +9,8 @@ router = APIRouter()
 
 
 @router.get('/report/{job_id}/export')
-def export(job_id: str, format: Literal['json', 'html', 'pdf'] = 'json'):
-    job = get_job(job_id)
+def export(job_id: str, format: Literal['json', 'html', 'pdf'] = 'json', user=Depends(current_user)):
+    job = get_job(job_id, user)
     if job.status != 'done':
         raise HTTPException(409, 'Analysis has not completed.')
     builders = {'json': (lambda r: json.dumps(r, indent=2), 'application/json'),

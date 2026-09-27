@@ -1,4 +1,5 @@
 export async function responseJson(response: Response) {
+  if (response.status === 401) window.dispatchEvent(new Event('sms-auth-expired'));
   const body = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(body.detail || `Request failed (${response.status})`);
   return body;
@@ -13,6 +14,7 @@ export function uploadCapture(file: File, progress: (percent: number) => void): 
     request.onerror = () => reject(new Error('Cannot reach the analysis service. Start the FastAPI backend on port 8000.'));
     request.ontimeout = () => reject(new Error('Upload timed out. Please retry.'));
     request.onload = () => {
+      if (request.status === 401) window.dispatchEvent(new Event('sms-auth-expired'));
       let body;
       try { body = JSON.parse(request.responseText); } catch { reject(new Error('Analysis service unavailable. Start the FastAPI backend on port 8000.')); return; }
       if (request.status >= 200 && request.status < 300) resolve(body);

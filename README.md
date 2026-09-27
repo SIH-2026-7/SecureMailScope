@@ -104,6 +104,10 @@ Tests cover PCAP/PCAPNG, all three protocols, fragmented records, expiry/SAN val
 
 ## Docker
 
+For hosted deployment with Google login and separate per-user capture histories,
+see [the Render + Supabase deployment guide](DEPLOYMENT.md). The hosted image
+requires authentication by default; local development retains single-user mode.
+
 ```sh
 docker compose up --build
 ```

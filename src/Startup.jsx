@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import App from './App.jsx';
 
-export default function Startup() {
+export default function Startup({auth}) {
   const [phase, setPhase] = useState('opening');
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,7 +11,7 @@ export default function Startup() {
     return () => {clearTimeout(finish); clearTimeout(remove);};
   }, []);
   return <>
-    <div inert={phase !== 'ready'}><App /></div>
+    <div inert={phase !== 'ready'}><App auth={auth} /></div>
     {phase !== 'ready' && <div className={`startup-screen ${phase}`} role="status" aria-label="Opening SecureMailScope">
       <div className="startup-mark"><svg viewBox="0 0 120 90" fill="none" aria-hidden="true"><path className="startup-outline" d="M10 15H110V75H10Z"/><path className="startup-seam" d="M10 75 43 40M110 75 77 40"/><path className="startup-fold" d="M10 15 60 52 110 15"/></svg></div>
       <span className="startup-name">SecureMailScope<span>.</span></span>

@@ -2,8 +2,9 @@ import os
 import uuid
 import asyncio
 from pathlib import Path
-from fastapi import APIRouter, BackgroundTasks, UploadFile, File, HTTPException
-from ..models.db_models import DB, DATA, Job, RemoteCapture
+from fastapi import APIRouter, BackgroundTasks, UploadFile, File, HTTPException, Depends
+from ..models.db_models import DB, DATA, Job, RemoteCapture, JobOwner
+from .routes_auth import current_user
 from ..core import capture_storage
 from ..core.integrity import MAX_BYTES, validate
 from ..core.pipeline import run_analysis
@@ -28,7 +29,7 @@ def analyze(job_id, path, filename):
 
 
 @router.post('/upload', status_code=202)
-async def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+async def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...), user=Depends(current_user)):
     filename = Path((file.filename or 'capture.pcap').replace('\\', '/')).name
     if Path(filename).suffix.lower() not in ('.pcap', '.pcapng'):
         raise HTTPException(400, 'Choose a .pcap or .pcapng file.')
@@ -50,6 +51,8 @@ async def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...)
                 raise HTTPException(503, 'Capture storage unavailable. Please retry.') from None
         with DB.begin() as db:
             db.add(Job(id=job_id, status='processing', filename=filename))
+            if user:
+                db.add(JobOwner(id=job_id, user_id=user['id']))
             if capture_storage.enabled():
                 db.add(RemoteCapture(id=job_id))
     except ValueError as exc:

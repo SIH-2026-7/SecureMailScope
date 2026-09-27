@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from datetime import datetime, timezone
-from sqlalchemy import create_engine, Column, String, JSON, DateTime
+from sqlalchemy import create_engine, Column, String, JSON, DateTime, Float
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATA = Path(os.environ.get('DATA_DIR', Path(__file__).resolve().parents[2] / 'data'))
@@ -25,3 +25,24 @@ class Job(Base):
 class RemoteCapture(Base):
     __tablename__ = 'remote_captures'
     id = Column(String, primary_key=True)
+
+
+class JobOwner(Base):
+    __tablename__ = 'job_owners'
+    id = Column(String, primary_key=True)
+    user_id = Column(String, nullable=False, index=True)
+
+
+class LoginFlow(Base):
+    __tablename__ = 'login_flows'
+    id = Column(String, primary_key=True)
+    verifier = Column(String, nullable=False)
+    expires = Column(Float, nullable=False)
+
+
+class UserSession(Base):
+    __tablename__ = 'user_sessions'
+    id = Column(String, primary_key=True)
+    user_id = Column(String, nullable=False)
+    email = Column(String, nullable=False)
+    expires = Column(Float, nullable=False)
