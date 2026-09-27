@@ -1,8 +1,10 @@
 import os
 import uuid
+import asyncio
 from pathlib import Path
 from fastapi import APIRouter, BackgroundTasks, UploadFile, File, HTTPException
-from ..models.db_models import DB, DATA, Job
+from ..models.db_models import DB, DATA, Job, RemoteCapture
+from ..core import capture_storage
 from ..core.integrity import MAX_BYTES, validate
 from ..core.pipeline import run_analysis
 
@@ -20,6 +22,9 @@ def analyze(job_id, path, filename):
         with DB.begin() as db:
             job = db.get(Job, job_id)
             job.status, job.error = 'error', 'Analysis failed: malformed, unsupported, or incomplete capture.'
+    finally:
+        if capture_storage.enabled():
+            path.unlink(missing_ok=True)
 
 
 @router.post('/upload', status_code=202)
@@ -38,8 +43,15 @@ async def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...)
                     raise HTTPException(413, 'Capture exceeds the 50 MB limit.')
                 handle.write(chunk)
         validate(path)
+        if capture_storage.enabled():
+            try:
+                await asyncio.to_thread(capture_storage.upload, job_id, path)
+            except Exception:
+                raise HTTPException(503, 'Capture storage unavailable. Please retry.') from None
         with DB.begin() as db:
             db.add(Job(id=job_id, status='processing', filename=filename))
+            if capture_storage.enabled():
+                db.add(RemoteCapture(id=job_id))
     except ValueError as exc:
         path.unlink(missing_ok=True)
         raise HTTPException(400, str(exc)) from exc
