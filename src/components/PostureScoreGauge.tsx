@@ -20,8 +20,8 @@ export default function PostureScoreGauge({score}: {score: number | null}) {
       plot.newPlot(node, [{type: 'indicator', mode: 'gauge+number', value: score,
         number: {suffix: ' / 100', font: {size: 30, color: colors.getPropertyValue('--ink').trim()}},
         gauge: {axis: {range: [0, 100], tickcolor: '#87929f', tickfont: {color: '#87929f'}},
-          bar: {color: score >= 90 ? '#b8b8b8' : score >= 50 ? '#eeb96b' : '#fb8189'}, bgcolor: '#3c3c3c', borderwidth: 0,
-          steps: [{range: [0, 50], color: '#543039'}, {range: [50, 90], color: '#51462f'}, {range: [90, 100], color: '#505050'}]}}],
+          bar: {color: colors.getPropertyValue(score >= 90 ? '--green' : score >= 50 ? '--amber' : '--red').trim()}, bgcolor: '#3c3c3c', borderwidth: 0,
+          steps: [{range: [0, 50], color: '#543039'}, {range: [50, 90], color: '#51462f'}, {range: [90, 100], color: '#20563e'}]}}],
         {height: 260, margin: {t: 30, b: 25, l: 40, r: 40}, paper_bgcolor: 'transparent', font: {family: 'system-ui'}},
         {responsive: true, displayModeBar: false, staticPlot: true});
     }).catch(() => {if (!disposed) node.textContent = `${score} / 100`;});

@@ -9,3 +9,4 @@ import './landing-type.css';
 createRoot(document.getElementById('app')).render(
   <React.StrictMode><Startup /></React.StrictMode>,
 );
+import './project-guide.css';

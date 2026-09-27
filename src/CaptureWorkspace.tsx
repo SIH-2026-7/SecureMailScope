@@ -9,12 +9,6 @@ type Evidence = {frame_no: number; timestamp: number; stream_id: string};
 type Finding = {rule_id: string; severity: string; title: string; description: string; remediation: string; evidence: Evidence};
 type Session = {session_id: string; protocol: string; client_ip: string; server_ip: string; server_port: number; session_score: number | null; tls: Record<string, any>; certificate: Record<string, any> | null; findings: Finding[]; commands: (Evidence & {direction: string; line: string; state: string})[]; warnings: string[]; ml_status: string; ml_risk_class: string | null; ml_anomaly_score: number | null; ml_is_anomaly: boolean | null; score_breakdown: {source: string; id: string; deduction: number}[]};
 type Report = {job_id: string; overall_posture_score: number | null; capture_meta: Record<string, any>; summary: Record<string, number>; sessions: Session[]; limitations: string[]; ml: Record<string, any>};
-const demos = [
-  ['hardened', 'Modern TLS baseline', 'TLS 1.3 negotiation; encrypted certificate remains unobserved.'],
-  ['cleartext_auth', 'Cleartext authentication', 'SMTP, IMAP and POP3 authentication with redacted evidence.'],
-  ['expired_cert', 'Expired certificate', 'TLS 1.2 certificate, checked against the capture timestamp.'],
-  ['starttls_downgrade', 'STARTTLS failure', 'Plaintext authentication continues after an upgrade request.'],
-];
 const time = (ts: number) => new Date(ts * 1000).toISOString();
 
 function FindingCard({finding: f, onEvidence}: {finding: Finding; onEvidence?: () => void}) {
@@ -41,9 +35,9 @@ function SessionDetail({session: s}: {session: Session}) {
   </>;
 }
 
-export default function CaptureWorkspace() {
+export default function CaptureWorkspace({initialJob = ''}: {initialJob?: string}) {
   const [report, setReport] = useState<Report | null>(null);
-  const [job, setJob] = useState(() => sessionStorage.getItem('securemailscope-job') || '');
+  const [job, setJob] = useState(initialJob);
   const [busy, setBusy] = useState(false), [progress, setProgress] = useState(0), [error, setError] = useState('');
   const [protocol, setProtocol] = useState('All'), [risk, setRisk] = useState('All'), [query, setQuery] = useState(''), [sort, setSort] = useState('score');
   const [selected, setSelected] = useState<Session | null>(null), [tab, setTab] = useState('Overview');
@@ -51,10 +45,11 @@ export default function CaptureWorkspace() {
   useEffect(() => {
     if (!job) return;
     const controller = new AbortController(); let timer: ReturnType<typeof setTimeout>;
-    setBusy(true);
+    lock.current = true; setBusy(true); setProgress(100);
     async function poll() {
       try {
         const result = await getAnalysis(job, controller.signal);
+        if (controller.signal.aborted) return;
         if (result.status === 'done') {setReport(result.report); setBusy(false); lock.current = false;}
         else if (result.status === 'error') {setError(result.error); setBusy(false); lock.current = false;}
         else timer = setTimeout(poll, 1000);
@@ -66,28 +61,24 @@ export default function CaptureWorkspace() {
 
   async function analyze(file?: File) {
     if (!file || lock.current) return;
-    lock.current = true; setError(''); setProgress(0); setBusy(true); setReport(null); setSelected(null);
+    lock.current = true; setJob(''); setError(''); setProgress(0); setBusy(true); setReport(null); setSelected(null);
     try {
       if (!/\.pcap(ng)?$/i.test(file.name)) throw new Error('Choose a .pcap or .pcapng file.');
       if (file.size > 50 * 1024 * 1024) throw new Error('Capture exceeds the 50 MB limit.');
       const result = await uploadCapture(file, setProgress);
-      sessionStorage.setItem('securemailscope-job', result.job_id); setJob(result.job_id); setTab('Overview');
+      setJob(result.job_id); setTab('Overview');
     } catch (e: any) {setError(e.message); setBusy(false); lock.current = false;}
-  }
-  async function demo(key: string) {
-    if (lock.current) return;
-    try {const response = await fetch(`/captures/${key}.pcap`); if (!response.ok) throw new Error('Demo capture not found. Run dataset_generation/generate_traffic.py.'); await analyze(new File([await response.blob()], `${key}.pcap`));}
-    catch (e: any) {setError(e.message);}
   }
   const rows = (report?.sessions || []).filter(s => (protocol === 'All' || s.protocol === protocol) && (risk === 'All' || s.findings.some(f => f.severity === risk)) && `${s.session_id} ${s.client_ip} ${s.server_ip}`.toLowerCase().includes(query.toLowerCase())).sort((a, b) => sort === 'score' ? (a.session_score ?? 101) - (b.session_score ?? 101) : a.session_id.localeCompare(b.session_id));
   return <>
     <Heading title="Capture analysis" subtitle="From captured packets to traceable findings. Processed by your local analysis service." />
-    <div className="capture-demo-grid">{demos.map(([key, title, description]) => <Panel key={key} className="reportcard"><Icon name="file" size={23} /><h3>{title}</h3><p>{description}</p><Button disabled={busy} onClick={() => demo(key)}>Analyze demo PCAP</Button></Panel>)}</div>
     <section className="upload" onDragOver={e => e.preventDefault()} onDrop={e => {e.preventDefault(); if (!busy) analyze(e.dataTransfer.files[0]);}}>
       <Icon name="upload" size={30} /><h2>Drop a PCAP or PCAPNG capture</h2><p className="muted">Up to 50 MB · SHA-256 integrity · SMTP / IMAP / POP3 / TLS</p>
       <input ref={fileInput} type="file" accept=".pcap,.pcapng" aria-label="Upload capture for analysis" disabled={busy} onChange={e => {analyze(e.target.files?.[0]); e.target.value = '';}} />
       {busy && <><p role="status">{progress < 100 ? `Uploading capture… ${progress}%` : 'Reconstructing streams and evaluating evidence…'}</p><progress aria-label="Upload progress" max={100} value={progress} /></>}
     </section>
+
+    {!job && !busy && !error && <p className="notice">No capture selected. Upload a file above or open an analysis from Past file analyses.</p>}
     {error && <div className="notice capture-error" role="alert">{error}</div>}
     {report && <>
       <div className="capture"><Icon name="file" size={26} /><div><strong>{report.capture_meta.filename}</strong><div className="meta">{report.capture_meta.packet_count} packets · {time(report.capture_meta.start_time)} · {report.capture_meta.extractor}</div></div><Badge>Analysis complete</Badge></div>
@@ -101,7 +92,7 @@ export default function CaptureWorkspace() {
       {tab === 'Sessions' && <><div className="toolbar"><input type="search" placeholder="Search session or IP…" aria-label="Search captured sessions" value={query} onChange={e => setQuery(e.target.value)} /><select aria-label="Capture protocol" value={protocol} onChange={e => setProtocol(e.target.value)}>{['All', 'SMTP', 'IMAP', 'POP3', 'TLS'].map(p => <option key={p}>{p}</option>)}</select><select aria-label="Finding severity" value={risk} onChange={e => setRisk(e.target.value)}>{['All', 'Critical', 'High', 'Medium', 'Low', 'Info'].map(p => <option key={p}>{p}</option>)}</select><select aria-label="Sort sessions" value={sort} onChange={e => setSort(e.target.value)}><option value="score">Lowest score first</option><option value="id">Session ID</option></select></div>
         <Panel title="Reconstructed sessions"><div className="tablewrap"><table><thead><tr>{['Session', 'Endpoints', 'TLS', 'Score', 'Top finding', 'ML risk'].map(t => <th key={t}>{t}</th>)}</tr></thead><tbody>{rows.map(s => <tr key={s.session_id}><td><Button className="textbutton" onClick={() => setSelected(s)}>{s.session_id}</Button><small>{s.protocol}</small></td><td>{s.client_ip}<small>→ {s.server_ip}:{s.server_port}</small></td><td>{s.tls.version || 'Not observed'}</td><td>{s.session_score ?? 'Unassessed'}</td><td>{[...s.findings].sort((a, b) => ['Critical', 'High', 'Medium', 'Low', 'Info'].indexOf(a.severity) - ['Critical', 'High', 'Medium', 'Low', 'Info'].indexOf(b.severity))[0]?.title || 'None observed'}</td><td>{s.ml_risk_class || 'Unavailable'}</td></tr>)}{!rows.length && <tr><td colSpan={6} className="empty">No matching sessions.</td></tr>}</tbody></table></div></Panel></>}
       {tab === 'Findings' && <>{report.sessions.filter(s => s.findings.length).map(s => <Panel key={s.session_id} className="lab"><h3>{s.session_id}</h3>{s.findings.map(f => <FindingCard key={f.rule_id} finding={f} onEvidence={() => setSelected(s)} />)}<Button onClick={() => setSelected(s)}>Open evidence timeline</Button></Panel>)}{report.sessions.every(s => !s.findings.length) && <p className="notice">No configured rules triggered. Review coverage and limitations before drawing conclusions.</p>}</>}
-      {tab === 'Reports' && <><div className="cards">{['json', 'html', 'pdf'].map(format => <Panel key={format} className="reportcard"><h2>{format.toUpperCase()} report</h2><p>Capture identity, session findings, evidence, remediation, score deductions and assessment limitations.</p><a className="capture-download focus-visible:outline-2 focus-visible:outline-offset-4" href={exportUrl(report.job_id, format)}>Download {format.toUpperCase()}</a></Panel>)}</div><Panel className="lab"><h3>Capture integrity</h3><code className="capture-hash">{report.capture_meta.sha256}</code><p>SHA-256 of the original uploaded capture. Raw uploads are deleted after analysis; redacted reports persist locally.</p></Panel></>}
+      {tab === 'Reports' && <><div className="cards">{['json', 'html', 'pdf'].map(format => <Panel key={format} className="reportcard"><h2>{format.toUpperCase()} report</h2><p>Capture identity, session findings, evidence, remediation, score deductions and assessment limitations.</p><a className="capture-download focus-visible:outline-2 focus-visible:outline-offset-4" href={exportUrl(report.job_id, format)}>Download {format.toUpperCase()}</a></Panel>)}</div><Panel className="lab"><h3>Capture integrity</h3><code className="capture-hash">{report.capture_meta.sha256}</code><p>SHA-256 of the original uploaded capture. New uploads and redacted reports persist locally in Past file analyses.</p></Panel></>}
       <details className="notice"><summary>Coverage and assessment limitations</summary>{report.limitations.map(limit => <p key={limit}>{limit}</p>)}</details>
     </>}
     <p className="notice">Offline-first: captures go to your local FastAPI service. Raw credential payloads and message bodies are omitted from reports. Demo PCAPs are generated laboratory traffic.</p>

@@ -1,0 +1,295 @@
+﻿1
+00:00:00,099 --> 00:00:02,407
+Think about what passes through email every day:
+
+2
+00:00:02,442 --> 00:00:06,120
+password resets, business documents, and private conversations.
+
+3
+00:00:06,846 --> 00:00:09,463
+Now imagine an employee logging into their mailbox,
+
+4
+00:00:09,547 --> 00:00:12,139
+but the connection sends their login details before
+
+5
+00:00:12,014 --> 00:00:15,877
+encryption begins. Someone able to observe that traffic
+
+6
+00:00:15,751 --> 00:00:17,492
+could capture those credentials.
+
+7
+00:00:18,218 --> 00:00:20,638
+The email service might still work normally.
+
+8
+00:00:21,363 --> 00:00:23,684
+To the employee, nothing would look wrong.
+
+9
+00:00:24,694 --> 00:00:27,546
+And exposed logins are only one possibility.
+
+10
+00:00:28,259 --> 00:00:31,147
+A connection might use outdated encryption, present an
+
+11
+00:00:31,022 --> 00:00:33,972
+expired security certificate, or fail to switch to
+
+12
+00:00:33,834 --> 00:00:35,168
+encryption when it should.
+
+13
+00:00:35,894 --> 00:00:39,152
+These weaknesses can put accounts and sensitive communication
+
+14
+00:00:39,027 --> 00:00:42,273
+at risk. That’s why “the email was delivered”
+
+15
+00:00:42,185 --> 00:00:45,196
+isn’t enough. We also need to know whether
+
+16
+00:00:45,071 --> 00:00:47,676
+the connection carrying it was properly protected.
+
+17
+00:00:48,674 --> 00:00:50,909
+But answering that isn’t straightforward.
+
+18
+00:00:51,634 --> 00:00:54,103
+The evidence can be scattered across thousands of
+
+19
+00:00:53,978 --> 00:00:58,124
+network packets. Someone has to reconstruct the conversation
+
+20
+00:00:57,999 --> 00:01:00,530
+and identify where protection began or where it
+
+21
+00:01:00,404 --> 00:01:03,601
+failed. The challenge is turning that traffic into
+
+22
+00:01:03,463 --> 00:01:06,019
+clear answers: what happened, why does it matter,
+
+23
+00:01:06,029 --> 00:01:07,264
+and what should we fix?
+
+24
+00:01:08,249 --> 00:01:10,952
+That’s what we’re building SecureMailScope to help with.
+
+25
+00:01:11,678 --> 00:01:13,703
+Think of it as a safety inspection for
+
+26
+00:01:13,578 --> 00:01:17,231
+email connections. You provide a recording of network
+
+27
+00:01:17,093 --> 00:01:20,105
+traffic, and it reconstructs the connections, checks for
+
+28
+00:01:19,979 --> 00:01:23,040
+observable weaknesses, and presents explained findings.
+
+29
+00:01:23,754 --> 00:01:26,864
+You get supporting evidence, suggested fixes, and an
+
+30
+00:01:26,739 --> 00:01:31,292
+exportable report. Analysis runs locally, and reports leave
+
+31
+00:01:31,167 --> 00:01:33,019
+out credentials and message bodies.
+
+32
+00:01:33,732 --> 00:01:35,967
+The goal is to make hidden connection risks
+
+33
+00:01:35,841 --> 00:01:38,310
+visible, understandable, and actionable.
+
+34
+00:01:39,310 --> 00:01:41,174
+Now, let’s look under the hood.
+
+35
+00:01:41,900 --> 00:01:45,195
+This cleartext authentication sample is a generated laboratory
+
+36
+00:01:45,070 --> 00:01:47,588
+capture, processed through the same pipeline as an
+
+37
+00:01:47,463 --> 00:01:49,821
+uploaded PCAP or PCAPNG file.
+
+38
+00:01:50,547 --> 00:01:53,891
+The backend extracts packets using TShark, with Scapy
+
+39
+00:01:53,766 --> 00:01:57,764
+as a fallback. It reconstructs TCP streams, tracks
+
+40
+00:01:57,639 --> 00:02:01,613
+retransmissions and gaps, and parses SMTP, IMAP, and
+
+41
+00:02:01,475 --> 00:02:05,449
+POP3 conversations. That sequence lets us check whether
+
+42
+00:02:05,323 --> 00:02:08,014
+authentication happened before or after encryption.
+
+43
+00:02:09,021 --> 00:02:12,711
+In this session, authentication occurs before encryption, triggering
+
+44
+00:02:12,586 --> 00:02:14,734
+the critical AUTH-001 rule.
+
+45
+00:02:15,447 --> 00:02:17,645
+We can trace the finding to its originating
+
+46
+00:02:17,507 --> 00:02:20,432
+frame, inspect the redacted command, and review the
+
+47
+00:02:20,295 --> 00:02:24,836
+recommended fix. The STARTTLS failure scenario demonstrates a
+
+48
+00:02:24,698 --> 00:02:27,981
+related problem: the client requests encryption, the upgrade
+
+49
+00:02:27,856 --> 00:02:30,756
+fails, and authentication continues in plaintext.
+
+50
+00:02:31,470 --> 00:02:34,346
+Requesting protection doesn’t mean it was established.
+
+51
+00:02:35,071 --> 00:02:37,195
+We check the observed conversation.
+
+52
+00:02:38,187 --> 00:02:42,358
+SecureMailScope also checks observable TLS versions, cipher suites,
+
+53
+00:02:42,369 --> 00:02:45,997
+and forward secrecy. When a certificate is visible,
+
+54
+00:02:46,044 --> 00:02:49,056
+it checks expiry against the capture timestamp, hostname
+
+55
+00:02:48,931 --> 00:02:51,264
+matching, key strength, and chain trust.
+
+56
+00:02:51,990 --> 00:02:53,706
+There are visibility limits.
+
+57
+00:02:54,407 --> 00:02:58,517
+TLS 1.3 encrypts certificate contents, so those details
+
+58
+00:02:58,391 --> 00:03:02,784
+may remain unknown. Incomplete sessions remain unassessed rather
+
+59
+00:03:02,647 --> 00:03:04,819
+than receiving a misleading clean score.
+
+60
+00:03:05,838 --> 00:03:09,479
+Alongside explicit rules, we provide a separate machine-learning
+
+61
+00:03:09,341 --> 00:03:13,179
+signal. A Random Forest classifies risk, while an
+
+62
+00:03:13,054 --> 00:03:17,114
+Isolation Forest flags unusual combinations of normalized cryptographic
+
+63
+00:03:16,988 --> 00:03:20,752
+features. The models analyze these features, not raw
+
+64
+00:03:20,627 --> 00:03:24,527
+email content. They use synthetic training data, so
+
+65
+00:03:24,401 --> 00:03:28,017
+they demonstrate the approach without establishing real-world accuracy.
+
+66
+00:03:28,743 --> 00:03:31,298
+The score displays rule deductions and a separate
+
+67
+00:03:31,173 --> 00:03:34,012
+machine-learning penalty, allowing us to inspect how the
+
+68
+00:03:33,874 --> 00:03:35,319
+result was calculated.
+
+69
+00:03:36,331 --> 00:03:39,194
+Finally, we can export the assessment as JSON,
+
+70
+00:03:39,254 --> 00:03:43,339
+HTML, or PDF, including evidence references and recommended
+
+71
+00:03:43,213 --> 00:03:48,198
+fixes. SecureMailScope connects packet-level observations to conclusions
+
+72
+00:03:48,073 --> 00:03:50,135
+people can inspect and act on helping us
+
+73
+00:03:50,010 --> 00:03:52,737
+look beyond whether email works, and understand how
+
+74
+00:03:52,612 --> 00:03:53,909
+securely it connects.

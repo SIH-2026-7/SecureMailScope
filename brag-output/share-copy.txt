@@ -1,0 +1,1 @@
+Your email says it's encrypted. SecureMailScope reads the handshake — and finds cleartext credentials, expired certificates, and failed STARTTLS upgrades hiding behind "secure" ports. Packet-level forensics, fully offline.

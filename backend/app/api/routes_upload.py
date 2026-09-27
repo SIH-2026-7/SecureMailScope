@@ -20,8 +20,6 @@ def analyze(job_id, path, filename):
         with DB.begin() as db:
             job = db.get(Job, job_id)
             job.status, job.error = 'error', 'Analysis failed: malformed, unsupported, or incomplete capture.'
-    finally:
-        path.unlink(missing_ok=True)
 
 
 @router.post('/upload', status_code=202)

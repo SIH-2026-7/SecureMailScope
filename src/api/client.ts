@@ -23,4 +23,7 @@ export function uploadCapture(file: File, progress: (percent: number) => void): 
 }
 
 export const getAnalysis = (job: string, signal?: AbortSignal) => fetch(`/api/analysis/${encodeURIComponent(job)}`, {signal}).then(responseJson);
+export type AnalysisHistoryEntry = {job_id: string; filename: string; status: string; created_at: string; capture_available: boolean};
+export const getAnalysisHistory = (signal?: AbortSignal): Promise<{analyses: AnalysisHistoryEntry[]}> => fetch('/api/analysis', {signal}).then(responseJson);
+export const captureUrl = (job: string) => `/api/analysis/${encodeURIComponent(job)}/capture`;
 export const exportUrl = (job: string, format: string) => `/api/report/${encodeURIComponent(job)}/export?format=${format}`;

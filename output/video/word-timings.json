@@ -1,0 +1,2642 @@
+[
+  {
+    "text": "Think",
+    "start": 0.099,
+    "end": 0.333
+  },
+  {
+    "text": "about",
+    "start": 0.345,
+    "end": 0.592
+  },
+  {
+    "text": "what",
+    "start": 0.617,
+    "end": 0.802
+  },
+  {
+    "text": "passes",
+    "start": 0.814,
+    "end": 1.196
+  },
+  {
+    "text": "through",
+    "start": 1.221,
+    "end": 1.406
+  },
+  {
+    "text": "email",
+    "start": 1.431,
+    "end": 1.776
+  },
+  {
+    "text": "every",
+    "start": 1.789,
+    "end": 1.986
+  },
+  {
+    "text": "day:",
+    "start": 1.998,
+    "end": 2.257
+  },
+  {
+    "text": "password",
+    "start": 2.442,
+    "end": 2.886
+  },
+  {
+    "text": "resets,",
+    "start": 2.899,
+    "end": 3.367
+  },
+  {
+    "text": "business",
+    "start": 3.515,
+    "end": 3.861
+  },
+  {
+    "text": "documents,",
+    "start": 3.885,
+    "end": 4.428
+  },
+  {
+    "text": "and",
+    "start": 4.601,
+    "end": 4.749
+  },
+  {
+    "text": "private",
+    "start": 4.773,
+    "end": 5.107
+  },
+  {
+    "text": "conversations.",
+    "start": 5.131,
+    "end": 5.97
+  },
+  {
+    "text": "Now",
+    "start": 6.846,
+    "end": 7.105
+  },
+  {
+    "text": "imagine",
+    "start": 7.117,
+    "end": 7.462
+  },
+  {
+    "text": "an",
+    "start": 7.487,
+    "end": 7.573
+  },
+  {
+    "text": "employee",
+    "start": 7.586,
+    "end": 7.98
+  },
+  {
+    "text": "logging",
+    "start": 8.005,
+    "end": 8.412
+  },
+  {
+    "text": "into",
+    "start": 8.437,
+    "end": 8.585
+  },
+  {
+    "text": "their",
+    "start": 8.61,
+    "end": 8.745
+  },
+  {
+    "text": "mailbox,",
+    "start": 8.758,
+    "end": 9.313
+  },
+  {
+    "text": "but",
+    "start": 9.547,
+    "end": 9.683
+  },
+  {
+    "text": "the",
+    "start": 9.707,
+    "end": 9.806
+  },
+  {
+    "text": "connection",
+    "start": 9.831,
+    "end": 10.275
+  },
+  {
+    "text": "sends",
+    "start": 10.299,
+    "end": 10.583
+  },
+  {
+    "text": "their",
+    "start": 10.608,
+    "end": 10.756
+  },
+  {
+    "text": "login",
+    "start": 10.78,
+    "end": 11.163
+  },
+  {
+    "text": "details",
+    "start": 11.187,
+    "end": 11.668
+  },
+  {
+    "text": "before",
+    "start": 11.681,
+    "end": 11.989
+  },
+  {
+    "text": "encryption",
+    "start": 12.014,
+    "end": 12.47
+  },
+  {
+    "text": "begins.",
+    "start": 12.495,
+    "end": 13.038
+  },
+  {
+    "text": "Someone",
+    "start": 13.901,
+    "end": 14.345
+  },
+  {
+    "text": "able",
+    "start": 14.37,
+    "end": 14.592
+  },
+  {
+    "text": "to",
+    "start": 14.616,
+    "end": 14.74
+  },
+  {
+    "text": "observe",
+    "start": 14.752,
+    "end": 15.147
+  },
+  {
+    "text": "that",
+    "start": 15.171,
+    "end": 15.307
+  },
+  {
+    "text": "traffic",
+    "start": 15.32,
+    "end": 15.727
+  },
+  {
+    "text": "could",
+    "start": 15.751,
+    "end": 15.936
+  },
+  {
+    "text": "capture",
+    "start": 15.961,
+    "end": 16.38
+  },
+  {
+    "text": "those",
+    "start": 16.405,
+    "end": 16.602
+  },
+  {
+    "text": "credentials.",
+    "start": 16.615,
+    "end": 17.342
+  },
+  {
+    "text": "The",
+    "start": 18.218,
+    "end": 18.354
+  },
+  {
+    "text": "email",
+    "start": 18.378,
+    "end": 18.749
+  },
+  {
+    "text": "service",
+    "start": 18.773,
+    "end": 19.156
+  },
+  {
+    "text": "might",
+    "start": 19.18,
+    "end": 19.378
+  },
+  {
+    "text": "still",
+    "start": 19.39,
+    "end": 19.674
+  },
+  {
+    "text": "work",
+    "start": 19.698,
+    "end": 19.92
+  },
+  {
+    "text": "normally.",
+    "start": 19.945,
+    "end": 20.488
+  },
+  {
+    "text": "To",
+    "start": 21.363,
+    "end": 21.474
+  },
+  {
+    "text": "the",
+    "start": 21.487,
+    "end": 21.573
+  },
+  {
+    "text": "employee,",
+    "start": 21.585,
+    "end": 22.19
+  },
+  {
+    "text": "nothing",
+    "start": 22.424,
+    "end": 22.733
+  },
+  {
+    "text": "would",
+    "start": 22.757,
+    "end": 22.893
+  },
+  {
+    "text": "look",
+    "start": 22.918,
+    "end": 23.103
+  },
+  {
+    "text": "wrong.",
+    "start": 23.127,
+    "end": 23.534
+  },
+  {
+    "text": "And",
+    "start": 24.694,
+    "end": 24.879
+  },
+  {
+    "text": "exposed",
+    "start": 24.904,
+    "end": 25.434
+  },
+  {
+    "text": "logins",
+    "start": 25.459,
+    "end": 25.903
+  },
+  {
+    "text": "are",
+    "start": 25.928,
+    "end": 26.051
+  },
+  {
+    "text": "only",
+    "start": 26.076,
+    "end": 26.31
+  },
+  {
+    "text": "one",
+    "start": 26.335,
+    "end": 26.569
+  },
+  {
+    "text": "possibility.",
+    "start": 26.594,
+    "end": 27.396
+  },
+  {
+    "text": "A",
+    "start": 28.259,
+    "end": 28.382
+  },
+  {
+    "text": "connection",
+    "start": 28.407,
+    "end": 28.888
+  },
+  {
+    "text": "might",
+    "start": 28.913,
+    "end": 29.11
+  },
+  {
+    "text": "use",
+    "start": 29.122,
+    "end": 29.32
+  },
+  {
+    "text": "outdated",
+    "start": 29.344,
+    "end": 29.813
+  },
+  {
+    "text": "encryption,",
+    "start": 29.825,
+    "end": 30.331
+  },
+  {
+    "text": "present",
+    "start": 30.516,
+    "end": 30.886
+  },
+  {
+    "text": "an",
+    "start": 30.911,
+    "end": 30.997
+  },
+  {
+    "text": "expired",
+    "start": 31.022,
+    "end": 31.491
+  },
+  {
+    "text": "security",
+    "start": 31.515,
+    "end": 31.996
+  },
+  {
+    "text": "certificate,",
+    "start": 32.021,
+    "end": 32.638
+  },
+  {
+    "text": "or",
+    "start": 32.86,
+    "end": 32.983
+  },
+  {
+    "text": "fail",
+    "start": 33.008,
+    "end": 33.279
+  },
+  {
+    "text": "to",
+    "start": 33.304,
+    "end": 33.402
+  },
+  {
+    "text": "switch",
+    "start": 33.415,
+    "end": 33.711
+  },
+  {
+    "text": "to",
+    "start": 33.723,
+    "end": 33.822
+  },
+  {
+    "text": "encryption",
+    "start": 33.834,
+    "end": 34.377
+  },
+  {
+    "text": "when",
+    "start": 34.402,
+    "end": 34.525
+  },
+  {
+    "text": "it",
+    "start": 34.537,
+    "end": 34.611
+  },
+  {
+    "text": "should.",
+    "start": 34.636,
+    "end": 35.018
+  },
+  {
+    "text": "These",
+    "start": 35.894,
+    "end": 36.153
+  },
+  {
+    "text": "weaknesses",
+    "start": 36.165,
+    "end": 36.72
+  },
+  {
+    "text": "can",
+    "start": 36.745,
+    "end": 36.905
+  },
+  {
+    "text": "put",
+    "start": 36.93,
+    "end": 37.078
+  },
+  {
+    "text": "accounts",
+    "start": 37.091,
+    "end": 37.473
+  },
+  {
+    "text": "and",
+    "start": 37.498,
+    "end": 37.621
+  },
+  {
+    "text": "sensitive",
+    "start": 37.646,
+    "end": 38.188
+  },
+  {
+    "text": "communication",
+    "start": 38.213,
+    "end": 39.002
+  },
+  {
+    "text": "at",
+    "start": 39.027,
+    "end": 39.138
+  },
+  {
+    "text": "risk.",
+    "start": 39.163,
+    "end": 39.57
+  },
+  {
+    "text": "That\u2019s",
+    "start": 40.433,
+    "end": 40.729
+  },
+  {
+    "text": "why",
+    "start": 40.742,
+    "end": 40.89
+  },
+  {
+    "text": "\u201cthe",
+    "start": 40.951,
+    "end": 41.05
+  },
+  {
+    "text": "email",
+    "start": 41.075,
+    "end": 41.494
+  },
+  {
+    "text": "was",
+    "start": 41.519,
+    "end": 41.679
+  },
+  {
+    "text": "delivered\u201d",
+    "start": 41.704,
+    "end": 42.123
+  },
+  {
+    "text": "isn\u2019t",
+    "start": 42.185,
+    "end": 42.444
+  },
+  {
+    "text": "enough.",
+    "start": 42.468,
+    "end": 42.9
+  },
+  {
+    "text": "We",
+    "start": 43.776,
+    "end": 43.973
+  },
+  {
+    "text": "also",
+    "start": 43.998,
+    "end": 44.22
+  },
+  {
+    "text": "need",
+    "start": 44.245,
+    "end": 44.43
+  },
+  {
+    "text": "to",
+    "start": 44.442,
+    "end": 44.541
+  },
+  {
+    "text": "know",
+    "start": 44.565,
+    "end": 44.787
+  },
+  {
+    "text": "whether",
+    "start": 44.8,
+    "end": 45.046
+  },
+  {
+    "text": "the",
+    "start": 45.071,
+    "end": 45.182
+  },
+  {
+    "text": "connection",
+    "start": 45.207,
+    "end": 45.688
+  },
+  {
+    "text": "carrying",
+    "start": 45.712,
+    "end": 46.107
+  },
+  {
+    "text": "it",
+    "start": 46.132,
+    "end": 46.206
+  },
+  {
+    "text": "was",
+    "start": 46.23,
+    "end": 46.391
+  },
+  {
+    "text": "properly",
+    "start": 46.415,
+    "end": 46.896
+  },
+  {
+    "text": "protected.",
+    "start": 46.909,
+    "end": 47.526
+  },
+  {
+    "text": "But",
+    "start": 48.674,
+    "end": 48.872
+  },
+  {
+    "text": "answering",
+    "start": 48.896,
+    "end": 49.365
+  },
+  {
+    "text": "that",
+    "start": 49.39,
+    "end": 49.562
+  },
+  {
+    "text": "isn\u2019t",
+    "start": 49.575,
+    "end": 49.871
+  },
+  {
+    "text": "straightforward.",
+    "start": 49.883,
+    "end": 50.759
+  },
+  {
+    "text": "The",
+    "start": 51.634,
+    "end": 51.77
+  },
+  {
+    "text": "evidence",
+    "start": 51.795,
+    "end": 52.239
+  },
+  {
+    "text": "can",
+    "start": 52.264,
+    "end": 52.412
+  },
+  {
+    "text": "be",
+    "start": 52.424,
+    "end": 52.535
+  },
+  {
+    "text": "scattered",
+    "start": 52.547,
+    "end": 52.979
+  },
+  {
+    "text": "across",
+    "start": 53.004,
+    "end": 53.361
+  },
+  {
+    "text": "thousands",
+    "start": 53.386,
+    "end": 53.855
+  },
+  {
+    "text": "of",
+    "start": 53.879,
+    "end": 53.953
+  },
+  {
+    "text": "network",
+    "start": 53.978,
+    "end": 54.36
+  },
+  {
+    "text": "packets.",
+    "start": 54.385,
+    "end": 54.928
+  },
+  {
+    "text": "Someone",
+    "start": 55.779,
+    "end": 56.186
+  },
+  {
+    "text": "has",
+    "start": 56.211,
+    "end": 56.383
+  },
+  {
+    "text": "to",
+    "start": 56.408,
+    "end": 56.507
+  },
+  {
+    "text": "reconstruct",
+    "start": 56.531,
+    "end": 57.16
+  },
+  {
+    "text": "the",
+    "start": 57.185,
+    "end": 57.271
+  },
+  {
+    "text": "conversation",
+    "start": 57.284,
+    "end": 57.974
+  },
+  {
+    "text": "and",
+    "start": 57.999,
+    "end": 58.11
+  },
+  {
+    "text": "identify",
+    "start": 58.135,
+    "end": 58.715
+  },
+  {
+    "text": "where",
+    "start": 58.739,
+    "end": 58.937
+  },
+  {
+    "text": "protection",
+    "start": 58.949,
+    "end": 59.43
+  },
+  {
+    "text": "began",
+    "start": 59.442,
+    "end": 59.874
+  },
+  {
+    "text": "or",
+    "start": 59.973,
+    "end": 60.096
+  },
+  {
+    "text": "where",
+    "start": 60.121,
+    "end": 60.281
+  },
+  {
+    "text": "it",
+    "start": 60.306,
+    "end": 60.38
+  },
+  {
+    "text": "failed.",
+    "start": 60.404,
+    "end": 60.861
+  },
+  {
+    "text": "The",
+    "start": 61.724,
+    "end": 61.847
+  },
+  {
+    "text": "challenge",
+    "start": 61.86,
+    "end": 62.267
+  },
+  {
+    "text": "is",
+    "start": 62.292,
+    "end": 62.39
+  },
+  {
+    "text": "turning",
+    "start": 62.403,
+    "end": 62.686
+  },
+  {
+    "text": "that",
+    "start": 62.711,
+    "end": 62.847
+  },
+  {
+    "text": "traffic",
+    "start": 62.859,
+    "end": 63.254
+  },
+  {
+    "text": "into",
+    "start": 63.278,
+    "end": 63.451
+  },
+  {
+    "text": "clear",
+    "start": 63.463,
+    "end": 63.722
+  },
+  {
+    "text": "answers:",
+    "start": 63.747,
+    "end": 64.129
+  },
+  {
+    "text": "what",
+    "start": 64.351,
+    "end": 64.512
+  },
+  {
+    "text": "happened,",
+    "start": 64.536,
+    "end": 64.919
+  },
+  {
+    "text": "why",
+    "start": 65.079,
+    "end": 65.215
+  },
+  {
+    "text": "does",
+    "start": 65.227,
+    "end": 65.4
+  },
+  {
+    "text": "it",
+    "start": 65.424,
+    "end": 65.511
+  },
+  {
+    "text": "matter,",
+    "start": 65.536,
+    "end": 65.869
+  },
+  {
+    "text": "and",
+    "start": 66.029,
+    "end": 66.128
+  },
+  {
+    "text": "what",
+    "start": 66.152,
+    "end": 66.288
+  },
+  {
+    "text": "should",
+    "start": 66.313,
+    "end": 66.473
+  },
+  {
+    "text": "we",
+    "start": 66.498,
+    "end": 66.609
+  },
+  {
+    "text": "fix?",
+    "start": 66.633,
+    "end": 67.114
+  },
+  {
+    "text": "That\u2019s",
+    "start": 68.249,
+    "end": 68.496
+  },
+  {
+    "text": "what",
+    "start": 68.508,
+    "end": 68.668
+  },
+  {
+    "text": "we\u2019re",
+    "start": 68.693,
+    "end": 68.841
+  },
+  {
+    "text": "building",
+    "start": 68.866,
+    "end": 69.199
+  },
+  {
+    "text": "SecureMailScope",
+    "start": 69.211,
+    "end": 70.161
+  },
+  {
+    "text": "to",
+    "start": 70.186,
+    "end": 70.26
+  },
+  {
+    "text": "help",
+    "start": 70.284,
+    "end": 70.506
+  },
+  {
+    "text": "with.",
+    "start": 70.519,
+    "end": 70.802
+  },
+  {
+    "text": "Think",
+    "start": 71.678,
+    "end": 71.962
+  },
+  {
+    "text": "of",
+    "start": 71.974,
+    "end": 72.06
+  },
+  {
+    "text": "it",
+    "start": 72.085,
+    "end": 72.196
+  },
+  {
+    "text": "as",
+    "start": 72.221,
+    "end": 72.344
+  },
+  {
+    "text": "a",
+    "start": 72.369,
+    "end": 72.43
+  },
+  {
+    "text": "safety",
+    "start": 72.443,
+    "end": 72.813
+  },
+  {
+    "text": "inspection",
+    "start": 72.837,
+    "end": 73.368
+  },
+  {
+    "text": "for",
+    "start": 73.393,
+    "end": 73.553
+  },
+  {
+    "text": "email",
+    "start": 73.578,
+    "end": 73.911
+  },
+  {
+    "text": "connections.",
+    "start": 73.923,
+    "end": 74.564
+  },
+  {
+    "text": "You",
+    "start": 75.428,
+    "end": 75.613
+  },
+  {
+    "text": "provide",
+    "start": 75.637,
+    "end": 76.007
+  },
+  {
+    "text": "a",
+    "start": 76.02,
+    "end": 76.057
+  },
+  {
+    "text": "recording",
+    "start": 76.069,
+    "end": 76.563
+  },
+  {
+    "text": "of",
+    "start": 76.587,
+    "end": 76.674
+  },
+  {
+    "text": "network",
+    "start": 76.698,
+    "end": 77.081
+  },
+  {
+    "text": "traffic,",
+    "start": 77.093,
+    "end": 77.512
+  },
+  {
+    "text": "and",
+    "start": 77.71,
+    "end": 77.808
+  },
+  {
+    "text": "it",
+    "start": 77.833,
+    "end": 77.944
+  },
+  {
+    "text": "reconstructs",
+    "start": 77.956,
+    "end": 78.647
+  },
+  {
+    "text": "the",
+    "start": 78.659,
+    "end": 78.77
+  },
+  {
+    "text": "connections,",
+    "start": 78.795,
+    "end": 79.35
+  },
+  {
+    "text": "checks",
+    "start": 79.535,
+    "end": 79.782
+  },
+  {
+    "text": "for",
+    "start": 79.807,
+    "end": 79.955
+  },
+  {
+    "text": "observable",
+    "start": 79.979,
+    "end": 80.522
+  },
+  {
+    "text": "weaknesses,",
+    "start": 80.547,
+    "end": 81.089
+  },
+  {
+    "text": "and",
+    "start": 81.274,
+    "end": 81.398
+  },
+  {
+    "text": "presents",
+    "start": 81.41,
+    "end": 81.817
+  },
+  {
+    "text": "explained",
+    "start": 81.842,
+    "end": 82.286
+  },
+  {
+    "text": "findings.",
+    "start": 82.31,
+    "end": 82.89
+  },
+  {
+    "text": "You",
+    "start": 83.754,
+    "end": 83.939
+  },
+  {
+    "text": "get",
+    "start": 83.963,
+    "end": 84.124
+  },
+  {
+    "text": "supporting",
+    "start": 84.136,
+    "end": 84.592
+  },
+  {
+    "text": "evidence,",
+    "start": 84.605,
+    "end": 85.024
+  },
+  {
+    "text": "suggested",
+    "start": 85.209,
+    "end": 85.764
+  },
+  {
+    "text": "fixes,",
+    "start": 85.789,
+    "end": 86.233
+  },
+  {
+    "text": "and",
+    "start": 86.442,
+    "end": 86.603
+  },
+  {
+    "text": "an",
+    "start": 86.628,
+    "end": 86.714
+  },
+  {
+    "text": "exportable",
+    "start": 86.739,
+    "end": 87.331
+  },
+  {
+    "text": "report.",
+    "start": 87.343,
+    "end": 87.836
+  },
+  {
+    "text": "Analysis",
+    "start": 88.712,
+    "end": 89.366
+  },
+  {
+    "text": "runs",
+    "start": 89.39,
+    "end": 89.649
+  },
+  {
+    "text": "locally,",
+    "start": 89.674,
+    "end": 90.118
+  },
+  {
+    "text": "and",
+    "start": 90.34,
+    "end": 90.476
+  },
+  {
+    "text": "reports",
+    "start": 90.501,
+    "end": 90.908
+  },
+  {
+    "text": "leave",
+    "start": 90.932,
+    "end": 91.142
+  },
+  {
+    "text": "out",
+    "start": 91.167,
+    "end": 91.302
+  },
+  {
+    "text": "credentials",
+    "start": 91.327,
+    "end": 91.907
+  },
+  {
+    "text": "and",
+    "start": 91.931,
+    "end": 92.018
+  },
+  {
+    "text": "message",
+    "start": 92.042,
+    "end": 92.363
+  },
+  {
+    "text": "bodies.",
+    "start": 92.388,
+    "end": 92.869
+  },
+  {
+    "text": "The",
+    "start": 93.732,
+    "end": 93.88
+  },
+  {
+    "text": "goal",
+    "start": 93.893,
+    "end": 94.189
+  },
+  {
+    "text": "is",
+    "start": 94.201,
+    "end": 94.324
+  },
+  {
+    "text": "to",
+    "start": 94.337,
+    "end": 94.423
+  },
+  {
+    "text": "make",
+    "start": 94.435,
+    "end": 94.645
+  },
+  {
+    "text": "hidden",
+    "start": 94.67,
+    "end": 94.953
+  },
+  {
+    "text": "connection",
+    "start": 94.978,
+    "end": 95.484
+  },
+  {
+    "text": "risks",
+    "start": 95.508,
+    "end": 95.817
+  },
+  {
+    "text": "visible,",
+    "start": 95.841,
+    "end": 96.285
+  },
+  {
+    "text": "understandable,",
+    "start": 96.446,
+    "end": 97.235
+  },
+  {
+    "text": "and",
+    "start": 97.396,
+    "end": 97.507
+  },
+  {
+    "text": "actionable.",
+    "start": 97.531,
+    "end": 98.16
+  },
+  {
+    "text": "Now,",
+    "start": 99.31,
+    "end": 99.668
+  },
+  {
+    "text": "let\u2019s",
+    "start": 99.89,
+    "end": 100.112
+  },
+  {
+    "text": "look",
+    "start": 100.124,
+    "end": 100.321
+  },
+  {
+    "text": "under",
+    "start": 100.334,
+    "end": 100.543
+  },
+  {
+    "text": "the",
+    "start": 100.556,
+    "end": 100.642
+  },
+  {
+    "text": "hood.",
+    "start": 100.667,
+    "end": 101.024
+  },
+  {
+    "text": "This",
+    "start": 101.9,
+    "end": 102.11
+  },
+  {
+    "text": "cleartext",
+    "start": 102.122,
+    "end": 102.64
+  },
+  {
+    "text": "authentication",
+    "start": 102.665,
+    "end": 103.343
+  },
+  {
+    "text": "sample",
+    "start": 103.368,
+    "end": 103.763
+  },
+  {
+    "text": "is",
+    "start": 103.775,
+    "end": 103.874
+  },
+  {
+    "text": "a",
+    "start": 103.886,
+    "end": 103.948
+  },
+  {
+    "text": "generated",
+    "start": 103.96,
+    "end": 104.503
+  },
+  {
+    "text": "laboratory",
+    "start": 104.527,
+    "end": 105.045
+  },
+  {
+    "text": "capture,",
+    "start": 105.07,
+    "end": 105.477
+  },
+  {
+    "text": "processed",
+    "start": 105.761,
+    "end": 106.18
+  },
+  {
+    "text": "through",
+    "start": 106.205,
+    "end": 106.341
+  },
+  {
+    "text": "the",
+    "start": 106.353,
+    "end": 106.452
+  },
+  {
+    "text": "same",
+    "start": 106.464,
+    "end": 106.711
+  },
+  {
+    "text": "pipeline",
+    "start": 106.723,
+    "end": 107.167
+  },
+  {
+    "text": "as",
+    "start": 107.192,
+    "end": 107.315
+  },
+  {
+    "text": "an",
+    "start": 107.34,
+    "end": 107.438
+  },
+  {
+    "text": "uploaded",
+    "start": 107.463,
+    "end": 107.858
+  },
+  {
+    "text": "PCAP",
+    "start": 107.882,
+    "end": 108.339
+  },
+  {
+    "text": "or",
+    "start": 108.351,
+    "end": 108.474
+  },
+  {
+    "text": "PCAPNG",
+    "start": 108.487,
+    "end": 109.264
+  },
+  {
+    "text": "file.",
+    "start": 109.289,
+    "end": 109.671
+  },
+  {
+    "text": "The",
+    "start": 110.547,
+    "end": 110.682
+  },
+  {
+    "text": "backend",
+    "start": 110.707,
+    "end": 111.089
+  },
+  {
+    "text": "extracts",
+    "start": 111.114,
+    "end": 111.583
+  },
+  {
+    "text": "packets",
+    "start": 111.607,
+    "end": 112.015
+  },
+  {
+    "text": "using",
+    "start": 112.027,
+    "end": 112.335
+  },
+  {
+    "text": "TShark,",
+    "start": 112.36,
+    "end": 112.915
+  },
+  {
+    "text": "with",
+    "start": 113.162,
+    "end": 113.322
+  },
+  {
+    "text": "Scapy",
+    "start": 113.347,
+    "end": 113.741
+  },
+  {
+    "text": "as",
+    "start": 113.766,
+    "end": 113.865
+  },
+  {
+    "text": "a",
+    "start": 113.889,
+    "end": 113.951
+  },
+  {
+    "text": "fallback.",
+    "start": 113.963,
+    "end": 114.506
+  },
+  {
+    "text": "It",
+    "start": 115.357,
+    "end": 115.542
+  },
+  {
+    "text": "reconstructs",
+    "start": 115.555,
+    "end": 116.171
+  },
+  {
+    "text": "TCP",
+    "start": 116.196,
+    "end": 116.751
+  },
+  {
+    "text": "streams,",
+    "start": 116.776,
+    "end": 117.17
+  },
+  {
+    "text": "tracks",
+    "start": 117.294,
+    "end": 117.614
+  },
+  {
+    "text": "retransmissions",
+    "start": 117.639,
+    "end": 118.465
+  },
+  {
+    "text": "and",
+    "start": 118.552,
+    "end": 118.614
+  },
+  {
+    "text": "gaps,",
+    "start": 118.638,
+    "end": 118.984
+  },
+  {
+    "text": "and",
+    "start": 119.218,
+    "end": 119.354
+  },
+  {
+    "text": "parses",
+    "start": 119.378,
+    "end": 119.736
+  },
+  {
+    "text": "SMTP,",
+    "start": 119.761,
+    "end": 120.488
+  },
+  {
+    "text": "IMAP,",
+    "start": 120.686,
+    "end": 121.08
+  },
+  {
+    "text": "and",
+    "start": 121.376,
+    "end": 121.463
+  },
+  {
+    "text": "POP3",
+    "start": 121.475,
+    "end": 121.882
+  },
+  {
+    "text": "conversations.",
+    "start": 121.907,
+    "end": 122.77
+  },
+  {
+    "text": "That",
+    "start": 123.646,
+    "end": 123.856
+  },
+  {
+    "text": "sequence",
+    "start": 123.868,
+    "end": 124.324
+  },
+  {
+    "text": "lets",
+    "start": 124.337,
+    "end": 124.571
+  },
+  {
+    "text": "us",
+    "start": 124.596,
+    "end": 124.719
+  },
+  {
+    "text": "check",
+    "start": 124.744,
+    "end": 125.015
+  },
+  {
+    "text": "whether",
+    "start": 125.027,
+    "end": 125.299
+  },
+  {
+    "text": "authentication",
+    "start": 125.323,
+    "end": 126.027
+  },
+  {
+    "text": "happened",
+    "start": 126.051,
+    "end": 126.384
+  },
+  {
+    "text": "before",
+    "start": 126.409,
+    "end": 126.853
+  },
+  {
+    "text": "or",
+    "start": 126.865,
+    "end": 127.013
+  },
+  {
+    "text": "after",
+    "start": 127.026,
+    "end": 127.309
+  },
+  {
+    "text": "encryption.",
+    "start": 127.334,
+    "end": 127.864
+  },
+  {
+    "text": "In",
+    "start": 129.021,
+    "end": 129.181
+  },
+  {
+    "text": "this",
+    "start": 129.206,
+    "end": 129.354
+  },
+  {
+    "text": "session,",
+    "start": 129.379,
+    "end": 129.749
+  },
+  {
+    "text": "authentication",
+    "start": 129.946,
+    "end": 130.698
+  },
+  {
+    "text": "occurs",
+    "start": 130.723,
+    "end": 131.056
+  },
+  {
+    "text": "before",
+    "start": 131.068,
+    "end": 131.377
+  },
+  {
+    "text": "encryption,",
+    "start": 131.401,
+    "end": 131.895
+  },
+  {
+    "text": "triggering",
+    "start": 132.129,
+    "end": 132.561
+  },
+  {
+    "text": "the",
+    "start": 132.586,
+    "end": 132.697
+  },
+  {
+    "text": "critical",
+    "start": 132.721,
+    "end": 133.19
+  },
+  {
+    "text": "AUTH-001",
+    "start": 133.202,
+    "end": 134.251
+  },
+  {
+    "text": "rule.",
+    "start": 134.263,
+    "end": 134.584
+  },
+  {
+    "text": "We",
+    "start": 135.447,
+    "end": 135.632
+  },
+  {
+    "text": "can",
+    "start": 135.644,
+    "end": 135.78
+  },
+  {
+    "text": "trace",
+    "start": 135.805,
+    "end": 136.089
+  },
+  {
+    "text": "the",
+    "start": 136.113,
+    "end": 136.224
+  },
+  {
+    "text": "finding",
+    "start": 136.237,
+    "end": 136.582
+  },
+  {
+    "text": "to",
+    "start": 136.607,
+    "end": 136.73
+  },
+  {
+    "text": "its",
+    "start": 136.742,
+    "end": 136.866
+  },
+  {
+    "text": "originating",
+    "start": 136.878,
+    "end": 137.495
+  },
+  {
+    "text": "frame,",
+    "start": 137.507,
+    "end": 137.865
+  },
+  {
+    "text": "inspect",
+    "start": 138.025,
+    "end": 138.395
+  },
+  {
+    "text": "the",
+    "start": 138.407,
+    "end": 138.494
+  },
+  {
+    "text": "redacted",
+    "start": 138.506,
+    "end": 139.036
+  },
+  {
+    "text": "command,",
+    "start": 139.061,
+    "end": 139.505
+  },
+  {
+    "text": "and",
+    "start": 139.678,
+    "end": 139.826
+  },
+  {
+    "text": "review",
+    "start": 139.851,
+    "end": 140.147
+  },
+  {
+    "text": "the",
+    "start": 140.171,
+    "end": 140.282
+  },
+  {
+    "text": "recommended",
+    "start": 140.295,
+    "end": 140.85
+  },
+  {
+    "text": "fix.",
+    "start": 140.874,
+    "end": 141.331
+  },
+  {
+    "text": "The",
+    "start": 142.194,
+    "end": 142.317
+  },
+  {
+    "text": "STARTTLS",
+    "start": 142.342,
+    "end": 143.082
+  },
+  {
+    "text": "failure",
+    "start": 143.107,
+    "end": 143.465
+  },
+  {
+    "text": "scenario",
+    "start": 143.489,
+    "end": 143.97
+  },
+  {
+    "text": "demonstrates",
+    "start": 143.995,
+    "end": 144.624
+  },
+  {
+    "text": "a",
+    "start": 144.636,
+    "end": 144.686
+  },
+  {
+    "text": "related",
+    "start": 144.698,
+    "end": 145.117
+  },
+  {
+    "text": "problem:",
+    "start": 145.13,
+    "end": 145.537
+  },
+  {
+    "text": "the",
+    "start": 145.709,
+    "end": 145.821
+  },
+  {
+    "text": "client",
+    "start": 145.845,
+    "end": 146.166
+  },
+  {
+    "text": "requests",
+    "start": 146.178,
+    "end": 146.598
+  },
+  {
+    "text": "encryption,",
+    "start": 146.622,
+    "end": 147.153
+  },
+  {
+    "text": "the",
+    "start": 147.313,
+    "end": 147.424
+  },
+  {
+    "text": "upgrade",
+    "start": 147.449,
+    "end": 147.831
+  },
+  {
+    "text": "fails,",
+    "start": 147.856,
+    "end": 148.226
+  },
+  {
+    "text": "and",
+    "start": 148.423,
+    "end": 148.546
+  },
+  {
+    "text": "authentication",
+    "start": 148.571,
+    "end": 149.299
+  },
+  {
+    "text": "continues",
+    "start": 149.324,
+    "end": 149.866
+  },
+  {
+    "text": "in",
+    "start": 149.891,
+    "end": 149.965
+  },
+  {
+    "text": "plaintext.",
+    "start": 149.977,
+    "end": 150.606
+  },
+  {
+    "text": "Requesting",
+    "start": 151.47,
+    "end": 152.037
+  },
+  {
+    "text": "protection",
+    "start": 152.049,
+    "end": 152.605
+  },
+  {
+    "text": "doesn\u2019t",
+    "start": 152.629,
+    "end": 152.95
+  },
+  {
+    "text": "mean",
+    "start": 152.962,
+    "end": 153.172
+  },
+  {
+    "text": "it",
+    "start": 153.197,
+    "end": 153.295
+  },
+  {
+    "text": "was",
+    "start": 153.308,
+    "end": 153.468
+  },
+  {
+    "text": "established.",
+    "start": 153.493,
+    "end": 154.196
+  },
+  {
+    "text": "We",
+    "start": 155.071,
+    "end": 155.256
+  },
+  {
+    "text": "check",
+    "start": 155.269,
+    "end": 155.552
+  },
+  {
+    "text": "the",
+    "start": 155.577,
+    "end": 155.688
+  },
+  {
+    "text": "observed",
+    "start": 155.7,
+    "end": 156.182
+  },
+  {
+    "text": "conversation.",
+    "start": 156.206,
+    "end": 157.045
+  },
+  {
+    "text": "SecureMailScope",
+    "start": 158.187,
+    "end": 159.162
+  },
+  {
+    "text": "also",
+    "start": 159.174,
+    "end": 159.433
+  },
+  {
+    "text": "checks",
+    "start": 159.445,
+    "end": 159.729
+  },
+  {
+    "text": "observable",
+    "start": 159.754,
+    "end": 160.272
+  },
+  {
+    "text": "TLS",
+    "start": 160.296,
+    "end": 160.814
+  },
+  {
+    "text": "versions,",
+    "start": 160.827,
+    "end": 161.271
+  },
+  {
+    "text": "cipher",
+    "start": 161.468,
+    "end": 161.838
+  },
+  {
+    "text": "suites,",
+    "start": 161.863,
+    "end": 162.208
+  },
+  {
+    "text": "and",
+    "start": 162.369,
+    "end": 162.517
+  },
+  {
+    "text": "forward",
+    "start": 162.541,
+    "end": 162.911
+  },
+  {
+    "text": "secrecy.",
+    "start": 162.936,
+    "end": 163.565
+  },
+  {
+    "text": "When",
+    "start": 164.441,
+    "end": 164.576
+  },
+  {
+    "text": "a",
+    "start": 164.601,
+    "end": 164.651
+  },
+  {
+    "text": "certificate",
+    "start": 164.663,
+    "end": 165.243
+  },
+  {
+    "text": "is",
+    "start": 165.267,
+    "end": 165.391
+  },
+  {
+    "text": "visible,",
+    "start": 165.415,
+    "end": 165.847
+  },
+  {
+    "text": "it",
+    "start": 166.044,
+    "end": 166.131
+  },
+  {
+    "text": "checks",
+    "start": 166.143,
+    "end": 166.427
+  },
+  {
+    "text": "expiry",
+    "start": 166.451,
+    "end": 166.883
+  },
+  {
+    "text": "against",
+    "start": 166.908,
+    "end": 167.204
+  },
+  {
+    "text": "the",
+    "start": 167.228,
+    "end": 167.315
+  },
+  {
+    "text": "capture",
+    "start": 167.339,
+    "end": 167.722
+  },
+  {
+    "text": "timestamp,",
+    "start": 167.746,
+    "end": 168.302
+  },
+  {
+    "text": "hostname",
+    "start": 168.511,
+    "end": 168.906
+  },
+  {
+    "text": "matching,",
+    "start": 168.931,
+    "end": 169.325
+  },
+  {
+    "text": "key",
+    "start": 169.523,
+    "end": 169.683
+  },
+  {
+    "text": "strength,",
+    "start": 169.708,
+    "end": 170.065
+  },
+  {
+    "text": "and",
+    "start": 170.226,
+    "end": 170.374
+  },
+  {
+    "text": "chain",
+    "start": 170.386,
+    "end": 170.62
+  },
+  {
+    "text": "trust.",
+    "start": 170.645,
+    "end": 171.114
+  },
+  {
+    "text": "There",
+    "start": 171.99,
+    "end": 172.224
+  },
+  {
+    "text": "are",
+    "start": 172.236,
+    "end": 172.36
+  },
+  {
+    "text": "visibility",
+    "start": 172.384,
+    "end": 173.026
+  },
+  {
+    "text": "limits.",
+    "start": 173.05,
+    "end": 173.556
+  },
+  {
+    "text": "TLS",
+    "start": 174.407,
+    "end": 174.95
+  },
+  {
+    "text": "1.3",
+    "start": 174.975,
+    "end": 175.678
+  },
+  {
+    "text": "encrypts",
+    "start": 175.702,
+    "end": 176.109
+  },
+  {
+    "text": "certificate",
+    "start": 176.134,
+    "end": 176.714
+  },
+  {
+    "text": "contents,",
+    "start": 176.738,
+    "end": 177.256
+  },
+  {
+    "text": "so",
+    "start": 177.503,
+    "end": 177.614
+  },
+  {
+    "text": "those",
+    "start": 177.639,
+    "end": 177.885
+  },
+  {
+    "text": "details",
+    "start": 177.898,
+    "end": 178.367
+  },
+  {
+    "text": "may",
+    "start": 178.391,
+    "end": 178.527
+  },
+  {
+    "text": "remain",
+    "start": 178.552,
+    "end": 178.909
+  },
+  {
+    "text": "unknown.",
+    "start": 178.934,
+    "end": 179.403
+  },
+  {
+    "text": "Incomplete",
+    "start": 180.266,
+    "end": 180.87
+  },
+  {
+    "text": "sessions",
+    "start": 180.895,
+    "end": 181.351
+  },
+  {
+    "text": "remain",
+    "start": 181.364,
+    "end": 181.722
+  },
+  {
+    "text": "unassessed",
+    "start": 181.734,
+    "end": 182.301
+  },
+  {
+    "text": "rather",
+    "start": 182.326,
+    "end": 182.634
+  },
+  {
+    "text": "than",
+    "start": 182.647,
+    "end": 182.795
+  },
+  {
+    "text": "receiving",
+    "start": 182.807,
+    "end": 183.288
+  },
+  {
+    "text": "a",
+    "start": 183.313,
+    "end": 183.362
+  },
+  {
+    "text": "misleading",
+    "start": 183.374,
+    "end": 183.917
+  },
+  {
+    "text": "clean",
+    "start": 183.929,
+    "end": 184.188
+  },
+  {
+    "text": "score.",
+    "start": 184.201,
+    "end": 184.669
+  },
+  {
+    "text": "Alongside",
+    "start": 185.838,
+    "end": 186.418
+  },
+  {
+    "text": "explicit",
+    "start": 186.43,
+    "end": 186.985
+  },
+  {
+    "text": "rules,",
+    "start": 187.01,
+    "end": 187.355
+  },
+  {
+    "text": "we",
+    "start": 187.565,
+    "end": 187.676
+  },
+  {
+    "text": "provide",
+    "start": 187.688,
+    "end": 188.07
+  },
+  {
+    "text": "a",
+    "start": 188.095,
+    "end": 188.157
+  },
+  {
+    "text": "separate",
+    "start": 188.181,
+    "end": 188.613
+  },
+  {
+    "text": "machine-learning",
+    "start": 188.638,
+    "end": 189.329
+  },
+  {
+    "text": "signal.",
+    "start": 189.341,
+    "end": 189.797
+  },
+  {
+    "text": "A",
+    "start": 190.661,
+    "end": 190.772
+  },
+  {
+    "text": "Random",
+    "start": 190.796,
+    "end": 191.179
+  },
+  {
+    "text": "Forest",
+    "start": 191.203,
+    "end": 191.561
+  },
+  {
+    "text": "classifies",
+    "start": 191.586,
+    "end": 192.203
+  },
+  {
+    "text": "risk,",
+    "start": 192.227,
+    "end": 192.523
+  },
+  {
+    "text": "while",
+    "start": 192.758,
+    "end": 192.93
+  },
+  {
+    "text": "an",
+    "start": 192.943,
+    "end": 193.029
+  },
+  {
+    "text": "Isolation",
+    "start": 193.054,
+    "end": 193.621
+  },
+  {
+    "text": "Forest",
+    "start": 193.646,
+    "end": 194.003
+  },
+  {
+    "text": "flags",
+    "start": 194.028,
+    "end": 194.373
+  },
+  {
+    "text": "unusual",
+    "start": 194.398,
+    "end": 194.891
+  },
+  {
+    "text": "combinations",
+    "start": 194.916,
+    "end": 195.595
+  },
+  {
+    "text": "of",
+    "start": 195.619,
+    "end": 195.706
+  },
+  {
+    "text": "normalized",
+    "start": 195.73,
+    "end": 196.298
+  },
+  {
+    "text": "cryptographic",
+    "start": 196.31,
+    "end": 196.964
+  },
+  {
+    "text": "features.",
+    "start": 196.988,
+    "end": 197.482
+  },
+  {
+    "text": "The",
+    "start": 198.345,
+    "end": 198.456
+  },
+  {
+    "text": "models",
+    "start": 198.468,
+    "end": 198.863
+  },
+  {
+    "text": "analyze",
+    "start": 198.876,
+    "end": 199.332
+  },
+  {
+    "text": "these",
+    "start": 199.357,
+    "end": 199.554
+  },
+  {
+    "text": "features,",
+    "start": 199.579,
+    "end": 200.01
+  },
+  {
+    "text": "not",
+    "start": 200.183,
+    "end": 200.43
+  },
+  {
+    "text": "raw",
+    "start": 200.442,
+    "end": 200.602
+  },
+  {
+    "text": "email",
+    "start": 200.627,
+    "end": 200.997
+  },
+  {
+    "text": "content.",
+    "start": 201.022,
+    "end": 201.552
+  },
+  {
+    "text": "They",
+    "start": 202.416,
+    "end": 202.551
+  },
+  {
+    "text": "use",
+    "start": 202.576,
+    "end": 202.798
+  },
+  {
+    "text": "synthetic",
+    "start": 202.823,
+    "end": 203.316
+  },
+  {
+    "text": "training",
+    "start": 203.328,
+    "end": 203.698
+  },
+  {
+    "text": "data,",
+    "start": 203.723,
+    "end": 204.007
+  },
+  {
+    "text": "so",
+    "start": 204.266,
+    "end": 204.377
+  },
+  {
+    "text": "they",
+    "start": 204.401,
+    "end": 204.525
+  },
+  {
+    "text": "demonstrate",
+    "start": 204.549,
+    "end": 205.154
+  },
+  {
+    "text": "the",
+    "start": 205.178,
+    "end": 205.289
+  },
+  {
+    "text": "approach",
+    "start": 205.314,
+    "end": 205.721
+  },
+  {
+    "text": "without",
+    "start": 205.734,
+    "end": 206.03
+  },
+  {
+    "text": "establishing",
+    "start": 206.042,
+    "end": 206.671
+  },
+  {
+    "text": "real-world",
+    "start": 206.683,
+    "end": 207.177
+  },
+  {
+    "text": "accuracy.",
+    "start": 207.201,
+    "end": 207.867
+  },
+  {
+    "text": "The",
+    "start": 208.743,
+    "end": 208.879
+  },
+  {
+    "text": "score",
+    "start": 208.903,
+    "end": 209.163
+  },
+  {
+    "text": "displays",
+    "start": 209.187,
+    "end": 209.656
+  },
+  {
+    "text": "rule",
+    "start": 209.681,
+    "end": 209.903
+  },
+  {
+    "text": "deductions",
+    "start": 209.915,
+    "end": 210.495
+  },
+  {
+    "text": "and",
+    "start": 210.519,
+    "end": 210.618
+  },
+  {
+    "text": "a",
+    "start": 210.643,
+    "end": 210.704
+  },
+  {
+    "text": "separate",
+    "start": 210.729,
+    "end": 211.148
+  },
+  {
+    "text": "machine-learning",
+    "start": 211.173,
+    "end": 211.827
+  },
+  {
+    "text": "penalty,",
+    "start": 211.851,
+    "end": 212.283
+  },
+  {
+    "text": "allowing",
+    "start": 212.567,
+    "end": 212.925
+  },
+  {
+    "text": "us",
+    "start": 212.949,
+    "end": 213.073
+  },
+  {
+    "text": "to",
+    "start": 213.085,
+    "end": 213.196
+  },
+  {
+    "text": "inspect",
+    "start": 213.221,
+    "end": 213.615
+  },
+  {
+    "text": "how",
+    "start": 213.64,
+    "end": 213.763
+  },
+  {
+    "text": "the",
+    "start": 213.776,
+    "end": 213.862
+  },
+  {
+    "text": "result",
+    "start": 213.874,
+    "end": 214.269
+  },
+  {
+    "text": "was",
+    "start": 214.294,
+    "end": 214.442
+  },
+  {
+    "text": "calculated.",
+    "start": 214.454,
+    "end": 215.169
+  },
+  {
+    "text": "Finally,",
+    "start": 216.331,
+    "end": 216.799
+  },
+  {
+    "text": "we",
+    "start": 217.009,
+    "end": 217.132
+  },
+  {
+    "text": "can",
+    "start": 217.145,
+    "end": 217.268
+  },
+  {
+    "text": "export",
+    "start": 217.293,
+    "end": 217.687
+  },
+  {
+    "text": "the",
+    "start": 217.7,
+    "end": 217.798
+  },
+  {
+    "text": "assessment",
+    "start": 217.823,
+    "end": 218.304
+  },
+  {
+    "text": "as",
+    "start": 218.329,
+    "end": 218.452
+  },
+  {
+    "text": "JSON,",
+    "start": 218.464,
+    "end": 219.044
+  },
+  {
+    "text": "HTML,",
+    "start": 219.254,
+    "end": 220.019
+  },
+  {
+    "text": "or",
+    "start": 220.191,
+    "end": 220.302
+  },
+  {
+    "text": "PDF,",
+    "start": 220.315,
+    "end": 220.907
+  },
+  {
+    "text": "including",
+    "start": 221.129,
+    "end": 221.56
+  },
+  {
+    "text": "evidence",
+    "start": 221.585,
+    "end": 221.955
+  },
+  {
+    "text": "references",
+    "start": 221.98,
+    "end": 222.498
+  },
+  {
+    "text": "and",
+    "start": 222.522,
+    "end": 222.621
+  },
+  {
+    "text": "recommended",
+    "start": 222.646,
+    "end": 223.189
+  },
+  {
+    "text": "fixes.",
+    "start": 223.213,
+    "end": 223.731
+  },
+  {
+    "text": "SecureMailScope",
+    "start": 224.607,
+    "end": 225.581
+  },
+  {
+    "text": "connects",
+    "start": 225.606,
+    "end": 225.976
+  },
+  {
+    "text": "packet-level",
+    "start": 225.988,
+    "end": 226.642
+  },
+  {
+    "text": "observations",
+    "start": 226.667,
+    "end": 227.345
+  },
+  {
+    "text": "to",
+    "start": 227.37,
+    "end": 227.469
+  },
+  {
+    "text": "conclusions",
+    "start": 227.493,
+    "end": 228.048
+  },
+  {
+    "text": "people",
+    "start": 228.073,
+    "end": 228.357
+  },
+  {
+    "text": "can",
+    "start": 228.381,
+    "end": 228.517
+  },
+  {
+    "text": "inspect",
+    "start": 228.529,
+    "end": 228.899
+  },
+  {
+    "text": "and",
+    "start": 228.924,
+    "end": 229.01
+  },
+  {
+    "text": "act",
+    "start": 229.035,
+    "end": 229.232
+  },
+  {
+    "text": "on",
+    "start": 229.257,
+    "end": 229.405
+  },
+  {
+    "text": "helping",
+    "start": 229.504,
+    "end": 229.837
+  },
+  {
+    "text": "us",
+    "start": 229.862,
+    "end": 229.985
+  },
+  {
+    "text": "look",
+    "start": 230.01,
+    "end": 230.158
+  },
+  {
+    "text": "beyond",
+    "start": 230.17,
+    "end": 230.54
+  },
+  {
+    "text": "whether",
+    "start": 230.565,
+    "end": 230.836
+  },
+  {
+    "text": "email",
+    "start": 230.861,
+    "end": 231.206
+  },
+  {
+    "text": "works,",
+    "start": 231.231,
+    "end": 231.527
+  },
+  {
+    "text": "and",
+    "start": 231.773,
+    "end": 231.921
+  },
+  {
+    "text": "understand",
+    "start": 231.946,
+    "end": 232.439
+  },
+  {
+    "text": "how",
+    "start": 232.464,
+    "end": 232.587
+  },
+  {
+    "text": "securely",
+    "start": 232.612,
+    "end": 233.118
+  },
+  {
+    "text": "it",
+    "start": 233.143,
+    "end": 233.229
+  },
+  {
+    "text": "connects.",
+    "start": 233.254,
+    "end": 233.759
+  }
+]

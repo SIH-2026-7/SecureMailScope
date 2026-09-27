@@ -8,14 +8,17 @@ import {Icon} from './icons.jsx';
 import {Badge, Modal} from './components.jsx';
 import {Overview, Sessions, Findings, SimulationLab, CaptureAnalysis, Reports, SessionDetails, Scoring} from './pages.jsx';
 import CaptureWorkspace from './CaptureWorkspace.tsx';
+import AnalysisHistory from './AnalysisHistory.tsx';
 import Landing from './Landing.jsx';
+import ProjectGuide from './ProjectGuide.jsx';
 
 const navigation = [
-  ['Capture analysis', 'layers'], ['Overview', 'grid'], ['Sessions', 'activity'],
+  ['Capture analysis', 'layers'], ['Past file analyses', 'file'], ['Overview', 'grid'], ['Sessions', 'activity'],
   ['Findings', 'alert'], ['Simulation lab', 'play'], ['Reports', 'file'],
 ];
 
 export default function App() {
+  const [guide, setGuide] = useState(() => window.location.hash === '#guide');
   const [workspace, setWorkspace] = useState(() => /^#(workspace|frame-)/.test(window.location.hash));
   const [theme, setTheme] = useState(() => {try {return localStorage.getItem('sms-theme') === 'light' ? 'light' : 'dark';} catch {return 'dark';}});
   useEffect(() => {
@@ -27,6 +30,8 @@ export default function App() {
       const hash = window.location.hash;
       if (hash.startsWith('#frame-')) return;
       setWorkspace(hash.startsWith('#workspace'));
+      setGuide(hash === '#guide');
+      if (hash === '#guide' || hash === '#workspace' || !hash) window.scrollTo(0, 0);
       setDetail(null);
     };
     window.addEventListener('hashchange', sync);
@@ -34,6 +39,7 @@ export default function App() {
   }, []);
   const [state, dispatch] = useReducer(reducer, undefined, initialState);
   const [detail, setDetail] = useState(null);
+  const [captureJob, setCaptureJob] = useState('');
   const [message, setMessage] = useState('');
   const [uploading, setUploading] = useState(false);
   const stateRef = useRef(state);
@@ -50,6 +56,7 @@ export default function App() {
 
   const closeDetails = useCallback(() => setDetail(null), []);
   const navigate = useCallback(page => {
+    setCaptureJob('');
     dispatch({type: 'navigate', page});
     window.scrollTo(0, 0);
   }, []);
@@ -147,12 +154,18 @@ export default function App() {
 
   const value = {state, dispatch, navigate, runSimulation, exportReport, uploadCapture, uploading, fix, reset,
     openSession: id => setDetail({sessionId: id}), showScoring: () => setDetail({scoring: true})};
-  const pages = {Overview, Sessions, Findings, 'Simulation lab': SimulationLab, 'Capture analysis': CaptureWorkspace, Reports};
+  const pages = {Overview, Sessions, Findings, 'Simulation lab': SimulationLab, 'Capture analysis': CaptureWorkspace, 'Past file analyses': AnalysisHistory, Reports};
+  const isCapturePage = state.page === 'Capture analysis' || state.page === 'Past file analyses';
+  function openPastAnalysis(id) {
+    navigate('Capture analysis');
+    setCaptureJob(id);
+  }
   const Page = pages[state.page];
   const session = state.sessions.find(item => item.id === detail?.sessionId);
-  function enterWorkspace(page = 'Capture analysis') {navigate(page); window.location.hash = 'workspace'; setWorkspace(true);}
+  function enterWorkspace(page = 'Capture analysis') {setGuide(false); navigate(page); window.location.hash = 'workspace'; setWorkspace(true);}
   const themeButton = <button className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}><Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} /><span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span></button>;
 
+  if (guide) return <ProjectGuide onEnter={enterWorkspace} themeButton={themeButton} />;
   if (!workspace) return <Landing onEnter={enterWorkspace} themeButton={themeButton} />;
 
   return <DemoContext.Provider value={value}>
@@ -168,8 +181,8 @@ export default function App() {
         <div className="sidebottom">{themeButton}<div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; Local analysis</strong><br /><span className="muted">Your captures stay on this device.</span></div>
           <div className="profile"><div className="avatar">CP</div><div>Crypterpillars<small>SIH 2026 · PS 26159</small></div></div></div>
       </aside>
-      <main className="main"><div className="topbar"><span><Icon name="mail" size={18} /> &nbsp; Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><div className="topbar-tools"><Badge><span className="status-dot" /> {state.page === 'Capture analysis' ? 'LOCAL CAPTURE ANALYSIS' : 'SYNTHETIC SIMULATION'}</Badge><div className="mobile-theme">{themeButton}</div><a href="#" className="home-link">About the project <Icon name="arrow" size={15}/></a></div></div>
-        <div className="content"><Page /><div className="footnote"><span><Icon name="shield" size={13} /> SecureMailScope · Passive email security assessment</span><span>{state.page === 'Capture analysis' ? 'Capture evidence · Local backend' : 'Synthetic evidence · Rules-based demonstration'}</span></div></div>
+      <main className="main"><div className="topbar"><span><Icon name="mail" size={18} /> &nbsp; Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><div className="topbar-tools"><Badge><span className="status-dot" /> {isCapturePage ? 'LOCAL CAPTURE ANALYSIS' : 'SYNTHETIC SIMULATION'}</Badge><div className="mobile-theme">{themeButton}</div><a href="#guide" className="home-link">About the project <Icon name="arrow" size={15}/></a></div></div>
+        <div className="content"><Page initialJob={captureJob} onOpen={openPastAnalysis} /><div className="footnote"><span><Icon name="shield" size={13} /> SecureMailScope · Passive email security assessment</span><span>{isCapturePage ? 'Capture evidence · Local backend' : 'Synthetic evidence · Rules-based demonstration'}</span></div></div>
       </main>
     </div>
     {detail && <Modal title={detail.scoring ? 'How posture is scored' : `${session?.id} · ${session?.protocol}`} onClose={closeDetails}>

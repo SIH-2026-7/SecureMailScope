@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SecureMailScope</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0a0a0a;color:#f1f1f1;font-family:'Segoe UI',system-ui,-apple-system,sans-serif}
+
+/* Animated element base */
+.a{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.a.on{opacity:1;transform:translateY(0) translateX(0)}
+
+/* Scene containers */
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .32s ease}
+.sc.on{opacity:1}
+
+/* Subtle cinematic vignette */
+.vig{position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.35) 100%);pointer-events:none;z-index:100}
+
+/* ────────────────────────────────────────────────
+   SCENE 1 — HOOK: "Encrypted. But secure?"
+   ──────────────────────────────────────────────── */
+#s1{background:radial-gradient(ellipse at center,#111 0%,#0a0a0a 70%)}
+.eyebrow{font:500 12px/1 Consolas,'Courier New',monospace;letter-spacing:3.5px;color:#555;display:flex;align-items:center;gap:12px;margin-bottom:38px}
+.dot{width:7px;height:7px;background:#e99069;border-radius:50%;animation:dotpulse 2s ease-in-out infinite}
+@keyframes dotpulse{0%,100%{opacity:1}50%{opacity:.2}}
+.title{font-size:112px;font-weight:450;letter-spacing:-5.5px;line-height:1.08;text-align:center}
+.title em{font-family:Georgia,'Times New Roman',serif;font-weight:400;color:#e99069;letter-spacing:-.04em;font-style:italic}
+.scanline{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,#e990694d 20%,#e99069 50%,#e990694d 80%,transparent 100%);transform:translateX(-110%);opacity:0;transition:opacity .2s}
+.hero-sub{font:400 15px/1.8 'Segoe UI',system-ui,sans-serif;color:#666;margin-top:30px;letter-spacing:.3px;text-align:center}
+
+/* ────────────────────────────────────────────────
+   SCENE 2 — REVEAL: Exposed SMTP transcript
+   ──────────────────────────────────────────────── */
+#s2{background:#0b0b0b}
+.panel{width:880px;background:#141414;border-top:2px solid #e99069;padding:40px 50px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.panel-top{display:flex;justify-content:space-between;font:10px Consolas,monospace;letter-spacing:2.5px;color:#3a3a3a;margin-bottom:28px}
+.panel-top svg{color:#3a3a3a}
+.endpoints{display:flex;justify-content:space-between;font:12px Consolas,monospace;color:#555;padding-bottom:18px;border-bottom:1px solid #1e1e1e;margin-bottom:5px}
+.ln{display:grid;grid-template-columns:28px 55px 1fr;gap:14px;padding:12px 0;font:13px/1.4 Consolas,monospace;border-bottom:1px solid #1a1a1a}
+.ln:last-of-type{border-bottom:none}
+.ln span:first-child{color:#333;font-size:10px}
+.ln span:nth-child(2){color:#4a4a4a;font-size:11px}
+.ln code{color:#888;font-size:13px}
+.ln.crit{color:#e99069}
+.ln.crit code{color:#e99069;font-weight:600}
+.ln.crit span{color:#e99069 !important}
+.verdict{border-top:1px solid #1e1e1e;padding-top:22px;margin-top:10px;min-height:70px}
+.badge-crit{display:inline-flex;align-items:center;gap:8px;background:rgba(241,154,137,.12);color:#f19a89;font-size:13px;font-weight:600;padding:7px 16px;border-radius:5px}
+.verdict p{font-size:13px;color:#555;margin-top:12px;line-height:1.6}
+
+/* ────────────────────────────────────────────────
+   SCENE 3 — WORKSPACE: The full analysis UI
+   ──────────────────────────────────────────────── */
+#s3{flex-direction:row;align-items:stretch;justify-content:flex-start;background:#111}
+.ws-side{width:250px;background:#0d0d0d;border-right:1px solid #1e1e1e;padding:28px 16px;flex-shrink:0;display:flex;flex-direction:column}
+.ws-brand{font-size:17px;font-weight:700;letter-spacing:-.7px;display:flex;align-items:center;gap:10px}
+.ws-brand svg{color:#e99069;flex-shrink:0}
+.accent{color:#e99069}
+.ws-nav{margin-top:38px;display:flex;flex-direction:column;gap:3px}
+.ws-nav-item{padding:10px 14px;font-size:13px;color:#4a4a4a;border-radius:0 20px 20px 0;margin-left:-16px;padding-left:26px}
+.ws-nav-item.active{background:#292929;color:#f1f1f1;font-weight:600}
+.ws-nav-label{font:9px Consolas,monospace;letter-spacing:1.5px;color:#333;margin:25px 0 10px 10px}
+.ws-local{margin-top:auto;font-size:11px;color:#3a3a3a;padding:14px;border:1px solid #222;border-radius:8px;line-height:1.6}
+.ws-local strong{color:#777;font-weight:500;font-size:12px;display:flex;align-items:center;gap:6px}
+.ws-main{flex:1;display:flex;flex-direction:column;min-width:0}
+.ws-topbar{height:64px;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;padding:0 28px;font-size:13px;color:#555;gap:8px}
+.ws-topbar strong{color:#f1f1f1;font-weight:500}
+.ws-topbar-badge{margin-left:auto;display:flex;align-items:center;gap:7px;background:rgba(233,144,105,.08);color:#999;font-size:10px;padding:5px 12px;border-radius:5px;letter-spacing:.5px}
+.ws-topbar-badge .dot{width:5px;height:5px;background:#999;animation:none}
+.ws-body{flex:1;padding:26px 28px;background:#292929;margin:8px 8px 8px 0;border-radius:15px;overflow-y:auto;overflow-x:hidden}
+
+/* Stats row */
+.ws-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #454545;border-bottom:1px solid #454545}
+.ws-stat{padding:18px 16px}
+.ws-stat+.ws-stat{border-left:1px solid #454545}
+.ws-stat-label{font-size:11px;color:#777}
+.ws-stat-val{font-size:28px;font-weight:600;margin-top:8px;letter-spacing:-1px}
+.ws-stat-val.red{color:#f19a89}
+
+/* Two-column gauge + AI */
+.ws-two{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:18px}
+.ws-panel{background:#222;border:1px solid #333;border-radius:10px;padding:24px}
+.ws-gauge-wrap{text-align:center}
+.ws-gauge{--gs:0;width:140px;height:140px;border-radius:50%;margin:0 auto 10px;position:relative;background:conic-gradient(from 225deg,#dfbd7f 0deg,#dfbd7f calc(var(--gs)*2.7deg),#2a2a2a calc(var(--gs)*2.7deg),#2a2a2a 270deg,transparent 270deg)}
+.ws-gauge::before{content:'';position:absolute;inset:12px;border-radius:50%;background:#222}
+.ws-gauge-val{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.ws-gauge-val b{font-size:38px;font-weight:700}
+.ws-gauge-val small{font-size:10px;color:#555}
+.ws-gauge-cap{font-size:12px;color:#dfbd7f;margin-top:4px}
+.ws-gauge-sub{font-size:10px;color:#444;margin-top:5px}
+.ws-ai h3{font-size:15px;font-weight:600;margin:14px 0 9px;letter-spacing:-.2px}
+.ws-ai p{font-size:11px;color:#555;line-height:1.7;margin:0}
+.badge-low{display:inline-flex;background:rgba(233,144,105,.08);color:#888;font-size:9px;padding:4px 9px;border-radius:4px;letter-spacing:.6px}
+
+/* Finding card */
+.ws-finding{background:rgba(241,154,137,.06);border-left:2px solid #f19a89;padding:16px 20px;margin-top:18px;border-radius:0 8px 8px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ws-finding strong{font-size:13px}
+.ws-finding p{font-size:11px;color:#555;width:100%;margin-top:4px}
+
+/* Pipeline steps */
+.ws-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;border-top:1px solid #454545;margin-top:18px;padding-top:15px;position:relative}
+.ws-pipeline::before{content:'';position:absolute;top:-1px;left:0;width:calc(var(--pp,0)*100%);height:2px;background:#e99069}
+.ws-pipe span{font:10px Consolas,monospace;color:#454545;transition:color .3s}
+.ws-pipe strong{display:block;font-size:15px;font-weight:450;margin-top:7px;letter-spacing:-.4px}
+.ws-pipe.reached span{color:#e99069}
+.ws-protocols{font:10px Consolas,monospace;letter-spacing:2px;color:#333;text-align:center;padding-top:15px}
+
+/* ────────────────────────────────────────────────
+   SCENE 4 — PUNCHLINE: "Read between the packets."
+   ──────────────────────────────────────────────── */
+#s4{background:radial-gradient(ellipse at center,#0f0f0f 0%,#0a0a0a 70%)}
+.brand-mark{font-size:20px;font-weight:700;letter-spacing:-.7px;margin-top:48px;display:flex;align-items:center;gap:10px}
+.brand-mark svg{flex-shrink:0}
+.tagline{font-size:12px;color:#3a3a3a;margin-top:16px;letter-spacing:.5px}
+.credit{font:10px Consolas,monospace;color:#2a2a2a;letter-spacing:1.8px;margin-top:28px}
+</style>
+</head>
+<body>
+<div class="vig"></div>
+
+<!-- ═══ SCENE 1: HOOK ═══ -->
+<div class="sc" id="s1">
+  <div class="eyebrow a" id="eyebrow"><span class="dot"></span>EMAIL SECURITY, UNDER EXAMINATION</div>
+  <div class="title a" id="enc">Encrypted.</div>
+  <div class="title a" id="sec" style="margin-top:4px">But <em>secure?</em></div>
+  <div class="hero-sub a" id="herosub">The lock is only the beginning.</div>
+  <div class="scanline" id="scanline"></div>
+</div>
+
+<!-- ═══ SCENE 2: REVEAL ═══ -->
+<div class="sc" id="s2">
+  <div class="panel a" id="panel">
+    <div class="panel-top">
+      <span>CONNECTION TRANSCRIPT</span>
+      <span>SMTP / 587</span>
+    </div>
+    <div class="endpoints">
+      <span>client.example.test</span>
+      <span>→</span>
+      <span>mail.example.test</span>
+    </div>
+    <div class="ln a" id="l1"><span>01</span><span>S → C</span><code>220 mail.example.test ESMTP</code></div>
+    <div class="ln a" id="l2"><span>02</span><span>C → S</span><code>EHLO client.example.test</code></div>
+    <div class="ln a" id="l3"><span>03</span><span>S → C</span><code>250 AUTH LOGIN</code></div>
+    <div class="ln a" id="l4"><span>04</span><span>C → S</span><code>AUTH LOGIN</code></div>
+    <div class="ln crit a" id="l5"><span>05</span><span>C → S</span><code>[credential redacted]</code></div>
+    <div class="ln a" id="l6"><span>06</span><span>S → C</span><code>235 Authentication successful</code></div>
+    <div class="verdict a" id="verdict">
+      <span class="badge-crit">⚠ Critical finding · AUTH-001</span>
+      <p>Authentication before encryption. Trace the finding to its packet; keep the credential out of the report.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCENE 3: WORKSPACE ═══ -->
+<div class="sc" id="s3">
+  <div class="ws-side a" id="sidebar">
+    <div class="ws-brand">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 9 10-9"/></svg>
+      <div>SecureMailScope<span class="accent">.</span></div>
+    </div>
+    <div class="ws-nav-label">ANALYSIS WORKSPACE</div>
+    <div class="ws-nav">
+      <div class="ws-nav-item active">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;vertical-align:middle"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Overview
+      </div>
+      <div class="ws-nav-item">Sessions</div>
+      <div class="ws-nav-item">Findings <span style="margin-left:auto;color:#e99069;font-size:12px">3</span></div>
+      <div class="ws-nav-item">Reports</div>
+    </div>
+    <div class="ws-nav-label">BROWSER SIMULATION</div>
+    <div class="ws-nav">
+      <div class="ws-nav-item">Simulation lab</div>
+    </div>
+    <div class="ws-local">
+      <strong>🔒 Local analysis</strong>
+      <span>Your captures stay on this device.</span>
+    </div>
+  </div>
+  <div class="ws-main a" id="wsmain">
+    <div class="ws-topbar">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 9 10-9"/></svg>
+      Workspace&ensp;/&ensp;<strong>Overview</strong>
+      <div class="ws-topbar-badge"><span class="dot"></span>LOCAL CAPTURE ANALYSIS</div>
+    </div>
+    <div class="ws-body">
+      <div class="ws-stats a" id="wsstats">
+        <div class="ws-stat"><div class="ws-stat-label">Sessions</div><div class="ws-stat-val">3</div></div>
+        <div class="ws-stat"><div class="ws-stat-label">Critical findings</div><div class="ws-stat-val red">3</div></div>
+        <div class="ws-stat"><div class="ws-stat-label">High findings</div><div class="ws-stat-val">0</div></div>
+        <div class="ws-stat"><div class="ws-stat-label">Medium findings</div><div class="ws-stat-val">0</div></div>
+      </div>
+      <div class="ws-two a" id="gaugepanel">
+        <div class="ws-panel ws-gauge-wrap">
+          <div class="ws-gauge" id="gauge"><div class="ws-gauge-val"><b id="gaugenum">0</b><small>/ 100</small></div></div>
+          <div class="ws-gauge-cap">Observed posture</div>
+          <div class="ws-gauge-sub">3 of 3 sessions assessed</div>
+        </div>
+        <div class="ws-panel ws-ai">
+          <span class="badge-low">OFFLINE INFERENCE</span>
+          <h3>Cryptographic features,<br>not email content</h3>
+          <p>Random Forest classifies risk; Isolation Forest flags unusual feature combinations. Deterministic findings remain independently inspectable.</p>
+          <p style="margin-top:12px;color:#444;font-size:10px;border:1px solid #333;padding:10px;border-radius:6px;margin-top:14px">Synthetic training data · No production accuracy claim</p>
+        </div>
+      </div>
+      <div class="ws-finding a" id="wsfinding">
+        <span class="badge-crit">Critical</span>
+        <strong>AUTH-001 · Cleartext authentication</strong>
+        <p>Credentials transmitted before TLS upgrade. Evidence at Frame 04. Remediation: enforce STARTTLS before AUTH.</p>
+      </div>
+      <div class="ws-pipeline a" id="wspipeline" style="--pp:0">
+        <div class="ws-pipe" id="pipe1"><span>01</span><strong>Capture</strong></div>
+        <div class="ws-pipe" id="pipe2"><span>02</span><strong>Reconstruct</strong></div>
+        <div class="ws-pipe" id="pipe3"><span>03</span><strong>Examine</strong></div>
+        <div class="ws-pipe" id="pipe4"><span>04</span><strong>Act</strong></div>
+      </div>
+      <div class="ws-protocols a" id="wsprotocols">SMTP · IMAP · POP3 · TLS &emsp; | &emsp; JSON · HTML · PDF</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCENE 4: PUNCHLINE ═══ -->
+<div class="sc" id="s4">
+  <div class="title a" id="read">Read between</div>
+  <div class="title a" id="packets" style="margin-top:4px">the <em>packets.</em></div>
+  <div class="brand-mark a" id="brand">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#e99069" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 9 10-9"/></svg>
+    SecureMailScope<span class="accent">.</span>
+  </div>
+  <div class="tagline a" id="tagline">Local by design. Evidence by default.</div>
+  <div class="credit a" id="credit">CRYPTERPILLARS · SIH 2026 · PS 26159</div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+
+  /* ── Helpers ── */
+  function resetAll() {
+    document.querySelectorAll('.a').forEach(el => el.classList.remove('on'));
+    ['s1','s2','s3','s4'].forEach(id => $(id).classList.remove('on'));
+    ['pipe1','pipe2','pipe3','pipe4'].forEach(id => $(id).classList.remove('reached'));
+    $('scanline').style.opacity = '0';
+    $('scanline').style.transform = 'translateX(-110%)';
+    $('gauge').style.setProperty('--gs', 0);
+    $('gaugenum').textContent = '0';
+    $('wspipeline').style.setProperty('--pp', 0);
+  }
+
+  function show(id) { const e = $(id); if (e) e.classList.add('on'); }
+  function showScene(n) {
+    ['s1','s2','s3','s4'].forEach((id, i) => $(id).classList.toggle('on', i === n));
+  }
+
+  /* ── Timeline: [seconds, action] ── */
+  const events = [
+    [0.3,  () => showScene(0)],
+    [0.5,  () => show('eyebrow')],
+    [1.0,  () => show('enc')],
+    [1.8,  () => show('sec')],
+    [2.1,  () => show('herosub')],
+    [2.9,  () => showScene(-1)],
+    [3.2,  () => showScene(1)],
+    [3.4,  () => show('panel')],
+    [3.8,  () => show('l1')],
+    [4.15, () => show('l2')],
+    [4.5,  () => show('l3')],
+    [4.8,  () => show('l4')],
+    [5.2,  () => show('l5')],
+    [5.7,  () => show('l6')],
+    [6.4,  () => show('verdict')],
+    [7.6,  () => showScene(-1)],
+    [7.9,  () => showScene(2)],
+    [8.1,  () => show('sidebar')],
+    [8.4,  () => show('wsmain')],
+    [8.7,  () => show('wsstats')],
+    [9.1,  () => show('gaugepanel')],
+    [10.5, () => show('wsfinding')],
+    [11.0, () => show('wspipeline')],
+    [13.0, () => show('wsprotocols')],
+    [14.6, () => showScene(-1)],
+    [14.9, () => showScene(3)],
+    [15.3, () => show('read')],
+    [16.1, () => show('packets')],
+    [17.1, () => show('brand')],
+    [17.9, () => show('tagline')],
+    [18.5, () => show('credit')],
+  ];
+
+  /**
+   * Seek to an absolute time (seconds). Disables CSS transitions so
+   * the state is applied instantly — perfect for frame-by-frame capture.
+   */
+  window.seekTo = function(t) {
+    /* Kill transitions for instant render */
+    document.documentElement.style.setProperty('--dur', '0s');
+    document.querySelectorAll('.a').forEach(el => {
+      el.style.transitionDuration = '0s';
+    });
+    document.querySelectorAll('.sc').forEach(el => {
+      el.style.transitionDuration = '0s';
+    });
+
+    resetAll();
+
+    /* Replay every event up to time t */
+    for (const [time, fn] of events) {
+      if (t >= time) fn();
+    }
+
+    /* Scanline: visible between 2.2s and 3.0s */
+    if (t >= 2.2 && t < 3.0) {
+      const p = Math.min(1, (t - 2.2) / 0.8);
+      $('scanline').style.opacity = '1';
+      $('scanline').style.transform = `translateX(${-110 + 220 * p}%)`;
+    }
+
+    /* Gauge: 9.3s → 10.3s */
+    if (t >= 9.3) {
+      const p = Math.min(1, (t - 9.3) / 1.0);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const score = Math.round(eased * 23);
+      $('gauge').style.setProperty('--gs', score);
+      $('gaugenum').textContent = score;
+    }
+
+    /* Pipeline: 11.2s → 12.8s */
+    if (t >= 11.2) {
+      const p = Math.min(1, (t - 11.2) / 1.6);
+      $('wspipeline').style.setProperty('--pp', p);
+      ['pipe1','pipe2','pipe3','pipe4'].forEach((id, i) => {
+        if (p >= (i + 0.3) / 4) $(id).classList.add('reached');
+      });
+    }
+
+    window.__seekDone = true;
+  };
+
+  /* ── Auto-play mode (for previewing in browser) ── */
+  if (!new URLSearchParams(location.search).has('capture')) {
+    let scanStart = null, startTime = null;
+    const fired = new Set();
+    function tick(ts) {
+      if (!startTime) startTime = ts;
+      const t = (ts - startTime) / 1000;
+      for (const [time, fn] of events) {
+        const k = String(time);
+        if (t >= time && !fired.has(k)) { fired.add(k); fn(); }
+      }
+      if (t >= 2.2 && t < 3.0 && scanStart === null) scanStart = ts;
+      if (scanStart !== null) {
+        const p = Math.min(1, (ts - scanStart) / 800);
+        $('scanline').style.opacity = '1';
+        $('scanline').style.transform = `translateX(${-110 + 220 * p}%)`;
+        if (p >= 1) { $('scanline').style.opacity = '0'; scanStart = null; }
+      }
+      if (t >= 9.3 && t <= 10.8) {
+        const p = Math.min(1, Math.max(0, (t - 9.3) / 1.0));
+        const eased = 1 - Math.pow(1 - p, 3);
+        const score = Math.round(eased * 23);
+        $('gauge').style.setProperty('--gs', score);
+        $('gaugenum').textContent = score;
+      }
+      if (t >= 11.2 && t <= 13.0) {
+        const p = Math.min(1, Math.max(0, (t - 11.2) / 1.6));
+        $('wspipeline').style.setProperty('--pp', p);
+        ['pipe1','pipe2','pipe3','pipe4'].forEach((id, i) => {
+          if (p >= (i + 0.3) / 4) $(id).classList.add('reached');
+        });
+      }
+      if (t < 21) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>

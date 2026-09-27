@@ -5,7 +5,7 @@ import {metrics, trace} from '../src/engine.js';
 import {createReport} from '../src/reports.js';
 
 test('remediation is immutable and preserves unknown evidence', () => {
-  const before = initialState();
+  const before = reducer(initialState(), {type: 'load', scenario: 'enterprise'});
   const snapshot = structuredClone(before);
   const after = reducer(before, {type: 'fix', key: 'all'});
   assert.deepEqual(before, snapshot);
@@ -17,7 +17,7 @@ test('remediation is immutable and preserves unknown evidence', () => {
 });
 
 test('individual fixes do not remove unrelated findings; reset restores baseline', () => {
-  const initial = initialState();
+  const initial = reducer(initialState(), {type: 'load', scenario: 'enterprise'});
   const fixed = reducer(initial, {type: 'fix', key: 'legacy'});
   assert.equal(fixed.sessions[2].tls, 'TLS 1.2');
   assert.deepEqual(fixed.sessions[2].issues, ['expired', 'pfs']);
@@ -25,7 +25,7 @@ test('individual fixes do not remove unrelated findings; reset restores baseline
 });
 
 test('simulation starts once and loading new scenarios clears remediation', () => {
-  const initial = initialState();
+  const initial = reducer(initialState(), {type: 'load', scenario: 'enterprise'});
   const busy = reducer(initial, {type: 'start', scenario: 'downgrade'});
   assert.equal(busy.busy, true);
   assert.equal(reducer(busy, {type: 'start', scenario: 'secure'}), busy);
@@ -37,7 +37,7 @@ test('simulation starts once and loading new scenarios clears remediation', () =
 });
 
 test('navigation clears filters without resetting evidence', () => {
-  const initial = initialState();
+  const initial = reducer(initialState(), {type: 'load', scenario: 'enterprise'});
   const filtered = reducer(initial, {type: 'filter', values: {query: 'smtp', filter: 'High', protocol: 'SMTP'}});
   const navigated = reducer(filtered, {type: 'navigate', page: 'Reports'});
   assert.equal(navigated.query, '');
@@ -47,9 +47,17 @@ test('navigation clears filters without resetting evidence', () => {
 
 test('exported evidence hash can be independently verified', async () => {
   const {createHash} = await import('node:crypto');
-  const state = initialState();
+  const state = reducer(initialState(), {type: 'load', scenario: 'enterprise'});
   const report = await createReport(state.sessions, state.scenario, false);
   assert.equal(report.evidenceSha256, createHash('sha256').update(JSON.stringify(report.sessions)).digest('hex'));
   assert.equal(report.metrics.findings, 46);
   assert.equal(report.mode, 'synthetic simulation');
+});
+
+test('workspace includes a sample overview without selecting an uploaded capture', () => {
+  const state = initialState();
+  assert.ok(state.sessions.length > 0);
+  assert.equal(metrics(state.sessions).findings, 46);
+  assert.equal(state.capture, null);
+  assert.equal(state.page, 'Capture analysis');
 });

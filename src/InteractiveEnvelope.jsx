@@ -1,10 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
+import ProjectLinks from './ProjectLinks.jsx';
 
 const lines = ['TRUST THE EVIDENCE.', 'NOT THE ENVELOPE.'];
 const letters = lines.flatMap((line, row) => [...line].map((letter, col) => ({letter, row, col})));
 
-export default function InteractiveEnvelope({motionPaused = false}) {
+export default function InteractiveEnvelope({motionPaused = false, onEnter}) {
   const anchor = useRef(null), flight = useRef(null);
   const trigger = useRef(null), dialog = useRef(null);
   const [origin, setOrigin] = useState(null), [decoded, setDecoded] = useState(false);
@@ -91,6 +92,8 @@ export default function InteractiveEnvelope({motionPaused = false}) {
             <span className="letter-instruction">{decoded ? 'Click to encrypt again ↻' : 'Click the message to decipher →'}</span>
           </button>
           <p className="letter-quote" role="status">{decoded ? '“Trust the evidence. Not the envelope.”' : 'Encrypted message ready to decipher.'}</p>
+          <div className="letter-actions"><button onClick={() => {close(); onEnter('Overview');}}>Go to dashboard ↗</button><a href="#guide" onClick={close}>How it works →</a></div>
+          <ProjectLinks />
           <div className="letter-signoff"><span>SecureMailScope</span><small>Read between the packets.</small></div>
           <p className="letter-disclaimer">An interactive illustration. Capture analysis does not decrypt email.</p>
         </div><div className="letter-pocket" aria-hidden="true"/>

@@ -67,3 +67,7 @@
   .landing .trace-lines code { font-size: 11px; }
   .landing .landing-footer > span { font-size: 10px; }
 }
+.landing .hero-guide-link{display:inline-flex;align-items:center;gap:24px;margin-top:16px;padding:12px 18px;border:1px solid var(--line);border-radius:3px;color:var(--ink);font-size:13px;text-decoration:none;transition:background .18s,border-color .18s}.landing .hero-guide-link:hover{background:var(--surface-raised);border-color:var(--accent)}
+
+.landing .header-social{display:inline-flex;align-items:center;justify-content:center;width:32px;height:34px;flex-shrink:0;color:var(--muted);border-radius:4px;text-decoration:none}.landing .header-social:hover{color:var(--ink);background:var(--surface-raised)}.landing .landing-header-actions{gap:8px}.landing .landing-header nav{gap:16px}
+.landing .hero-resource-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.landing .hero-resource-actions .hero-guide-link{margin-top:0;gap:12px;padding:12px 15px}

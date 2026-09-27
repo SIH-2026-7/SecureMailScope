@@ -38,7 +38,7 @@ The 20 bundled PCAPs are constructed packet fixtures, not live-server recordings
 - `GET /api/report/{job_id}/export?format=json|html|pdf`: download completed report.
 - `GET /api/health`: local service health.
 
-Reports persist in SQLite under `backend/data`. Override `DATA_DIR` or set `DATABASE_URL` (`postgresql+psycopg://...` for PostgreSQL). Raw captures are deleted after processing. SHA-256 identifies uploaded bytes. Interrupted jobs are marked failed on restart and can be reuploaded. Use one API worker for this local demo.
+Reports persist in SQLite under `backend/data`. Override `DATA_DIR` or set `DATABASE_URL` (`postgresql+psycopg://...` for PostgreSQL). Uploaded PCAP and PCAPNG files are retained in `DATA_DIR`; the Past file analyses section lists saved jobs, reopens reports, and downloads original captures. Older reports remain accessible even if their original capture was previously deleted. SHA-256 identifies uploaded bytes. Interrupted jobs are marked failed on restart and can be reuploaded. Use one API worker for this local demo.
 
 ## Architecture
 

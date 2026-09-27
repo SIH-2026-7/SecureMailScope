@@ -1,15 +1,17 @@
 import React from 'react';
+import DemoCaptures from './DemoCaptures.tsx';
 import {useDemo} from './context.js';
 import {Badge, Button, DetailGrid, Heading, Panel} from './components.jsx';
 import {Icon} from './icons.jsx';
 import {findings, generateScenario, metrics, rules, scenarios, scoreSession, severity, trace} from './engine.js';
 
-const colors = ['#b8b8b8', '#cf946d', '#777777'];
+const colors = ['var(--blue)', 'var(--chart-amber)', 'var(--green)'];
 const protocols = ['SMTP', 'IMAP', 'POP3'];
 const textButton = 'textbutton';
 
 function CaptureBanner() {
   const {state, navigate} = useDemo();
+  if (!state.sessions.length) return null;
   return <div className="capture"><div className="fileicon"><Icon name="file" size={23} /></div>
     <div><strong>{scenarios[state.scenario].file}</strong><div className="meta">Synthetic capture · 19 Sep 2026, 10:00 UTC · {metrics(state.sessions).packets.toLocaleString()} fixture packets</div></div>
     <div className="right"><Badge>{state.fixes.length ? 'Remediated simulation' : 'Analysis complete'}</Badge><Button className={textButton} onClick={() => navigate('Capture analysis')}>Change capture <Icon name="chevron" size={14} /></Button></div>
@@ -20,18 +22,24 @@ function Stat({label, value, icon, children, color}) {
   return <div className="stat"><div className="statlabel">{label}<Icon name={icon} size={17} /></div><div className="statvalue" style={{color}}>{value}</div><div className="statfoot">{children}</div></div>;
 }
 
-export function Overview() {
+export function Overview({onOpen}) {
   const {state, navigate, dispatch, exportReport, showScoring, openSession} = useDemo();
   const sessions = state.sessions, summary = metrics(sessions), groups = findings(sessions);
   const partial = sessions.filter(s => s.issues.includes('partial')).length;
   const weak = sessions.filter(s => ['TLS 1.0', 'TLS 1.1'].includes(s.tls)).length;
   const plain = sessions.filter(s => s.tls === 'None').length;
   const noPfs = sessions.filter(s => s.issues.includes('pfs')).length;
+  if (!sessions.length) return <>
+    <Heading title="Security overview" subtitle="Choose a demo capture to explore, or upload your own file in Capture analysis." />
+    <DemoCaptures onOpen={onOpen} />
+    <p className="notice">No file has been analysed yet. Start an analysis or open a saved result from Past file analyses.</p>
+  </>;
   const downgrade = sessions.some(s => s.issues.includes('downgrade'));
   return <>
-    <Heading title="Security overview" subtitle="Understand the cryptographic posture of your email infrastructure.">
+    <Heading title="Security overview" subtitle="Explore a sample analysis using synthetic email traffic.">
       <Button icon="download" onClick={() => exportReport('json')}>Export report</Button><Button primary icon="play" onClick={() => navigate('Simulation lab')}>Run simulation</Button>
     </Heading>
+    <DemoCaptures onOpen={onOpen} />
     <CaptureBanner />
     <div className="stats">
       <Stat label="Sessions analyzed" icon="layers" value={<>{sessions.length}<span style={{fontSize: 13, color: 'var(--muted)', fontWeight: 400, letterSpacing: 0}}> &nbsp; across {new Set(sessions.map(s => s.protocol)).size} protocols</span></>}><b>{sessions.length - partial} complete</b> · {partial} partial</Stat>
@@ -41,14 +49,14 @@ export function Overview() {
     </div>
     <div className="grid">
       <Panel title="Security posture" extra={<small>ⓘ</small>}><div className="panelbody">
-        <div className="gauge" style={{'--score': summary.score}}><div className="value"><b>{summary.score ?? '—'}</b><small>OUT OF 100</small></div></div>
+        <div className="gauge" style={{'--score': summary.score, '--score-color': summary.score >= 90 ? 'var(--green)' : summary.score >= 50 ? 'var(--amber)' : 'var(--red)'}}><div className="value"><b>{summary.score ?? '—'}</b><small>OUT OF 100</small></div></div>
         <div className="gaugecaption">{summary.score >= 90 ? 'Strong posture' : summary.score >= 75 ? 'Acceptable · improvements available' : summary.score >= 50 ? 'Weak · action required' : 'High risk · action required'}</div>
         <div className="scorefoot"><span>Deterministic assessment</span><Button className={textButton} onClick={showScoring}>View scoring <Icon name="chevron" size={12} /></Button></div>
       </div></Panel>
       <Panel title="TLS distribution" extra={<small>Sessions</small>}><div className="panelbody">
         {['TLS 1.3', 'TLS 1.2', 'TLS 1.1', 'TLS 1.0'].map((tls, i) => {
           const count = sessions.filter(s => s.tls === tls).length;
-          return <div className="barrow" key={tls}><div className="barlabel"><Button className={textButton} style={{color: 'inherit'}} onClick={() => {navigate('Sessions'); dispatch({type: 'filter', values: {filter: tls}});}}>{tls}</Button><span>{count} <span className="muted">/ {sessions.length}</span></span></div><div className="bar"><i style={{width: `${count / sessions.length * 100}%`, background: ['#b8b8b8', '#888888', '#cfad70', '#d78979'][i]}} /></div></div>;
+          return <div className="barrow" key={tls}><div className="barlabel"><Button className={textButton} style={{color: 'inherit'}} onClick={() => {navigate('Sessions'); dispatch({type: 'filter', values: {filter: tls}});}}>{tls}</Button><span>{count} <span className="muted">/ {sessions.length}</span></span></div><div className="bar"><i style={{width: `${count / sessions.length * 100}%`, background: ['var(--green)', 'var(--blue)', 'var(--amber)', 'var(--red)'][i]}} /></div></div>;
         })}
         <div className="tlssummary">{weak} legacy sessions · {plain} plaintext · {partial} unknown</div>
       </div></Panel>
@@ -58,7 +66,9 @@ export function Overview() {
           {protocols.map((protocol, i) => {
             const count = sessions.filter(s => s.protocol === protocol).length / sessions.length * 100;
             const offset = protocols.slice(0, i).reduce((n, p) => n + sessions.filter(s => s.protocol === p).length / sessions.length * 100, 0);
-            return <path key={protocol} d="M45 123a85 85 0 0 1 170 0" pathLength="100" stroke={colors[i]} strokeWidth="27" fill="none" strokeDasharray={`${count} ${100 - count}`} strokeDashoffset={-offset} />;
+            if (!count) return null;
+            const point = percent => {const angle = Math.PI + percent / 100 * Math.PI; return `${130 + 85 * Math.cos(angle)} ${123 + 85 * Math.sin(angle)}`;};
+            return <path key={protocol} d={`M${point(offset)} A85 85 0 0 1 ${point(offset + count)}`} stroke={colors[i]} strokeWidth="27" strokeLinecap="butt" fill="none" />;
           })}
           <text x="130" y="103" textAnchor="middle" fill="var(--ink)" fontSize="30" fontFamily="system-ui">{sessions.length}</text><text x="130" y="123" textAnchor="middle" fill="var(--muted)" fontSize="11">TOTAL SESSIONS</text>
         </svg>
@@ -140,6 +150,7 @@ export function CaptureAnalysis() {
 
 export function Reports() {
   const {state, exportReport} = useDemo();
+  if (!state.sessions.length) return <><Heading title="Forensic reports" subtitle="Reports become available after an analysis." /><p className="notice">No simulation has been run. Run a simulation, or open a saved capture from Past file analyses to export its report.</p></>;
   const formats = [
     ['json', 'file', 'Structured evidence', 'Full session inventory, rule findings, scoring method, and simulation provenance.', 'Download JSON'],
     ['html', 'layers', 'Analyst report', 'A self-contained HTML report with prioritized remediation and a session appendix.', 'Download HTML'],

@@ -1,0 +1,1079 @@
+﻿[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial,38,&H00EEEEEE,&H00EEEEEE,&H00111111,&H00111111,-1,0,0,0,100,100,0,0,1,0,0,5,60,60,0,1
+Style: Chapter,Arial,20,&H009AA6B5,&H009AA6B5,&H00111111,&H00111111,0,0,0,0,100,100,0.8,0,1,0,0,4,32,32,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:24.60,Chapter,,0,0,0,,{\pos(36,984)}01 / 09    THE PROBLEM: EVERYTHING LOOKS NORMAL
+Dialogue: 0,0:00:00.10,0:00:00.33,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Think{\c&HEEEEEE&} about what passes through email every day:
+Dialogue: 0,0:00:00.33,0:00:00.35,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:00.35,0:00:00.59,Caption,,0,0,0,,{\pos(960,1035)}Think {\c&H68A2FF&}about{\c&HEEEEEE&} what passes through email every day:
+Dialogue: 0,0:00:00.59,0:00:00.62,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:00.62,0:00:00.80,Caption,,0,0,0,,{\pos(960,1035)}Think about {\c&H68A2FF&}what{\c&HEEEEEE&} passes through email every day:
+Dialogue: 0,0:00:00.80,0:00:00.81,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:00.81,0:00:01.20,Caption,,0,0,0,,{\pos(960,1035)}Think about what {\c&H68A2FF&}passes{\c&HEEEEEE&} through email every day:
+Dialogue: 0,0:00:01.20,0:00:01.22,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:01.22,0:00:01.41,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes {\c&H68A2FF&}through{\c&HEEEEEE&} email every day:
+Dialogue: 0,0:00:01.41,0:00:01.43,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:01.43,0:00:01.78,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through {\c&H68A2FF&}email{\c&HEEEEEE&} every day:
+Dialogue: 0,0:00:01.78,0:00:01.79,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:01.79,0:00:01.99,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email {\c&H68A2FF&}every{\c&HEEEEEE&} day:
+Dialogue: 0,0:00:01.99,0:00:02.00,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:02.00,0:00:02.26,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every {\c&H68A2FF&}day:{\c&HEEEEEE&}
+Dialogue: 0,0:00:02.26,0:00:02.41,Caption,,0,0,0,,{\pos(960,1035)}Think about what passes through email every day:
+Dialogue: 0,0:00:02.44,0:00:02.89,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}password{\c&HEEEEEE&} resets, business documents, and private conversations.
+Dialogue: 0,0:00:02.89,0:00:02.90,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:02.90,0:00:03.37,Caption,,0,0,0,,{\pos(960,1035)}password {\c&H68A2FF&}resets,{\c&HEEEEEE&} business documents, and private conversations.
+Dialogue: 0,0:00:03.37,0:00:03.52,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:03.52,0:00:03.86,Caption,,0,0,0,,{\pos(960,1035)}password resets, {\c&H68A2FF&}business{\c&HEEEEEE&} documents, and private conversations.
+Dialogue: 0,0:00:03.86,0:00:03.89,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:03.89,0:00:04.43,Caption,,0,0,0,,{\pos(960,1035)}password resets, business {\c&H68A2FF&}documents,{\c&HEEEEEE&} and private conversations.
+Dialogue: 0,0:00:04.43,0:00:04.60,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:04.60,0:00:04.75,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, {\c&H68A2FF&}and{\c&HEEEEEE&} private conversations.
+Dialogue: 0,0:00:04.75,0:00:04.77,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:04.77,0:00:05.11,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and {\c&H68A2FF&}private{\c&HEEEEEE&} conversations.
+Dialogue: 0,0:00:05.11,0:00:05.13,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:05.13,0:00:05.97,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private {\c&H68A2FF&}conversations.{\c&HEEEEEE&}
+Dialogue: 0,0:00:05.97,0:00:06.12,Caption,,0,0,0,,{\pos(960,1035)}password resets, business documents, and private conversations.
+Dialogue: 0,0:00:06.85,0:00:07.10,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Now{\c&HEEEEEE&} imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:07.10,0:00:07.12,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:07.12,0:00:07.46,Caption,,0,0,0,,{\pos(960,1035)}Now {\c&H68A2FF&}imagine{\c&HEEEEEE&} an employee logging into their mailbox,
+Dialogue: 0,0:00:07.46,0:00:07.49,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:07.49,0:00:07.57,Caption,,0,0,0,,{\pos(960,1035)}Now imagine {\c&H68A2FF&}an{\c&HEEEEEE&} employee logging into their mailbox,
+Dialogue: 0,0:00:07.57,0:00:07.59,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:07.59,0:00:07.98,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an {\c&H68A2FF&}employee{\c&HEEEEEE&} logging into their mailbox,
+Dialogue: 0,0:00:07.98,0:00:08.01,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:08.01,0:00:08.41,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee {\c&H68A2FF&}logging{\c&HEEEEEE&} into their mailbox,
+Dialogue: 0,0:00:08.41,0:00:08.44,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:08.44,0:00:08.58,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging {\c&H68A2FF&}into{\c&HEEEEEE&} their mailbox,
+Dialogue: 0,0:00:08.58,0:00:08.61,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:08.61,0:00:08.75,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into {\c&H68A2FF&}their{\c&HEEEEEE&} mailbox,
+Dialogue: 0,0:00:08.75,0:00:08.76,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:08.76,0:00:09.31,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their {\c&H68A2FF&}mailbox,{\c&HEEEEEE&}
+Dialogue: 0,0:00:09.31,0:00:09.46,Caption,,0,0,0,,{\pos(960,1035)}Now imagine an employee logging into their mailbox,
+Dialogue: 0,0:00:09.55,0:00:09.68,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}but{\c&HEEEEEE&} the connection sends their login details before
+Dialogue: 0,0:00:09.68,0:00:09.71,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:09.71,0:00:09.81,Caption,,0,0,0,,{\pos(960,1035)}but {\c&H68A2FF&}the{\c&HEEEEEE&} connection sends their login details before
+Dialogue: 0,0:00:09.81,0:00:09.83,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:09.83,0:00:10.27,Caption,,0,0,0,,{\pos(960,1035)}but the {\c&H68A2FF&}connection{\c&HEEEEEE&} sends their login details before
+Dialogue: 0,0:00:10.27,0:00:10.30,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:10.30,0:00:10.58,Caption,,0,0,0,,{\pos(960,1035)}but the connection {\c&H68A2FF&}sends{\c&HEEEEEE&} their login details before
+Dialogue: 0,0:00:10.58,0:00:10.61,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:10.61,0:00:10.76,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends {\c&H68A2FF&}their{\c&HEEEEEE&} login details before
+Dialogue: 0,0:00:10.76,0:00:10.78,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:10.78,0:00:11.16,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their {\c&H68A2FF&}login{\c&HEEEEEE&} details before
+Dialogue: 0,0:00:11.16,0:00:11.19,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:11.19,0:00:11.67,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login {\c&H68A2FF&}details{\c&HEEEEEE&} before
+Dialogue: 0,0:00:11.67,0:00:11.68,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:11.68,0:00:11.99,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details {\c&H68A2FF&}before{\c&HEEEEEE&}
+Dialogue: 0,0:00:11.99,0:00:12.14,Caption,,0,0,0,,{\pos(960,1035)}but the connection sends their login details before
+Dialogue: 0,0:00:12.01,0:00:12.47,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}encryption{\c&HEEEEEE&} begins. Someone able to observe that traffic
+Dialogue: 0,0:00:12.47,0:00:12.49,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:12.49,0:00:13.04,Caption,,0,0,0,,{\pos(960,1035)}encryption {\c&H68A2FF&}begins.{\c&HEEEEEE&} Someone able to observe that traffic
+Dialogue: 0,0:00:13.04,0:00:13.90,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:13.90,0:00:14.35,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. {\c&H68A2FF&}Someone{\c&HEEEEEE&} able to observe that traffic
+Dialogue: 0,0:00:14.35,0:00:14.37,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:14.37,0:00:14.59,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone {\c&H68A2FF&}able{\c&HEEEEEE&} to observe that traffic
+Dialogue: 0,0:00:14.59,0:00:14.62,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:14.62,0:00:14.74,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able {\c&H68A2FF&}to{\c&HEEEEEE&} observe that traffic
+Dialogue: 0,0:00:14.74,0:00:14.75,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:14.75,0:00:15.15,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to {\c&H68A2FF&}observe{\c&HEEEEEE&} that traffic
+Dialogue: 0,0:00:15.15,0:00:15.17,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:15.17,0:00:15.31,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe {\c&H68A2FF&}that{\c&HEEEEEE&} traffic
+Dialogue: 0,0:00:15.31,0:00:15.32,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:15.32,0:00:15.73,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that {\c&H68A2FF&}traffic{\c&HEEEEEE&}
+Dialogue: 0,0:00:15.73,0:00:15.88,Caption,,0,0,0,,{\pos(960,1035)}encryption begins. Someone able to observe that traffic
+Dialogue: 0,0:00:15.75,0:00:15.94,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}could{\c&HEEEEEE&} capture those credentials.
+Dialogue: 0,0:00:15.94,0:00:15.96,Caption,,0,0,0,,{\pos(960,1035)}could capture those credentials.
+Dialogue: 0,0:00:15.96,0:00:16.38,Caption,,0,0,0,,{\pos(960,1035)}could {\c&H68A2FF&}capture{\c&HEEEEEE&} those credentials.
+Dialogue: 0,0:00:16.38,0:00:16.40,Caption,,0,0,0,,{\pos(960,1035)}could capture those credentials.
+Dialogue: 0,0:00:16.40,0:00:16.60,Caption,,0,0,0,,{\pos(960,1035)}could capture {\c&H68A2FF&}those{\c&HEEEEEE&} credentials.
+Dialogue: 0,0:00:16.60,0:00:16.61,Caption,,0,0,0,,{\pos(960,1035)}could capture those credentials.
+Dialogue: 0,0:00:16.61,0:00:17.34,Caption,,0,0,0,,{\pos(960,1035)}could capture those {\c&H68A2FF&}credentials.{\c&HEEEEEE&}
+Dialogue: 0,0:00:17.34,0:00:17.49,Caption,,0,0,0,,{\pos(960,1035)}could capture those credentials.
+Dialogue: 0,0:00:18.22,0:00:18.35,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}The{\c&HEEEEEE&} email service might still work normally.
+Dialogue: 0,0:00:18.35,0:00:18.38,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:18.38,0:00:18.75,Caption,,0,0,0,,{\pos(960,1035)}The {\c&H68A2FF&}email{\c&HEEEEEE&} service might still work normally.
+Dialogue: 0,0:00:18.75,0:00:18.77,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:18.77,0:00:19.16,Caption,,0,0,0,,{\pos(960,1035)}The email {\c&H68A2FF&}service{\c&HEEEEEE&} might still work normally.
+Dialogue: 0,0:00:19.16,0:00:19.18,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:19.18,0:00:19.38,Caption,,0,0,0,,{\pos(960,1035)}The email service {\c&H68A2FF&}might{\c&HEEEEEE&} still work normally.
+Dialogue: 0,0:00:19.38,0:00:19.39,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:19.39,0:00:19.67,Caption,,0,0,0,,{\pos(960,1035)}The email service might {\c&H68A2FF&}still{\c&HEEEEEE&} work normally.
+Dialogue: 0,0:00:19.67,0:00:19.70,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:19.70,0:00:19.92,Caption,,0,0,0,,{\pos(960,1035)}The email service might still {\c&H68A2FF&}work{\c&HEEEEEE&} normally.
+Dialogue: 0,0:00:19.92,0:00:19.94,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:19.94,0:00:20.49,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work {\c&H68A2FF&}normally.{\c&HEEEEEE&}
+Dialogue: 0,0:00:20.49,0:00:20.64,Caption,,0,0,0,,{\pos(960,1035)}The email service might still work normally.
+Dialogue: 0,0:00:21.36,0:00:21.47,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}To{\c&HEEEEEE&} the employee, nothing would look wrong.
+Dialogue: 0,0:00:21.47,0:00:21.49,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:21.49,0:00:21.57,Caption,,0,0,0,,{\pos(960,1035)}To {\c&H68A2FF&}the{\c&HEEEEEE&} employee, nothing would look wrong.
+Dialogue: 0,0:00:21.57,0:00:21.59,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:21.59,0:00:22.19,Caption,,0,0,0,,{\pos(960,1035)}To the {\c&H68A2FF&}employee,{\c&HEEEEEE&} nothing would look wrong.
+Dialogue: 0,0:00:22.19,0:00:22.42,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:22.42,0:00:22.73,Caption,,0,0,0,,{\pos(960,1035)}To the employee, {\c&H68A2FF&}nothing{\c&HEEEEEE&} would look wrong.
+Dialogue: 0,0:00:22.73,0:00:22.76,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:22.76,0:00:22.89,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing {\c&H68A2FF&}would{\c&HEEEEEE&} look wrong.
+Dialogue: 0,0:00:22.89,0:00:22.92,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:22.92,0:00:23.10,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would {\c&H68A2FF&}look{\c&HEEEEEE&} wrong.
+Dialogue: 0,0:00:23.10,0:00:23.13,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:23.13,0:00:23.53,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look {\c&H68A2FF&}wrong.{\c&HEEEEEE&}
+Dialogue: 0,0:00:23.53,0:00:23.68,Caption,,0,0,0,,{\pos(960,1035)}To the employee, nothing would look wrong.
+Dialogue: 0,0:00:24.60,0:00:48.58,Chapter,,0,0,0,,{\pos(36,984)}02 / 09    WHY THIS NEEDS TO BE SOLVED
+Dialogue: 0,0:00:24.69,0:00:24.88,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}And{\c&HEEEEEE&} exposed logins are only one possibility.
+Dialogue: 0,0:00:24.88,0:00:24.90,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:24.90,0:00:25.43,Caption,,0,0,0,,{\pos(960,1035)}And {\c&H68A2FF&}exposed{\c&HEEEEEE&} logins are only one possibility.
+Dialogue: 0,0:00:25.43,0:00:25.46,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:25.46,0:00:25.90,Caption,,0,0,0,,{\pos(960,1035)}And exposed {\c&H68A2FF&}logins{\c&HEEEEEE&} are only one possibility.
+Dialogue: 0,0:00:25.90,0:00:25.93,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:25.93,0:00:26.05,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins {\c&H68A2FF&}are{\c&HEEEEEE&} only one possibility.
+Dialogue: 0,0:00:26.05,0:00:26.08,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:26.08,0:00:26.31,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are {\c&H68A2FF&}only{\c&HEEEEEE&} one possibility.
+Dialogue: 0,0:00:26.31,0:00:26.33,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:26.33,0:00:26.57,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only {\c&H68A2FF&}one{\c&HEEEEEE&} possibility.
+Dialogue: 0,0:00:26.57,0:00:26.59,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:26.59,0:00:27.40,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one {\c&H68A2FF&}possibility.{\c&HEEEEEE&}
+Dialogue: 0,0:00:27.40,0:00:27.55,Caption,,0,0,0,,{\pos(960,1035)}And exposed logins are only one possibility.
+Dialogue: 0,0:00:28.26,0:00:28.38,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}A{\c&HEEEEEE&} connection might use outdated encryption, present an
+Dialogue: 0,0:00:28.38,0:00:28.41,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:28.41,0:00:28.89,Caption,,0,0,0,,{\pos(960,1035)}A {\c&H68A2FF&}connection{\c&HEEEEEE&} might use outdated encryption, present an
+Dialogue: 0,0:00:28.89,0:00:28.91,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:28.91,0:00:29.11,Caption,,0,0,0,,{\pos(960,1035)}A connection {\c&H68A2FF&}might{\c&HEEEEEE&} use outdated encryption, present an
+Dialogue: 0,0:00:29.11,0:00:29.12,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:29.12,0:00:29.32,Caption,,0,0,0,,{\pos(960,1035)}A connection might {\c&H68A2FF&}use{\c&HEEEEEE&} outdated encryption, present an
+Dialogue: 0,0:00:29.32,0:00:29.34,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:29.34,0:00:29.81,Caption,,0,0,0,,{\pos(960,1035)}A connection might use {\c&H68A2FF&}outdated{\c&HEEEEEE&} encryption, present an
+Dialogue: 0,0:00:29.81,0:00:29.83,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:29.83,0:00:30.33,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated {\c&H68A2FF&}encryption,{\c&HEEEEEE&} present an
+Dialogue: 0,0:00:30.33,0:00:30.52,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:30.52,0:00:30.89,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, {\c&H68A2FF&}present{\c&HEEEEEE&} an
+Dialogue: 0,0:00:30.89,0:00:30.91,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:30.91,0:00:31.00,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present {\c&H68A2FF&}an{\c&HEEEEEE&}
+Dialogue: 0,0:00:31.00,0:00:31.15,Caption,,0,0,0,,{\pos(960,1035)}A connection might use outdated encryption, present an
+Dialogue: 0,0:00:31.02,0:00:31.49,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}expired{\c&HEEEEEE&} security certificate, or fail to switch to
+Dialogue: 0,0:00:31.49,0:00:31.52,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:31.52,0:00:32.00,Caption,,0,0,0,,{\pos(960,1035)}expired {\c&H68A2FF&}security{\c&HEEEEEE&} certificate, or fail to switch to
+Dialogue: 0,0:00:32.00,0:00:32.02,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:32.02,0:00:32.64,Caption,,0,0,0,,{\pos(960,1035)}expired security {\c&H68A2FF&}certificate,{\c&HEEEEEE&} or fail to switch to
+Dialogue: 0,0:00:32.64,0:00:32.86,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:32.86,0:00:32.98,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, {\c&H68A2FF&}or{\c&HEEEEEE&} fail to switch to
+Dialogue: 0,0:00:32.98,0:00:33.01,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:33.01,0:00:33.28,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or {\c&H68A2FF&}fail{\c&HEEEEEE&} to switch to
+Dialogue: 0,0:00:33.28,0:00:33.30,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:33.30,0:00:33.40,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail {\c&H68A2FF&}to{\c&HEEEEEE&} switch to
+Dialogue: 0,0:00:33.40,0:00:33.41,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:33.41,0:00:33.71,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to {\c&H68A2FF&}switch{\c&HEEEEEE&} to
+Dialogue: 0,0:00:33.71,0:00:33.72,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:33.72,0:00:33.82,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch {\c&H68A2FF&}to{\c&HEEEEEE&}
+Dialogue: 0,0:00:33.82,0:00:33.97,Caption,,0,0,0,,{\pos(960,1035)}expired security certificate, or fail to switch to
+Dialogue: 0,0:00:33.83,0:00:34.38,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}encryption{\c&HEEEEEE&} when it should.
+Dialogue: 0,0:00:34.38,0:00:34.40,Caption,,0,0,0,,{\pos(960,1035)}encryption when it should.
+Dialogue: 0,0:00:34.40,0:00:34.52,Caption,,0,0,0,,{\pos(960,1035)}encryption {\c&H68A2FF&}when{\c&HEEEEEE&} it should.
+Dialogue: 0,0:00:34.52,0:00:34.54,Caption,,0,0,0,,{\pos(960,1035)}encryption when it should.
+Dialogue: 0,0:00:34.54,0:00:34.61,Caption,,0,0,0,,{\pos(960,1035)}encryption when {\c&H68A2FF&}it{\c&HEEEEEE&} should.
+Dialogue: 0,0:00:34.61,0:00:34.64,Caption,,0,0,0,,{\pos(960,1035)}encryption when it should.
+Dialogue: 0,0:00:34.64,0:00:35.02,Caption,,0,0,0,,{\pos(960,1035)}encryption when it {\c&H68A2FF&}should.{\c&HEEEEEE&}
+Dialogue: 0,0:00:35.02,0:00:35.17,Caption,,0,0,0,,{\pos(960,1035)}encryption when it should.
+Dialogue: 0,0:00:35.89,0:00:36.15,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}These{\c&HEEEEEE&} weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:36.15,0:00:36.17,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:36.17,0:00:36.72,Caption,,0,0,0,,{\pos(960,1035)}These {\c&H68A2FF&}weaknesses{\c&HEEEEEE&} can put accounts and sensitive communication
+Dialogue: 0,0:00:36.72,0:00:36.75,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:36.75,0:00:36.91,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses {\c&H68A2FF&}can{\c&HEEEEEE&} put accounts and sensitive communication
+Dialogue: 0,0:00:36.91,0:00:36.93,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:36.93,0:00:37.08,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can {\c&H68A2FF&}put{\c&HEEEEEE&} accounts and sensitive communication
+Dialogue: 0,0:00:37.08,0:00:37.09,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:37.09,0:00:37.47,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put {\c&H68A2FF&}accounts{\c&HEEEEEE&} and sensitive communication
+Dialogue: 0,0:00:37.47,0:00:37.50,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:37.50,0:00:37.62,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts {\c&H68A2FF&}and{\c&HEEEEEE&} sensitive communication
+Dialogue: 0,0:00:37.62,0:00:37.65,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:37.65,0:00:38.19,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and {\c&H68A2FF&}sensitive{\c&HEEEEEE&} communication
+Dialogue: 0,0:00:38.19,0:00:38.21,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:38.21,0:00:39.00,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive {\c&H68A2FF&}communication{\c&HEEEEEE&}
+Dialogue: 0,0:00:39.00,0:00:39.15,Caption,,0,0,0,,{\pos(960,1035)}These weaknesses can put accounts and sensitive communication
+Dialogue: 0,0:00:39.03,0:00:39.14,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}at{\c&HEEEEEE&} risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:39.14,0:00:39.16,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:39.16,0:00:39.57,Caption,,0,0,0,,{\pos(960,1035)}at {\c&H68A2FF&}risk.{\c&HEEEEEE&} That’s why “the email was delivered”
+Dialogue: 0,0:00:39.57,0:00:40.43,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:40.43,0:00:40.73,Caption,,0,0,0,,{\pos(960,1035)}at risk. {\c&H68A2FF&}That’s{\c&HEEEEEE&} why “the email was delivered”
+Dialogue: 0,0:00:40.73,0:00:40.74,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:40.74,0:00:40.89,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s {\c&H68A2FF&}why{\c&HEEEEEE&} “the email was delivered”
+Dialogue: 0,0:00:40.89,0:00:40.95,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:40.95,0:00:41.05,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why {\c&H68A2FF&}“the{\c&HEEEEEE&} email was delivered”
+Dialogue: 0,0:00:41.05,0:00:41.07,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:41.07,0:00:41.49,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the {\c&H68A2FF&}email{\c&HEEEEEE&} was delivered”
+Dialogue: 0,0:00:41.49,0:00:41.52,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:41.52,0:00:41.68,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email {\c&H68A2FF&}was{\c&HEEEEEE&} delivered”
+Dialogue: 0,0:00:41.68,0:00:41.70,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:41.70,0:00:42.12,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was {\c&H68A2FF&}delivered”{\c&HEEEEEE&}
+Dialogue: 0,0:00:42.12,0:00:42.27,Caption,,0,0,0,,{\pos(960,1035)}at risk. That’s why “the email was delivered”
+Dialogue: 0,0:00:42.18,0:00:42.44,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}isn’t{\c&HEEEEEE&} enough. We also need to know whether
+Dialogue: 0,0:00:42.44,0:00:42.47,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:42.47,0:00:42.90,Caption,,0,0,0,,{\pos(960,1035)}isn’t {\c&H68A2FF&}enough.{\c&HEEEEEE&} We also need to know whether
+Dialogue: 0,0:00:42.90,0:00:43.78,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:43.78,0:00:43.97,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. {\c&H68A2FF&}We{\c&HEEEEEE&} also need to know whether
+Dialogue: 0,0:00:43.97,0:00:44.00,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:44.00,0:00:44.22,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We {\c&H68A2FF&}also{\c&HEEEEEE&} need to know whether
+Dialogue: 0,0:00:44.22,0:00:44.24,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:44.24,0:00:44.43,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also {\c&H68A2FF&}need{\c&HEEEEEE&} to know whether
+Dialogue: 0,0:00:44.43,0:00:44.44,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:44.44,0:00:44.54,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need {\c&H68A2FF&}to{\c&HEEEEEE&} know whether
+Dialogue: 0,0:00:44.54,0:00:44.57,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:44.57,0:00:44.79,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to {\c&H68A2FF&}know{\c&HEEEEEE&} whether
+Dialogue: 0,0:00:44.79,0:00:44.80,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:44.80,0:00:45.05,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know {\c&H68A2FF&}whether{\c&HEEEEEE&}
+Dialogue: 0,0:00:45.05,0:00:45.20,Caption,,0,0,0,,{\pos(960,1035)}isn’t enough. We also need to know whether
+Dialogue: 0,0:00:45.07,0:00:45.18,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}the{\c&HEEEEEE&} connection carrying it was properly protected.
+Dialogue: 0,0:00:45.18,0:00:45.21,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:45.21,0:00:45.69,Caption,,0,0,0,,{\pos(960,1035)}the {\c&H68A2FF&}connection{\c&HEEEEEE&} carrying it was properly protected.
+Dialogue: 0,0:00:45.69,0:00:45.71,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:45.71,0:00:46.11,Caption,,0,0,0,,{\pos(960,1035)}the connection {\c&H68A2FF&}carrying{\c&HEEEEEE&} it was properly protected.
+Dialogue: 0,0:00:46.11,0:00:46.13,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:46.13,0:00:46.21,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying {\c&H68A2FF&}it{\c&HEEEEEE&} was properly protected.
+Dialogue: 0,0:00:46.21,0:00:46.23,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:46.23,0:00:46.39,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it {\c&H68A2FF&}was{\c&HEEEEEE&} properly protected.
+Dialogue: 0,0:00:46.39,0:00:46.42,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:46.42,0:00:46.90,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was {\c&H68A2FF&}properly{\c&HEEEEEE&} protected.
+Dialogue: 0,0:00:46.90,0:00:46.91,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:46.91,0:00:47.53,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly {\c&H68A2FF&}protected.{\c&HEEEEEE&}
+Dialogue: 0,0:00:47.53,0:00:47.68,Caption,,0,0,0,,{\pos(960,1035)}the connection carrying it was properly protected.
+Dialogue: 0,0:00:48.58,0:01:08.15,Chapter,,0,0,0,,{\pos(36,984)}03 / 09    WHY THE PROBLEM GETS MISSED
+Dialogue: 0,0:00:48.67,0:00:48.87,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}But{\c&HEEEEEE&} answering that isn’t straightforward.
+Dialogue: 0,0:00:48.87,0:00:48.90,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t straightforward.
+Dialogue: 0,0:00:48.90,0:00:49.36,Caption,,0,0,0,,{\pos(960,1035)}But {\c&H68A2FF&}answering{\c&HEEEEEE&} that isn’t straightforward.
+Dialogue: 0,0:00:49.36,0:00:49.39,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t straightforward.
+Dialogue: 0,0:00:49.39,0:00:49.56,Caption,,0,0,0,,{\pos(960,1035)}But answering {\c&H68A2FF&}that{\c&HEEEEEE&} isn’t straightforward.
+Dialogue: 0,0:00:49.56,0:00:49.57,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t straightforward.
+Dialogue: 0,0:00:49.57,0:00:49.87,Caption,,0,0,0,,{\pos(960,1035)}But answering that {\c&H68A2FF&}isn’t{\c&HEEEEEE&} straightforward.
+Dialogue: 0,0:00:49.87,0:00:49.88,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t straightforward.
+Dialogue: 0,0:00:49.88,0:00:50.76,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t {\c&H68A2FF&}straightforward.{\c&HEEEEEE&}
+Dialogue: 0,0:00:50.76,0:00:50.91,Caption,,0,0,0,,{\pos(960,1035)}But answering that isn’t straightforward.
+Dialogue: 0,0:00:51.63,0:00:51.77,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}The{\c&HEEEEEE&} evidence can be scattered across thousands of
+Dialogue: 0,0:00:51.77,0:00:51.79,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:51.79,0:00:52.24,Caption,,0,0,0,,{\pos(960,1035)}The {\c&H68A2FF&}evidence{\c&HEEEEEE&} can be scattered across thousands of
+Dialogue: 0,0:00:52.24,0:00:52.26,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:52.26,0:00:52.41,Caption,,0,0,0,,{\pos(960,1035)}The evidence {\c&H68A2FF&}can{\c&HEEEEEE&} be scattered across thousands of
+Dialogue: 0,0:00:52.41,0:00:52.42,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:52.42,0:00:52.53,Caption,,0,0,0,,{\pos(960,1035)}The evidence can {\c&H68A2FF&}be{\c&HEEEEEE&} scattered across thousands of
+Dialogue: 0,0:00:52.53,0:00:52.55,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:52.55,0:00:52.98,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be {\c&H68A2FF&}scattered{\c&HEEEEEE&} across thousands of
+Dialogue: 0,0:00:52.98,0:00:53.00,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:53.00,0:00:53.36,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered {\c&H68A2FF&}across{\c&HEEEEEE&} thousands of
+Dialogue: 0,0:00:53.36,0:00:53.39,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:53.39,0:00:53.85,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across {\c&H68A2FF&}thousands{\c&HEEEEEE&} of
+Dialogue: 0,0:00:53.85,0:00:53.88,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:53.88,0:00:53.95,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands {\c&H68A2FF&}of{\c&HEEEEEE&}
+Dialogue: 0,0:00:53.95,0:00:54.10,Caption,,0,0,0,,{\pos(960,1035)}The evidence can be scattered across thousands of
+Dialogue: 0,0:00:53.98,0:00:54.36,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}network{\c&HEEEEEE&} packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:54.36,0:00:54.39,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:54.39,0:00:54.93,Caption,,0,0,0,,{\pos(960,1035)}network {\c&H68A2FF&}packets.{\c&HEEEEEE&} Someone has to reconstruct the conversation
+Dialogue: 0,0:00:54.93,0:00:55.78,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:55.78,0:00:56.19,Caption,,0,0,0,,{\pos(960,1035)}network packets. {\c&H68A2FF&}Someone{\c&HEEEEEE&} has to reconstruct the conversation
+Dialogue: 0,0:00:56.19,0:00:56.21,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:56.21,0:00:56.38,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone {\c&H68A2FF&}has{\c&HEEEEEE&} to reconstruct the conversation
+Dialogue: 0,0:00:56.38,0:00:56.41,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:56.41,0:00:56.51,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has {\c&H68A2FF&}to{\c&HEEEEEE&} reconstruct the conversation
+Dialogue: 0,0:00:56.51,0:00:56.53,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:56.53,0:00:57.16,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to {\c&H68A2FF&}reconstruct{\c&HEEEEEE&} the conversation
+Dialogue: 0,0:00:57.16,0:00:57.19,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:57.19,0:00:57.27,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct {\c&H68A2FF&}the{\c&HEEEEEE&} conversation
+Dialogue: 0,0:00:57.27,0:00:57.28,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:57.28,0:00:57.97,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the {\c&H68A2FF&}conversation{\c&HEEEEEE&}
+Dialogue: 0,0:00:57.97,0:00:58.12,Caption,,0,0,0,,{\pos(960,1035)}network packets. Someone has to reconstruct the conversation
+Dialogue: 0,0:00:58.00,0:00:58.11,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}and{\c&HEEEEEE&} identify where protection began or where it
+Dialogue: 0,0:00:58.11,0:00:58.13,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:00:58.13,0:00:58.71,Caption,,0,0,0,,{\pos(960,1035)}and {\c&H68A2FF&}identify{\c&HEEEEEE&} where protection began or where it
+Dialogue: 0,0:00:58.71,0:00:58.74,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:00:58.74,0:00:58.94,Caption,,0,0,0,,{\pos(960,1035)}and identify {\c&H68A2FF&}where{\c&HEEEEEE&} protection began or where it
+Dialogue: 0,0:00:58.94,0:00:58.95,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:00:58.95,0:00:59.43,Caption,,0,0,0,,{\pos(960,1035)}and identify where {\c&H68A2FF&}protection{\c&HEEEEEE&} began or where it
+Dialogue: 0,0:00:59.43,0:00:59.44,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:00:59.44,0:00:59.87,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection {\c&H68A2FF&}began{\c&HEEEEEE&} or where it
+Dialogue: 0,0:00:59.87,0:00:59.97,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:00:59.97,0:01:00.10,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began {\c&H68A2FF&}or{\c&HEEEEEE&} where it
+Dialogue: 0,0:01:00.10,0:01:00.12,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:01:00.12,0:01:00.28,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or {\c&H68A2FF&}where{\c&HEEEEEE&} it
+Dialogue: 0,0:01:00.28,0:01:00.31,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:01:00.31,0:01:00.38,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where {\c&H68A2FF&}it{\c&HEEEEEE&}
+Dialogue: 0,0:01:00.38,0:01:00.53,Caption,,0,0,0,,{\pos(960,1035)}and identify where protection began or where it
+Dialogue: 0,0:01:00.40,0:01:00.86,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}failed.{\c&HEEEEEE&} The challenge is turning that traffic into
+Dialogue: 0,0:01:00.86,0:01:01.72,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:01.72,0:01:01.85,Caption,,0,0,0,,{\pos(960,1035)}failed. {\c&H68A2FF&}The{\c&HEEEEEE&} challenge is turning that traffic into
+Dialogue: 0,0:01:01.85,0:01:01.86,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:01.86,0:01:02.27,Caption,,0,0,0,,{\pos(960,1035)}failed. The {\c&H68A2FF&}challenge{\c&HEEEEEE&} is turning that traffic into
+Dialogue: 0,0:01:02.27,0:01:02.29,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:02.29,0:01:02.39,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge {\c&H68A2FF&}is{\c&HEEEEEE&} turning that traffic into
+Dialogue: 0,0:01:02.39,0:01:02.40,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:02.40,0:01:02.69,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is {\c&H68A2FF&}turning{\c&HEEEEEE&} that traffic into
+Dialogue: 0,0:01:02.69,0:01:02.71,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:02.71,0:01:02.85,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning {\c&H68A2FF&}that{\c&HEEEEEE&} traffic into
+Dialogue: 0,0:01:02.85,0:01:02.86,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:02.86,0:01:03.25,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that {\c&H68A2FF&}traffic{\c&HEEEEEE&} into
+Dialogue: 0,0:01:03.25,0:01:03.28,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:03.28,0:01:03.45,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic {\c&H68A2FF&}into{\c&HEEEEEE&}
+Dialogue: 0,0:01:03.45,0:01:03.60,Caption,,0,0,0,,{\pos(960,1035)}failed. The challenge is turning that traffic into
+Dialogue: 0,0:01:03.46,0:01:03.72,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}clear{\c&HEEEEEE&} answers: what happened, why does it matter,
+Dialogue: 0,0:01:03.72,0:01:03.75,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:03.75,0:01:04.13,Caption,,0,0,0,,{\pos(960,1035)}clear {\c&H68A2FF&}answers:{\c&HEEEEEE&} what happened, why does it matter,
+Dialogue: 0,0:01:04.13,0:01:04.35,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:04.35,0:01:04.51,Caption,,0,0,0,,{\pos(960,1035)}clear answers: {\c&H68A2FF&}what{\c&HEEEEEE&} happened, why does it matter,
+Dialogue: 0,0:01:04.51,0:01:04.54,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:04.54,0:01:04.92,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what {\c&H68A2FF&}happened,{\c&HEEEEEE&} why does it matter,
+Dialogue: 0,0:01:04.92,0:01:05.08,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:05.08,0:01:05.21,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, {\c&H68A2FF&}why{\c&HEEEEEE&} does it matter,
+Dialogue: 0,0:01:05.21,0:01:05.23,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:05.23,0:01:05.40,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why {\c&H68A2FF&}does{\c&HEEEEEE&} it matter,
+Dialogue: 0,0:01:05.40,0:01:05.42,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:05.42,0:01:05.51,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does {\c&H68A2FF&}it{\c&HEEEEEE&} matter,
+Dialogue: 0,0:01:05.51,0:01:05.54,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:05.54,0:01:05.87,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it {\c&H68A2FF&}matter,{\c&HEEEEEE&}
+Dialogue: 0,0:01:05.87,0:01:06.02,Caption,,0,0,0,,{\pos(960,1035)}clear answers: what happened, why does it matter,
+Dialogue: 0,0:01:06.03,0:01:06.13,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}and{\c&HEEEEEE&} what should we fix?
+Dialogue: 0,0:01:06.13,0:01:06.15,Caption,,0,0,0,,{\pos(960,1035)}and what should we fix?
+Dialogue: 0,0:01:06.15,0:01:06.29,Caption,,0,0,0,,{\pos(960,1035)}and {\c&H68A2FF&}what{\c&HEEEEEE&} should we fix?
+Dialogue: 0,0:01:06.29,0:01:06.31,Caption,,0,0,0,,{\pos(960,1035)}and what should we fix?
+Dialogue: 0,0:01:06.31,0:01:06.47,Caption,,0,0,0,,{\pos(960,1035)}and what {\c&H68A2FF&}should{\c&HEEEEEE&} we fix?
+Dialogue: 0,0:01:06.47,0:01:06.50,Caption,,0,0,0,,{\pos(960,1035)}and what should we fix?
+Dialogue: 0,0:01:06.50,0:01:06.61,Caption,,0,0,0,,{\pos(960,1035)}and what should {\c&H68A2FF&}we{\c&HEEEEEE&} fix?
+Dialogue: 0,0:01:06.61,0:01:06.63,Caption,,0,0,0,,{\pos(960,1035)}and what should we fix?
+Dialogue: 0,0:01:06.63,0:01:07.11,Caption,,0,0,0,,{\pos(960,1035)}and what should we {\c&H68A2FF&}fix?{\c&HEEEEEE&}
+Dialogue: 0,0:01:07.11,0:01:07.26,Caption,,0,0,0,,{\pos(960,1035)}and what should we fix?
+Dialogue: 0,0:01:08.15,0:01:39.21,Chapter,,0,0,0,,{\pos(36,984)}04 / 09    INTRODUCING SECUREMAILSCOPE
+Dialogue: 0,0:01:08.25,0:01:08.50,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}That’s{\c&HEEEEEE&} what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:08.50,0:01:08.51,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:08.51,0:01:08.67,Caption,,0,0,0,,{\pos(960,1035)}That’s {\c&H68A2FF&}what{\c&HEEEEEE&} we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:08.67,0:01:08.69,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:08.69,0:01:08.84,Caption,,0,0,0,,{\pos(960,1035)}That’s what {\c&H68A2FF&}we’re{\c&HEEEEEE&} building SecureMailScope to help with.
+Dialogue: 0,0:01:08.84,0:01:08.87,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:08.87,0:01:09.20,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re {\c&H68A2FF&}building{\c&HEEEEEE&} SecureMailScope to help with.
+Dialogue: 0,0:01:09.20,0:01:09.21,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:09.21,0:01:10.16,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building {\c&H68A2FF&}SecureMailScope{\c&HEEEEEE&} to help with.
+Dialogue: 0,0:01:10.16,0:01:10.19,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:10.19,0:01:10.26,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope {\c&H68A2FF&}to{\c&HEEEEEE&} help with.
+Dialogue: 0,0:01:10.26,0:01:10.28,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:10.28,0:01:10.51,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to {\c&H68A2FF&}help{\c&HEEEEEE&} with.
+Dialogue: 0,0:01:10.51,0:01:10.52,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:10.52,0:01:10.80,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help {\c&H68A2FF&}with.{\c&HEEEEEE&}
+Dialogue: 0,0:01:10.80,0:01:10.95,Caption,,0,0,0,,{\pos(960,1035)}That’s what we’re building SecureMailScope to help with.
+Dialogue: 0,0:01:11.68,0:01:11.96,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Think{\c&HEEEEEE&} of it as a safety inspection for
+Dialogue: 0,0:01:11.96,0:01:11.97,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:11.97,0:01:12.06,Caption,,0,0,0,,{\pos(960,1035)}Think {\c&H68A2FF&}of{\c&HEEEEEE&} it as a safety inspection for
+Dialogue: 0,0:01:12.06,0:01:12.09,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:12.09,0:01:12.20,Caption,,0,0,0,,{\pos(960,1035)}Think of {\c&H68A2FF&}it{\c&HEEEEEE&} as a safety inspection for
+Dialogue: 0,0:01:12.20,0:01:12.22,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:12.22,0:01:12.34,Caption,,0,0,0,,{\pos(960,1035)}Think of it {\c&H68A2FF&}as{\c&HEEEEEE&} a safety inspection for
+Dialogue: 0,0:01:12.34,0:01:12.37,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:12.37,0:01:12.43,Caption,,0,0,0,,{\pos(960,1035)}Think of it as {\c&H68A2FF&}a{\c&HEEEEEE&} safety inspection for
+Dialogue: 0,0:01:12.43,0:01:12.44,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:12.44,0:01:12.81,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a {\c&H68A2FF&}safety{\c&HEEEEEE&} inspection for
+Dialogue: 0,0:01:12.81,0:01:12.84,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:12.84,0:01:13.37,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety {\c&H68A2FF&}inspection{\c&HEEEEEE&} for
+Dialogue: 0,0:01:13.37,0:01:13.39,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:13.39,0:01:13.55,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection {\c&H68A2FF&}for{\c&HEEEEEE&}
+Dialogue: 0,0:01:13.55,0:01:13.70,Caption,,0,0,0,,{\pos(960,1035)}Think of it as a safety inspection for
+Dialogue: 0,0:01:13.58,0:01:13.91,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}email{\c&HEEEEEE&} connections. You provide a recording of network
+Dialogue: 0,0:01:13.91,0:01:13.92,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:13.92,0:01:14.56,Caption,,0,0,0,,{\pos(960,1035)}email {\c&H68A2FF&}connections.{\c&HEEEEEE&} You provide a recording of network
+Dialogue: 0,0:01:14.56,0:01:15.43,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:15.43,0:01:15.61,Caption,,0,0,0,,{\pos(960,1035)}email connections. {\c&H68A2FF&}You{\c&HEEEEEE&} provide a recording of network
+Dialogue: 0,0:01:15.61,0:01:15.64,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:15.64,0:01:16.01,Caption,,0,0,0,,{\pos(960,1035)}email connections. You {\c&H68A2FF&}provide{\c&HEEEEEE&} a recording of network
+Dialogue: 0,0:01:16.01,0:01:16.02,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:16.02,0:01:16.06,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide {\c&H68A2FF&}a{\c&HEEEEEE&} recording of network
+Dialogue: 0,0:01:16.06,0:01:16.07,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:16.07,0:01:16.56,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a {\c&H68A2FF&}recording{\c&HEEEEEE&} of network
+Dialogue: 0,0:01:16.56,0:01:16.59,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:16.59,0:01:16.67,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording {\c&H68A2FF&}of{\c&HEEEEEE&} network
+Dialogue: 0,0:01:16.67,0:01:16.70,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:16.70,0:01:17.08,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of {\c&H68A2FF&}network{\c&HEEEEEE&}
+Dialogue: 0,0:01:17.08,0:01:17.23,Caption,,0,0,0,,{\pos(960,1035)}email connections. You provide a recording of network
+Dialogue: 0,0:01:17.09,0:01:17.51,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}traffic,{\c&HEEEEEE&} and it reconstructs the connections, checks for
+Dialogue: 0,0:01:17.51,0:01:17.71,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:17.71,0:01:17.81,Caption,,0,0,0,,{\pos(960,1035)}traffic, {\c&H68A2FF&}and{\c&HEEEEEE&} it reconstructs the connections, checks for
+Dialogue: 0,0:01:17.81,0:01:17.83,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:17.83,0:01:17.94,Caption,,0,0,0,,{\pos(960,1035)}traffic, and {\c&H68A2FF&}it{\c&HEEEEEE&} reconstructs the connections, checks for
+Dialogue: 0,0:01:17.94,0:01:17.96,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:17.96,0:01:18.65,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it {\c&H68A2FF&}reconstructs{\c&HEEEEEE&} the connections, checks for
+Dialogue: 0,0:01:18.65,0:01:18.66,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:18.66,0:01:18.77,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs {\c&H68A2FF&}the{\c&HEEEEEE&} connections, checks for
+Dialogue: 0,0:01:18.77,0:01:18.80,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:18.80,0:01:19.35,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the {\c&H68A2FF&}connections,{\c&HEEEEEE&} checks for
+Dialogue: 0,0:01:19.35,0:01:19.54,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:19.54,0:01:19.78,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, {\c&H68A2FF&}checks{\c&HEEEEEE&} for
+Dialogue: 0,0:01:19.78,0:01:19.81,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:19.81,0:01:19.95,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks {\c&H68A2FF&}for{\c&HEEEEEE&}
+Dialogue: 0,0:01:19.95,0:01:20.10,Caption,,0,0,0,,{\pos(960,1035)}traffic, and it reconstructs the connections, checks for
+Dialogue: 0,0:01:19.98,0:01:20.52,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}observable{\c&HEEEEEE&} weaknesses, and presents explained findings.
+Dialogue: 0,0:01:20.52,0:01:20.55,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:20.55,0:01:21.09,Caption,,0,0,0,,{\pos(960,1035)}observable {\c&H68A2FF&}weaknesses,{\c&HEEEEEE&} and presents explained findings.
+Dialogue: 0,0:01:21.09,0:01:21.27,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:21.27,0:01:21.40,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, {\c&H68A2FF&}and{\c&HEEEEEE&} presents explained findings.
+Dialogue: 0,0:01:21.40,0:01:21.41,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:21.41,0:01:21.82,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and {\c&H68A2FF&}presents{\c&HEEEEEE&} explained findings.
+Dialogue: 0,0:01:21.82,0:01:21.84,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:21.84,0:01:22.29,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents {\c&H68A2FF&}explained{\c&HEEEEEE&} findings.
+Dialogue: 0,0:01:22.29,0:01:22.31,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:22.31,0:01:22.89,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained {\c&H68A2FF&}findings.{\c&HEEEEEE&}
+Dialogue: 0,0:01:22.89,0:01:23.04,Caption,,0,0,0,,{\pos(960,1035)}observable weaknesses, and presents explained findings.
+Dialogue: 0,0:01:23.75,0:01:23.94,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}You{\c&HEEEEEE&} get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:23.94,0:01:23.96,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:23.96,0:01:24.12,Caption,,0,0,0,,{\pos(960,1035)}You {\c&H68A2FF&}get{\c&HEEEEEE&} supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:24.12,0:01:24.14,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:24.14,0:01:24.59,Caption,,0,0,0,,{\pos(960,1035)}You get {\c&H68A2FF&}supporting{\c&HEEEEEE&} evidence, suggested fixes, and an
+Dialogue: 0,0:01:24.59,0:01:24.60,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:24.60,0:01:25.02,Caption,,0,0,0,,{\pos(960,1035)}You get supporting {\c&H68A2FF&}evidence,{\c&HEEEEEE&} suggested fixes, and an
+Dialogue: 0,0:01:25.02,0:01:25.21,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:25.21,0:01:25.76,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, {\c&H68A2FF&}suggested{\c&HEEEEEE&} fixes, and an
+Dialogue: 0,0:01:25.76,0:01:25.79,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:25.79,0:01:26.23,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested {\c&H68A2FF&}fixes,{\c&HEEEEEE&} and an
+Dialogue: 0,0:01:26.23,0:01:26.44,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:26.44,0:01:26.60,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, {\c&H68A2FF&}and{\c&HEEEEEE&} an
+Dialogue: 0,0:01:26.60,0:01:26.63,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:26.63,0:01:26.71,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and {\c&H68A2FF&}an{\c&HEEEEEE&}
+Dialogue: 0,0:01:26.71,0:01:26.86,Caption,,0,0,0,,{\pos(960,1035)}You get supporting evidence, suggested fixes, and an
+Dialogue: 0,0:01:26.74,0:01:27.33,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}exportable{\c&HEEEEEE&} report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:27.33,0:01:27.34,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:27.34,0:01:27.84,Caption,,0,0,0,,{\pos(960,1035)}exportable {\c&H68A2FF&}report.{\c&HEEEEEE&} Analysis runs locally, and reports leave
+Dialogue: 0,0:01:27.84,0:01:28.71,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:28.71,0:01:29.37,Caption,,0,0,0,,{\pos(960,1035)}exportable report. {\c&H68A2FF&}Analysis{\c&HEEEEEE&} runs locally, and reports leave
+Dialogue: 0,0:01:29.37,0:01:29.39,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:29.39,0:01:29.65,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis {\c&H68A2FF&}runs{\c&HEEEEEE&} locally, and reports leave
+Dialogue: 0,0:01:29.65,0:01:29.67,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:29.67,0:01:30.12,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs {\c&H68A2FF&}locally,{\c&HEEEEEE&} and reports leave
+Dialogue: 0,0:01:30.12,0:01:30.34,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:30.34,0:01:30.48,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, {\c&H68A2FF&}and{\c&HEEEEEE&} reports leave
+Dialogue: 0,0:01:30.48,0:01:30.50,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:30.50,0:01:30.91,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and {\c&H68A2FF&}reports{\c&HEEEEEE&} leave
+Dialogue: 0,0:01:30.91,0:01:30.93,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:30.93,0:01:31.14,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports {\c&H68A2FF&}leave{\c&HEEEEEE&}
+Dialogue: 0,0:01:31.14,0:01:31.29,Caption,,0,0,0,,{\pos(960,1035)}exportable report. Analysis runs locally, and reports leave
+Dialogue: 0,0:01:31.17,0:01:31.30,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}out{\c&HEEEEEE&} credentials and message bodies.
+Dialogue: 0,0:01:31.30,0:01:31.33,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message bodies.
+Dialogue: 0,0:01:31.33,0:01:31.91,Caption,,0,0,0,,{\pos(960,1035)}out {\c&H68A2FF&}credentials{\c&HEEEEEE&} and message bodies.
+Dialogue: 0,0:01:31.91,0:01:31.93,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message bodies.
+Dialogue: 0,0:01:31.93,0:01:32.02,Caption,,0,0,0,,{\pos(960,1035)}out credentials {\c&H68A2FF&}and{\c&HEEEEEE&} message bodies.
+Dialogue: 0,0:01:32.02,0:01:32.04,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message bodies.
+Dialogue: 0,0:01:32.04,0:01:32.36,Caption,,0,0,0,,{\pos(960,1035)}out credentials and {\c&H68A2FF&}message{\c&HEEEEEE&} bodies.
+Dialogue: 0,0:01:32.36,0:01:32.39,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message bodies.
+Dialogue: 0,0:01:32.39,0:01:32.87,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message {\c&H68A2FF&}bodies.{\c&HEEEEEE&}
+Dialogue: 0,0:01:32.87,0:01:33.02,Caption,,0,0,0,,{\pos(960,1035)}out credentials and message bodies.
+Dialogue: 0,0:01:33.73,0:01:33.88,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}The{\c&HEEEEEE&} goal is to make hidden connection risks
+Dialogue: 0,0:01:33.88,0:01:33.89,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:33.89,0:01:34.19,Caption,,0,0,0,,{\pos(960,1035)}The {\c&H68A2FF&}goal{\c&HEEEEEE&} is to make hidden connection risks
+Dialogue: 0,0:01:34.19,0:01:34.20,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:34.20,0:01:34.32,Caption,,0,0,0,,{\pos(960,1035)}The goal {\c&H68A2FF&}is{\c&HEEEEEE&} to make hidden connection risks
+Dialogue: 0,0:01:34.32,0:01:34.34,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:34.34,0:01:34.42,Caption,,0,0,0,,{\pos(960,1035)}The goal is {\c&H68A2FF&}to{\c&HEEEEEE&} make hidden connection risks
+Dialogue: 0,0:01:34.42,0:01:34.44,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:34.44,0:01:34.64,Caption,,0,0,0,,{\pos(960,1035)}The goal is to {\c&H68A2FF&}make{\c&HEEEEEE&} hidden connection risks
+Dialogue: 0,0:01:34.64,0:01:34.67,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:34.67,0:01:34.95,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make {\c&H68A2FF&}hidden{\c&HEEEEEE&} connection risks
+Dialogue: 0,0:01:34.95,0:01:34.98,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:34.98,0:01:35.48,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden {\c&H68A2FF&}connection{\c&HEEEEEE&} risks
+Dialogue: 0,0:01:35.48,0:01:35.51,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:35.51,0:01:35.82,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection {\c&H68A2FF&}risks{\c&HEEEEEE&}
+Dialogue: 0,0:01:35.82,0:01:35.97,Caption,,0,0,0,,{\pos(960,1035)}The goal is to make hidden connection risks
+Dialogue: 0,0:01:35.84,0:01:36.29,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}visible,{\c&HEEEEEE&} understandable, and actionable.
+Dialogue: 0,0:01:36.29,0:01:36.45,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, and actionable.
+Dialogue: 0,0:01:36.45,0:01:37.24,Caption,,0,0,0,,{\pos(960,1035)}visible, {\c&H68A2FF&}understandable,{\c&HEEEEEE&} and actionable.
+Dialogue: 0,0:01:37.24,0:01:37.40,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, and actionable.
+Dialogue: 0,0:01:37.40,0:01:37.51,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, {\c&H68A2FF&}and{\c&HEEEEEE&} actionable.
+Dialogue: 0,0:01:37.51,0:01:37.53,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, and actionable.
+Dialogue: 0,0:01:37.53,0:01:38.16,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, and {\c&H68A2FF&}actionable.{\c&HEEEEEE&}
+Dialogue: 0,0:01:38.16,0:01:38.31,Caption,,0,0,0,,{\pos(960,1035)}visible, understandable, and actionable.
+Dialogue: 0,0:01:39.21,0:02:08.92,Chapter,,0,0,0,,{\pos(36,984)}05 / 09    TECHNICAL WALKTHROUGH: RECONSTRUCTING THE TRAFFIC
+Dialogue: 0,0:01:39.31,0:01:39.67,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Now,{\c&HEEEEEE&} let’s look under the hood.
+Dialogue: 0,0:01:39.67,0:01:39.89,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:39.89,0:01:40.11,Caption,,0,0,0,,{\pos(960,1035)}Now, {\c&H68A2FF&}let’s{\c&HEEEEEE&} look under the hood.
+Dialogue: 0,0:01:40.11,0:01:40.12,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:40.12,0:01:40.32,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s {\c&H68A2FF&}look{\c&HEEEEEE&} under the hood.
+Dialogue: 0,0:01:40.32,0:01:40.33,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:40.33,0:01:40.54,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look {\c&H68A2FF&}under{\c&HEEEEEE&} the hood.
+Dialogue: 0,0:01:40.54,0:01:40.56,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:40.56,0:01:40.64,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under {\c&H68A2FF&}the{\c&HEEEEEE&} hood.
+Dialogue: 0,0:01:40.64,0:01:40.67,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:40.67,0:01:41.02,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the {\c&H68A2FF&}hood.{\c&HEEEEEE&}
+Dialogue: 0,0:01:41.02,0:01:41.17,Caption,,0,0,0,,{\pos(960,1035)}Now, let’s look under the hood.
+Dialogue: 0,0:01:41.90,0:01:42.11,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}This{\c&HEEEEEE&} cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:42.11,0:01:42.12,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:42.12,0:01:42.64,Caption,,0,0,0,,{\pos(960,1035)}This {\c&H68A2FF&}cleartext{\c&HEEEEEE&} authentication sample is a generated laboratory
+Dialogue: 0,0:01:42.64,0:01:42.66,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:42.66,0:01:43.34,Caption,,0,0,0,,{\pos(960,1035)}This cleartext {\c&H68A2FF&}authentication{\c&HEEEEEE&} sample is a generated laboratory
+Dialogue: 0,0:01:43.34,0:01:43.37,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:43.37,0:01:43.76,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication {\c&H68A2FF&}sample{\c&HEEEEEE&} is a generated laboratory
+Dialogue: 0,0:01:43.76,0:01:43.78,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:43.78,0:01:43.87,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample {\c&H68A2FF&}is{\c&HEEEEEE&} a generated laboratory
+Dialogue: 0,0:01:43.87,0:01:43.89,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:43.89,0:01:43.95,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is {\c&H68A2FF&}a{\c&HEEEEEE&} generated laboratory
+Dialogue: 0,0:01:43.95,0:01:43.96,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:43.96,0:01:44.50,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a {\c&H68A2FF&}generated{\c&HEEEEEE&} laboratory
+Dialogue: 0,0:01:44.50,0:01:44.53,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:44.53,0:01:45.05,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated {\c&H68A2FF&}laboratory{\c&HEEEEEE&}
+Dialogue: 0,0:01:45.05,0:01:45.20,Caption,,0,0,0,,{\pos(960,1035)}This cleartext authentication sample is a generated laboratory
+Dialogue: 0,0:01:45.07,0:01:45.48,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}capture,{\c&HEEEEEE&} processed through the same pipeline as an
+Dialogue: 0,0:01:45.48,0:01:45.76,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:45.76,0:01:46.18,Caption,,0,0,0,,{\pos(960,1035)}capture, {\c&H68A2FF&}processed{\c&HEEEEEE&} through the same pipeline as an
+Dialogue: 0,0:01:46.18,0:01:46.20,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:46.20,0:01:46.34,Caption,,0,0,0,,{\pos(960,1035)}capture, processed {\c&H68A2FF&}through{\c&HEEEEEE&} the same pipeline as an
+Dialogue: 0,0:01:46.34,0:01:46.35,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:46.35,0:01:46.45,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through {\c&H68A2FF&}the{\c&HEEEEEE&} same pipeline as an
+Dialogue: 0,0:01:46.45,0:01:46.46,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:46.46,0:01:46.71,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the {\c&H68A2FF&}same{\c&HEEEEEE&} pipeline as an
+Dialogue: 0,0:01:46.71,0:01:46.72,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:46.72,0:01:47.17,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same {\c&H68A2FF&}pipeline{\c&HEEEEEE&} as an
+Dialogue: 0,0:01:47.17,0:01:47.19,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:47.19,0:01:47.32,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline {\c&H68A2FF&}as{\c&HEEEEEE&} an
+Dialogue: 0,0:01:47.32,0:01:47.34,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:47.34,0:01:47.44,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as {\c&H68A2FF&}an{\c&HEEEEEE&}
+Dialogue: 0,0:01:47.44,0:01:47.59,Caption,,0,0,0,,{\pos(960,1035)}capture, processed through the same pipeline as an
+Dialogue: 0,0:01:47.46,0:01:47.86,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}uploaded{\c&HEEEEEE&} PCAP or PCAPNG file.
+Dialogue: 0,0:01:47.86,0:01:47.88,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG file.
+Dialogue: 0,0:01:47.88,0:01:48.34,Caption,,0,0,0,,{\pos(960,1035)}uploaded {\c&H68A2FF&}PCAP{\c&HEEEEEE&} or PCAPNG file.
+Dialogue: 0,0:01:48.34,0:01:48.35,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG file.
+Dialogue: 0,0:01:48.35,0:01:48.47,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP {\c&H68A2FF&}or{\c&HEEEEEE&} PCAPNG file.
+Dialogue: 0,0:01:48.47,0:01:48.49,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG file.
+Dialogue: 0,0:01:48.49,0:01:49.26,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or {\c&H68A2FF&}PCAPNG{\c&HEEEEEE&} file.
+Dialogue: 0,0:01:49.26,0:01:49.29,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG file.
+Dialogue: 0,0:01:49.29,0:01:49.67,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG {\c&H68A2FF&}file.{\c&HEEEEEE&}
+Dialogue: 0,0:01:49.67,0:01:49.82,Caption,,0,0,0,,{\pos(960,1035)}uploaded PCAP or PCAPNG file.
+Dialogue: 0,0:01:50.55,0:01:50.68,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}The{\c&HEEEEEE&} backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:50.68,0:01:50.71,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:50.71,0:01:51.09,Caption,,0,0,0,,{\pos(960,1035)}The {\c&H68A2FF&}backend{\c&HEEEEEE&} extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:51.09,0:01:51.11,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:51.11,0:01:51.58,Caption,,0,0,0,,{\pos(960,1035)}The backend {\c&H68A2FF&}extracts{\c&HEEEEEE&} packets using TShark, with Scapy
+Dialogue: 0,0:01:51.58,0:01:51.61,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:51.61,0:01:52.01,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts {\c&H68A2FF&}packets{\c&HEEEEEE&} using TShark, with Scapy
+Dialogue: 0,0:01:52.01,0:01:52.03,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:52.03,0:01:52.34,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets {\c&H68A2FF&}using{\c&HEEEEEE&} TShark, with Scapy
+Dialogue: 0,0:01:52.34,0:01:52.36,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:52.36,0:01:52.91,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using {\c&H68A2FF&}TShark,{\c&HEEEEEE&} with Scapy
+Dialogue: 0,0:01:52.91,0:01:53.16,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:53.16,0:01:53.32,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, {\c&H68A2FF&}with{\c&HEEEEEE&} Scapy
+Dialogue: 0,0:01:53.32,0:01:53.35,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:53.35,0:01:53.74,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with {\c&H68A2FF&}Scapy{\c&HEEEEEE&}
+Dialogue: 0,0:01:53.74,0:01:53.89,Caption,,0,0,0,,{\pos(960,1035)}The backend extracts packets using TShark, with Scapy
+Dialogue: 0,0:01:53.77,0:01:53.86,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}as{\c&HEEEEEE&} a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:53.86,0:01:53.89,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:53.89,0:01:53.95,Caption,,0,0,0,,{\pos(960,1035)}as {\c&H68A2FF&}a{\c&HEEEEEE&} fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:53.95,0:01:53.96,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:53.96,0:01:54.51,Caption,,0,0,0,,{\pos(960,1035)}as a {\c&H68A2FF&}fallback.{\c&HEEEEEE&} It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:54.51,0:01:55.36,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:55.36,0:01:55.54,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. {\c&H68A2FF&}It{\c&HEEEEEE&} reconstructs TCP streams, tracks
+Dialogue: 0,0:01:55.54,0:01:55.55,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:55.55,0:01:56.17,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It {\c&H68A2FF&}reconstructs{\c&HEEEEEE&} TCP streams, tracks
+Dialogue: 0,0:01:56.17,0:01:56.20,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:56.20,0:01:56.75,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs {\c&H68A2FF&}TCP{\c&HEEEEEE&} streams, tracks
+Dialogue: 0,0:01:56.75,0:01:56.78,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:56.78,0:01:57.17,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP {\c&H68A2FF&}streams,{\c&HEEEEEE&} tracks
+Dialogue: 0,0:01:57.17,0:01:57.29,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:57.29,0:01:57.61,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, {\c&H68A2FF&}tracks{\c&HEEEEEE&}
+Dialogue: 0,0:01:57.61,0:01:57.76,Caption,,0,0,0,,{\pos(960,1035)}as a fallback. It reconstructs TCP streams, tracks
+Dialogue: 0,0:01:57.64,0:01:58.47,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}retransmissions{\c&HEEEEEE&} and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:58.47,0:01:58.55,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:58.55,0:01:58.61,Caption,,0,0,0,,{\pos(960,1035)}retransmissions {\c&H68A2FF&}and{\c&HEEEEEE&} gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:58.61,0:01:58.64,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:58.64,0:01:58.98,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and {\c&H68A2FF&}gaps,{\c&HEEEEEE&} and parses SMTP, IMAP, and
+Dialogue: 0,0:01:58.98,0:01:59.22,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:59.22,0:01:59.35,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, {\c&H68A2FF&}and{\c&HEEEEEE&} parses SMTP, IMAP, and
+Dialogue: 0,0:01:59.35,0:01:59.38,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:59.38,0:01:59.74,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and {\c&H68A2FF&}parses{\c&HEEEEEE&} SMTP, IMAP, and
+Dialogue: 0,0:01:59.74,0:01:59.76,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:01:59.76,0:02:00.49,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses {\c&H68A2FF&}SMTP,{\c&HEEEEEE&} IMAP, and
+Dialogue: 0,0:02:00.49,0:02:00.69,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:02:00.69,0:02:01.08,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, {\c&H68A2FF&}IMAP,{\c&HEEEEEE&} and
+Dialogue: 0,0:02:01.08,0:02:01.38,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:02:01.38,0:02:01.46,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, {\c&H68A2FF&}and{\c&HEEEEEE&}
+Dialogue: 0,0:02:01.46,0:02:01.61,Caption,,0,0,0,,{\pos(960,1035)}retransmissions and gaps, and parses SMTP, IMAP, and
+Dialogue: 0,0:02:01.48,0:02:01.88,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}POP3{\c&HEEEEEE&} conversations. That sequence lets us check whether
+Dialogue: 0,0:02:01.88,0:02:01.91,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:01.91,0:02:02.77,Caption,,0,0,0,,{\pos(960,1035)}POP3 {\c&H68A2FF&}conversations.{\c&HEEEEEE&} That sequence lets us check whether
+Dialogue: 0,0:02:02.77,0:02:03.65,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:03.65,0:02:03.86,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. {\c&H68A2FF&}That{\c&HEEEEEE&} sequence lets us check whether
+Dialogue: 0,0:02:03.86,0:02:03.87,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:03.87,0:02:04.32,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That {\c&H68A2FF&}sequence{\c&HEEEEEE&} lets us check whether
+Dialogue: 0,0:02:04.32,0:02:04.34,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:04.34,0:02:04.57,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence {\c&H68A2FF&}lets{\c&HEEEEEE&} us check whether
+Dialogue: 0,0:02:04.57,0:02:04.60,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:04.60,0:02:04.72,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets {\c&H68A2FF&}us{\c&HEEEEEE&} check whether
+Dialogue: 0,0:02:04.72,0:02:04.74,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:04.74,0:02:05.02,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us {\c&H68A2FF&}check{\c&HEEEEEE&} whether
+Dialogue: 0,0:02:05.02,0:02:05.03,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:05.03,0:02:05.30,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check {\c&H68A2FF&}whether{\c&HEEEEEE&}
+Dialogue: 0,0:02:05.30,0:02:05.45,Caption,,0,0,0,,{\pos(960,1035)}POP3 conversations. That sequence lets us check whether
+Dialogue: 0,0:02:05.32,0:02:06.03,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}authentication{\c&HEEEEEE&} happened before or after encryption.
+Dialogue: 0,0:02:06.03,0:02:06.05,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:06.05,0:02:06.38,Caption,,0,0,0,,{\pos(960,1035)}authentication {\c&H68A2FF&}happened{\c&HEEEEEE&} before or after encryption.
+Dialogue: 0,0:02:06.38,0:02:06.41,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:06.41,0:02:06.85,Caption,,0,0,0,,{\pos(960,1035)}authentication happened {\c&H68A2FF&}before{\c&HEEEEEE&} or after encryption.
+Dialogue: 0,0:02:06.85,0:02:06.87,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:06.87,0:02:07.01,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before {\c&H68A2FF&}or{\c&HEEEEEE&} after encryption.
+Dialogue: 0,0:02:07.01,0:02:07.03,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:07.03,0:02:07.31,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or {\c&H68A2FF&}after{\c&HEEEEEE&} encryption.
+Dialogue: 0,0:02:07.31,0:02:07.33,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:07.33,0:02:07.86,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after {\c&H68A2FF&}encryption.{\c&HEEEEEE&}
+Dialogue: 0,0:02:07.86,0:02:08.01,Caption,,0,0,0,,{\pos(960,1035)}authentication happened before or after encryption.
+Dialogue: 0,0:02:08.92,0:02:38.09,Chapter,,0,0,0,,{\pos(36,984)}06 / 09    DEMONSTRATING A FINDING
+Dialogue: 0,0:02:09.02,0:02:09.18,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}In{\c&HEEEEEE&} this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.18,0:02:09.21,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.21,0:02:09.35,Caption,,0,0,0,,{\pos(960,1035)}In {\c&H68A2FF&}this{\c&HEEEEEE&} session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.35,0:02:09.38,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.38,0:02:09.75,Caption,,0,0,0,,{\pos(960,1035)}In this {\c&H68A2FF&}session,{\c&HEEEEEE&} authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.75,0:02:09.95,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:09.95,0:02:10.70,Caption,,0,0,0,,{\pos(960,1035)}In this session, {\c&H68A2FF&}authentication{\c&HEEEEEE&} occurs before encryption, triggering
+Dialogue: 0,0:02:10.70,0:02:10.72,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:10.72,0:02:11.06,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication {\c&H68A2FF&}occurs{\c&HEEEEEE&} before encryption, triggering
+Dialogue: 0,0:02:11.06,0:02:11.07,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:11.07,0:02:11.38,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs {\c&H68A2FF&}before{\c&HEEEEEE&} encryption, triggering
+Dialogue: 0,0:02:11.38,0:02:11.40,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:11.40,0:02:11.89,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before {\c&H68A2FF&}encryption,{\c&HEEEEEE&} triggering
+Dialogue: 0,0:02:11.89,0:02:12.13,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:12.13,0:02:12.56,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, {\c&H68A2FF&}triggering{\c&HEEEEEE&}
+Dialogue: 0,0:02:12.56,0:02:12.71,Caption,,0,0,0,,{\pos(960,1035)}In this session, authentication occurs before encryption, triggering
+Dialogue: 0,0:02:12.59,0:02:12.70,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}the{\c&HEEEEEE&} critical AUTH-001 rule.
+Dialogue: 0,0:02:12.70,0:02:12.72,Caption,,0,0,0,,{\pos(960,1035)}the critical AUTH-001 rule.
+Dialogue: 0,0:02:12.72,0:02:13.19,Caption,,0,0,0,,{\pos(960,1035)}the {\c&H68A2FF&}critical{\c&HEEEEEE&} AUTH-001 rule.
+Dialogue: 0,0:02:13.19,0:02:13.20,Caption,,0,0,0,,{\pos(960,1035)}the critical AUTH-001 rule.
+Dialogue: 0,0:02:13.20,0:02:14.25,Caption,,0,0,0,,{\pos(960,1035)}the critical {\c&H68A2FF&}AUTH-001{\c&HEEEEEE&} rule.
+Dialogue: 0,0:02:14.25,0:02:14.26,Caption,,0,0,0,,{\pos(960,1035)}the critical AUTH-001 rule.
+Dialogue: 0,0:02:14.26,0:02:14.58,Caption,,0,0,0,,{\pos(960,1035)}the critical AUTH-001 {\c&H68A2FF&}rule.{\c&HEEEEEE&}
+Dialogue: 0,0:02:14.58,0:02:14.73,Caption,,0,0,0,,{\pos(960,1035)}the critical AUTH-001 rule.
+Dialogue: 0,0:02:15.45,0:02:15.63,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}We{\c&HEEEEEE&} can trace the finding to its originating
+Dialogue: 0,0:02:15.63,0:02:15.64,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:15.64,0:02:15.78,Caption,,0,0,0,,{\pos(960,1035)}We {\c&H68A2FF&}can{\c&HEEEEEE&} trace the finding to its originating
+Dialogue: 0,0:02:15.78,0:02:15.80,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:15.80,0:02:16.09,Caption,,0,0,0,,{\pos(960,1035)}We can {\c&H68A2FF&}trace{\c&HEEEEEE&} the finding to its originating
+Dialogue: 0,0:02:16.09,0:02:16.11,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:16.11,0:02:16.22,Caption,,0,0,0,,{\pos(960,1035)}We can trace {\c&H68A2FF&}the{\c&HEEEEEE&} finding to its originating
+Dialogue: 0,0:02:16.22,0:02:16.24,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:16.24,0:02:16.58,Caption,,0,0,0,,{\pos(960,1035)}We can trace the {\c&H68A2FF&}finding{\c&HEEEEEE&} to its originating
+Dialogue: 0,0:02:16.58,0:02:16.61,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:16.61,0:02:16.73,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding {\c&H68A2FF&}to{\c&HEEEEEE&} its originating
+Dialogue: 0,0:02:16.73,0:02:16.74,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:16.74,0:02:16.87,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to {\c&H68A2FF&}its{\c&HEEEEEE&} originating
+Dialogue: 0,0:02:16.87,0:02:16.88,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:16.88,0:02:17.49,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its {\c&H68A2FF&}originating{\c&HEEEEEE&}
+Dialogue: 0,0:02:17.49,0:02:17.64,Caption,,0,0,0,,{\pos(960,1035)}We can trace the finding to its originating
+Dialogue: 0,0:02:17.51,0:02:17.86,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}frame,{\c&HEEEEEE&} inspect the redacted command, and review the
+Dialogue: 0,0:02:17.86,0:02:18.03,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:18.03,0:02:18.40,Caption,,0,0,0,,{\pos(960,1035)}frame, {\c&H68A2FF&}inspect{\c&HEEEEEE&} the redacted command, and review the
+Dialogue: 0,0:02:18.40,0:02:18.41,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:18.41,0:02:18.49,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect {\c&H68A2FF&}the{\c&HEEEEEE&} redacted command, and review the
+Dialogue: 0,0:02:18.49,0:02:18.51,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:18.51,0:02:19.04,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the {\c&H68A2FF&}redacted{\c&HEEEEEE&} command, and review the
+Dialogue: 0,0:02:19.04,0:02:19.06,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:19.06,0:02:19.51,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted {\c&H68A2FF&}command,{\c&HEEEEEE&} and review the
+Dialogue: 0,0:02:19.51,0:02:19.68,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:19.68,0:02:19.83,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, {\c&H68A2FF&}and{\c&HEEEEEE&} review the
+Dialogue: 0,0:02:19.83,0:02:19.85,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:19.85,0:02:20.15,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and {\c&H68A2FF&}review{\c&HEEEEEE&} the
+Dialogue: 0,0:02:20.15,0:02:20.17,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:20.17,0:02:20.28,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review {\c&H68A2FF&}the{\c&HEEEEEE&}
+Dialogue: 0,0:02:20.28,0:02:20.43,Caption,,0,0,0,,{\pos(960,1035)}frame, inspect the redacted command, and review the
+Dialogue: 0,0:02:20.29,0:02:20.85,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}recommended{\c&HEEEEEE&} fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:20.85,0:02:20.87,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:20.87,0:02:21.33,Caption,,0,0,0,,{\pos(960,1035)}recommended {\c&H68A2FF&}fix.{\c&HEEEEEE&} The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:21.33,0:02:22.19,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:22.19,0:02:22.32,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. {\c&H68A2FF&}The{\c&HEEEEEE&} STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:22.32,0:02:22.34,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:22.34,0:02:23.08,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The {\c&H68A2FF&}STARTTLS{\c&HEEEEEE&} failure scenario demonstrates a
+Dialogue: 0,0:02:23.08,0:02:23.11,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:23.11,0:02:23.46,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS {\c&H68A2FF&}failure{\c&HEEEEEE&} scenario demonstrates a
+Dialogue: 0,0:02:23.46,0:02:23.49,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:23.49,0:02:23.97,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure {\c&H68A2FF&}scenario{\c&HEEEEEE&} demonstrates a
+Dialogue: 0,0:02:23.97,0:02:23.99,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:23.99,0:02:24.62,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario {\c&H68A2FF&}demonstrates{\c&HEEEEEE&} a
+Dialogue: 0,0:02:24.62,0:02:24.64,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:24.64,0:02:24.69,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates {\c&H68A2FF&}a{\c&HEEEEEE&}
+Dialogue: 0,0:02:24.69,0:02:24.84,Caption,,0,0,0,,{\pos(960,1035)}recommended fix. The STARTTLS failure scenario demonstrates a
+Dialogue: 0,0:02:24.70,0:02:25.12,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}related{\c&HEEEEEE&} problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:25.12,0:02:25.13,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:25.13,0:02:25.54,Caption,,0,0,0,,{\pos(960,1035)}related {\c&H68A2FF&}problem:{\c&HEEEEEE&} the client requests encryption, the upgrade
+Dialogue: 0,0:02:25.54,0:02:25.71,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:25.71,0:02:25.82,Caption,,0,0,0,,{\pos(960,1035)}related problem: {\c&H68A2FF&}the{\c&HEEEEEE&} client requests encryption, the upgrade
+Dialogue: 0,0:02:25.82,0:02:25.85,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:25.85,0:02:26.17,Caption,,0,0,0,,{\pos(960,1035)}related problem: the {\c&H68A2FF&}client{\c&HEEEEEE&} requests encryption, the upgrade
+Dialogue: 0,0:02:26.17,0:02:26.18,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:26.18,0:02:26.60,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client {\c&H68A2FF&}requests{\c&HEEEEEE&} encryption, the upgrade
+Dialogue: 0,0:02:26.60,0:02:26.62,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:26.62,0:02:27.15,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests {\c&H68A2FF&}encryption,{\c&HEEEEEE&} the upgrade
+Dialogue: 0,0:02:27.15,0:02:27.31,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:27.31,0:02:27.42,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, {\c&H68A2FF&}the{\c&HEEEEEE&} upgrade
+Dialogue: 0,0:02:27.42,0:02:27.45,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:27.45,0:02:27.83,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the {\c&H68A2FF&}upgrade{\c&HEEEEEE&}
+Dialogue: 0,0:02:27.83,0:02:27.98,Caption,,0,0,0,,{\pos(960,1035)}related problem: the client requests encryption, the upgrade
+Dialogue: 0,0:02:27.86,0:02:28.23,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}fails,{\c&HEEEEEE&} and authentication continues in plaintext.
+Dialogue: 0,0:02:28.23,0:02:28.42,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:28.42,0:02:28.55,Caption,,0,0,0,,{\pos(960,1035)}fails, {\c&H68A2FF&}and{\c&HEEEEEE&} authentication continues in plaintext.
+Dialogue: 0,0:02:28.55,0:02:28.57,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:28.57,0:02:29.30,Caption,,0,0,0,,{\pos(960,1035)}fails, and {\c&H68A2FF&}authentication{\c&HEEEEEE&} continues in plaintext.
+Dialogue: 0,0:02:29.30,0:02:29.32,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:29.32,0:02:29.87,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication {\c&H68A2FF&}continues{\c&HEEEEEE&} in plaintext.
+Dialogue: 0,0:02:29.87,0:02:29.89,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:29.89,0:02:29.96,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues {\c&H68A2FF&}in{\c&HEEEEEE&} plaintext.
+Dialogue: 0,0:02:29.96,0:02:29.98,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:29.98,0:02:30.61,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in {\c&H68A2FF&}plaintext.{\c&HEEEEEE&}
+Dialogue: 0,0:02:30.61,0:02:30.76,Caption,,0,0,0,,{\pos(960,1035)}fails, and authentication continues in plaintext.
+Dialogue: 0,0:02:31.47,0:02:32.04,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Requesting{\c&HEEEEEE&} protection doesn’t mean it was established.
+Dialogue: 0,0:02:32.04,0:02:32.05,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:32.05,0:02:32.60,Caption,,0,0,0,,{\pos(960,1035)}Requesting {\c&H68A2FF&}protection{\c&HEEEEEE&} doesn’t mean it was established.
+Dialogue: 0,0:02:32.60,0:02:32.63,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:32.63,0:02:32.95,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection {\c&H68A2FF&}doesn’t{\c&HEEEEEE&} mean it was established.
+Dialogue: 0,0:02:32.95,0:02:32.96,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:32.96,0:02:33.17,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t {\c&H68A2FF&}mean{\c&HEEEEEE&} it was established.
+Dialogue: 0,0:02:33.17,0:02:33.20,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:33.20,0:02:33.30,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean {\c&H68A2FF&}it{\c&HEEEEEE&} was established.
+Dialogue: 0,0:02:33.30,0:02:33.31,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:33.31,0:02:33.47,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it {\c&H68A2FF&}was{\c&HEEEEEE&} established.
+Dialogue: 0,0:02:33.47,0:02:33.49,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:33.49,0:02:34.20,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was {\c&H68A2FF&}established.{\c&HEEEEEE&}
+Dialogue: 0,0:02:34.20,0:02:34.35,Caption,,0,0,0,,{\pos(960,1035)}Requesting protection doesn’t mean it was established.
+Dialogue: 0,0:02:35.07,0:02:35.26,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}We{\c&HEEEEEE&} check the observed conversation.
+Dialogue: 0,0:02:35.26,0:02:35.27,Caption,,0,0,0,,{\pos(960,1035)}We check the observed conversation.
+Dialogue: 0,0:02:35.27,0:02:35.55,Caption,,0,0,0,,{\pos(960,1035)}We {\c&H68A2FF&}check{\c&HEEEEEE&} the observed conversation.
+Dialogue: 0,0:02:35.55,0:02:35.58,Caption,,0,0,0,,{\pos(960,1035)}We check the observed conversation.
+Dialogue: 0,0:02:35.58,0:02:35.69,Caption,,0,0,0,,{\pos(960,1035)}We check {\c&H68A2FF&}the{\c&HEEEEEE&} observed conversation.
+Dialogue: 0,0:02:35.69,0:02:35.70,Caption,,0,0,0,,{\pos(960,1035)}We check the observed conversation.
+Dialogue: 0,0:02:35.70,0:02:36.18,Caption,,0,0,0,,{\pos(960,1035)}We check the {\c&H68A2FF&}observed{\c&HEEEEEE&} conversation.
+Dialogue: 0,0:02:36.18,0:02:36.21,Caption,,0,0,0,,{\pos(960,1035)}We check the observed conversation.
+Dialogue: 0,0:02:36.21,0:02:37.04,Caption,,0,0,0,,{\pos(960,1035)}We check the observed {\c&H68A2FF&}conversation.{\c&HEEEEEE&}
+Dialogue: 0,0:02:37.04,0:02:37.19,Caption,,0,0,0,,{\pos(960,1035)}We check the observed conversation.
+Dialogue: 0,0:02:38.09,0:03:05.74,Chapter,,0,0,0,,{\pos(36,984)}07 / 09    EXAMINING THE CRYPTOGRAPHY
+Dialogue: 0,0:02:38.19,0:02:39.16,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}SecureMailScope{\c&HEEEEEE&} also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.16,0:02:39.17,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.17,0:02:39.43,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope {\c&H68A2FF&}also{\c&HEEEEEE&} checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.43,0:02:39.45,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.45,0:02:39.73,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also {\c&H68A2FF&}checks{\c&HEEEEEE&} observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.73,0:02:39.75,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:39.75,0:02:40.27,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks {\c&H68A2FF&}observable{\c&HEEEEEE&} TLS versions, cipher suites,
+Dialogue: 0,0:02:40.27,0:02:40.30,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:40.30,0:02:40.81,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable {\c&H68A2FF&}TLS{\c&HEEEEEE&} versions, cipher suites,
+Dialogue: 0,0:02:40.81,0:02:40.83,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:40.83,0:02:41.27,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS {\c&H68A2FF&}versions,{\c&HEEEEEE&} cipher suites,
+Dialogue: 0,0:02:41.27,0:02:41.47,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:41.47,0:02:41.84,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, {\c&H68A2FF&}cipher{\c&HEEEEEE&} suites,
+Dialogue: 0,0:02:41.84,0:02:41.86,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:41.86,0:02:42.21,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher {\c&H68A2FF&}suites,{\c&HEEEEEE&}
+Dialogue: 0,0:02:42.21,0:02:42.36,Caption,,0,0,0,,{\pos(960,1035)}SecureMailScope also checks observable TLS versions, cipher suites,
+Dialogue: 0,0:02:42.37,0:02:42.52,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}and{\c&HEEEEEE&} forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:42.52,0:02:42.54,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:42.54,0:02:42.91,Caption,,0,0,0,,{\pos(960,1035)}and {\c&H68A2FF&}forward{\c&HEEEEEE&} secrecy. When a certificate is visible,
+Dialogue: 0,0:02:42.91,0:02:42.94,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:42.94,0:02:43.57,Caption,,0,0,0,,{\pos(960,1035)}and forward {\c&H68A2FF&}secrecy.{\c&HEEEEEE&} When a certificate is visible,
+Dialogue: 0,0:02:43.57,0:02:44.44,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:44.44,0:02:44.58,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. {\c&H68A2FF&}When{\c&HEEEEEE&} a certificate is visible,
+Dialogue: 0,0:02:44.58,0:02:44.60,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:44.60,0:02:44.65,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When {\c&H68A2FF&}a{\c&HEEEEEE&} certificate is visible,
+Dialogue: 0,0:02:44.65,0:02:44.66,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:44.66,0:02:45.24,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a {\c&H68A2FF&}certificate{\c&HEEEEEE&} is visible,
+Dialogue: 0,0:02:45.24,0:02:45.27,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:45.27,0:02:45.39,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate {\c&H68A2FF&}is{\c&HEEEEEE&} visible,
+Dialogue: 0,0:02:45.39,0:02:45.42,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:45.42,0:02:45.85,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is {\c&H68A2FF&}visible,{\c&HEEEEEE&}
+Dialogue: 0,0:02:45.85,0:02:46.00,Caption,,0,0,0,,{\pos(960,1035)}and forward secrecy. When a certificate is visible,
+Dialogue: 0,0:02:46.04,0:02:46.13,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}it{\c&HEEEEEE&} checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:46.13,0:02:46.14,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:46.14,0:02:46.43,Caption,,0,0,0,,{\pos(960,1035)}it {\c&H68A2FF&}checks{\c&HEEEEEE&} expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:46.43,0:02:46.45,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:46.45,0:02:46.88,Caption,,0,0,0,,{\pos(960,1035)}it checks {\c&H68A2FF&}expiry{\c&HEEEEEE&} against the capture timestamp, hostname
+Dialogue: 0,0:02:46.88,0:02:46.91,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:46.91,0:02:47.20,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry {\c&H68A2FF&}against{\c&HEEEEEE&} the capture timestamp, hostname
+Dialogue: 0,0:02:47.20,0:02:47.23,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:47.23,0:02:47.31,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against {\c&H68A2FF&}the{\c&HEEEEEE&} capture timestamp, hostname
+Dialogue: 0,0:02:47.31,0:02:47.34,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:47.34,0:02:47.72,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the {\c&H68A2FF&}capture{\c&HEEEEEE&} timestamp, hostname
+Dialogue: 0,0:02:47.72,0:02:47.75,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:47.75,0:02:48.30,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture {\c&H68A2FF&}timestamp,{\c&HEEEEEE&} hostname
+Dialogue: 0,0:02:48.30,0:02:48.51,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:48.51,0:02:48.91,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, {\c&H68A2FF&}hostname{\c&HEEEEEE&}
+Dialogue: 0,0:02:48.91,0:02:49.06,Caption,,0,0,0,,{\pos(960,1035)}it checks expiry against the capture timestamp, hostname
+Dialogue: 0,0:02:48.93,0:02:49.33,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}matching,{\c&HEEEEEE&} key strength, and chain trust.
+Dialogue: 0,0:02:49.33,0:02:49.52,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:49.52,0:02:49.68,Caption,,0,0,0,,{\pos(960,1035)}matching, {\c&H68A2FF&}key{\c&HEEEEEE&} strength, and chain trust.
+Dialogue: 0,0:02:49.68,0:02:49.71,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:49.71,0:02:50.07,Caption,,0,0,0,,{\pos(960,1035)}matching, key {\c&H68A2FF&}strength,{\c&HEEEEEE&} and chain trust.
+Dialogue: 0,0:02:50.07,0:02:50.23,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:50.23,0:02:50.37,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, {\c&H68A2FF&}and{\c&HEEEEEE&} chain trust.
+Dialogue: 0,0:02:50.37,0:02:50.39,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:50.39,0:02:50.62,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and {\c&H68A2FF&}chain{\c&HEEEEEE&} trust.
+Dialogue: 0,0:02:50.62,0:02:50.65,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:50.65,0:02:51.11,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain {\c&H68A2FF&}trust.{\c&HEEEEEE&}
+Dialogue: 0,0:02:51.11,0:02:51.26,Caption,,0,0,0,,{\pos(960,1035)}matching, key strength, and chain trust.
+Dialogue: 0,0:02:51.99,0:02:52.22,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}There{\c&HEEEEEE&} are visibility limits.
+Dialogue: 0,0:02:52.22,0:02:52.24,Caption,,0,0,0,,{\pos(960,1035)}There are visibility limits.
+Dialogue: 0,0:02:52.24,0:02:52.36,Caption,,0,0,0,,{\pos(960,1035)}There {\c&H68A2FF&}are{\c&HEEEEEE&} visibility limits.
+Dialogue: 0,0:02:52.36,0:02:52.38,Caption,,0,0,0,,{\pos(960,1035)}There are visibility limits.
+Dialogue: 0,0:02:52.38,0:02:53.03,Caption,,0,0,0,,{\pos(960,1035)}There are {\c&H68A2FF&}visibility{\c&HEEEEEE&} limits.
+Dialogue: 0,0:02:53.03,0:02:53.05,Caption,,0,0,0,,{\pos(960,1035)}There are visibility limits.
+Dialogue: 0,0:02:53.05,0:02:53.56,Caption,,0,0,0,,{\pos(960,1035)}There are visibility {\c&H68A2FF&}limits.{\c&HEEEEEE&}
+Dialogue: 0,0:02:53.56,0:02:53.71,Caption,,0,0,0,,{\pos(960,1035)}There are visibility limits.
+Dialogue: 0,0:02:54.41,0:02:54.95,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}TLS{\c&HEEEEEE&} 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:54.95,0:02:54.97,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:54.97,0:02:55.68,Caption,,0,0,0,,{\pos(960,1035)}TLS {\c&H68A2FF&}1.3{\c&HEEEEEE&} encrypts certificate contents, so those details
+Dialogue: 0,0:02:55.68,0:02:55.70,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:55.70,0:02:56.11,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 {\c&H68A2FF&}encrypts{\c&HEEEEEE&} certificate contents, so those details
+Dialogue: 0,0:02:56.11,0:02:56.13,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:56.13,0:02:56.71,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts {\c&H68A2FF&}certificate{\c&HEEEEEE&} contents, so those details
+Dialogue: 0,0:02:56.71,0:02:56.74,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:56.74,0:02:57.26,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate {\c&H68A2FF&}contents,{\c&HEEEEEE&} so those details
+Dialogue: 0,0:02:57.26,0:02:57.50,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:57.50,0:02:57.61,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, {\c&H68A2FF&}so{\c&HEEEEEE&} those details
+Dialogue: 0,0:02:57.61,0:02:57.64,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:57.64,0:02:57.89,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so {\c&H68A2FF&}those{\c&HEEEEEE&} details
+Dialogue: 0,0:02:57.89,0:02:57.90,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:57.90,0:02:58.37,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those {\c&H68A2FF&}details{\c&HEEEEEE&}
+Dialogue: 0,0:02:58.37,0:02:58.52,Caption,,0,0,0,,{\pos(960,1035)}TLS 1.3 encrypts certificate contents, so those details
+Dialogue: 0,0:02:58.39,0:02:58.53,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}may{\c&HEEEEEE&} remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:02:58.53,0:02:58.55,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:02:58.55,0:02:58.91,Caption,,0,0,0,,{\pos(960,1035)}may {\c&H68A2FF&}remain{\c&HEEEEEE&} unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:02:58.91,0:02:58.93,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:02:58.93,0:02:59.40,Caption,,0,0,0,,{\pos(960,1035)}may remain {\c&H68A2FF&}unknown.{\c&HEEEEEE&} Incomplete sessions remain unassessed rather
+Dialogue: 0,0:02:59.40,0:03:00.27,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:00.27,0:03:00.87,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. {\c&H68A2FF&}Incomplete{\c&HEEEEEE&} sessions remain unassessed rather
+Dialogue: 0,0:03:00.87,0:03:00.90,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:00.90,0:03:01.35,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete {\c&H68A2FF&}sessions{\c&HEEEEEE&} remain unassessed rather
+Dialogue: 0,0:03:01.35,0:03:01.36,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:01.36,0:03:01.72,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions {\c&H68A2FF&}remain{\c&HEEEEEE&} unassessed rather
+Dialogue: 0,0:03:01.72,0:03:01.73,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:01.73,0:03:02.30,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain {\c&H68A2FF&}unassessed{\c&HEEEEEE&} rather
+Dialogue: 0,0:03:02.30,0:03:02.33,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:02.33,0:03:02.63,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed {\c&H68A2FF&}rather{\c&HEEEEEE&}
+Dialogue: 0,0:03:02.63,0:03:02.78,Caption,,0,0,0,,{\pos(960,1035)}may remain unknown. Incomplete sessions remain unassessed rather
+Dialogue: 0,0:03:02.65,0:03:02.79,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}than{\c&HEEEEEE&} receiving a misleading clean score.
+Dialogue: 0,0:03:02.79,0:03:02.81,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:02.81,0:03:03.29,Caption,,0,0,0,,{\pos(960,1035)}than {\c&H68A2FF&}receiving{\c&HEEEEEE&} a misleading clean score.
+Dialogue: 0,0:03:03.29,0:03:03.31,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:03.31,0:03:03.36,Caption,,0,0,0,,{\pos(960,1035)}than receiving {\c&H68A2FF&}a{\c&HEEEEEE&} misleading clean score.
+Dialogue: 0,0:03:03.36,0:03:03.37,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:03.37,0:03:03.92,Caption,,0,0,0,,{\pos(960,1035)}than receiving a {\c&H68A2FF&}misleading{\c&HEEEEEE&} clean score.
+Dialogue: 0,0:03:03.92,0:03:03.93,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:03.93,0:03:04.19,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading {\c&H68A2FF&}clean{\c&HEEEEEE&} score.
+Dialogue: 0,0:03:04.19,0:03:04.20,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:04.20,0:03:04.67,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean {\c&H68A2FF&}score.{\c&HEEEEEE&}
+Dialogue: 0,0:03:04.67,0:03:04.82,Caption,,0,0,0,,{\pos(960,1035)}than receiving a misleading clean score.
+Dialogue: 0,0:03:05.74,0:03:36.23,Chapter,,0,0,0,,{\pos(36,984)}08 / 09    MACHINE LEARNING AND EXPLAINABLE SCORING
+Dialogue: 0,0:03:05.84,0:03:06.42,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Alongside{\c&HEEEEEE&} explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:06.42,0:03:06.43,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:06.43,0:03:06.98,Caption,,0,0,0,,{\pos(960,1035)}Alongside {\c&H68A2FF&}explicit{\c&HEEEEEE&} rules, we provide a separate machine-learning
+Dialogue: 0,0:03:06.98,0:03:07.01,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:07.01,0:03:07.36,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit {\c&H68A2FF&}rules,{\c&HEEEEEE&} we provide a separate machine-learning
+Dialogue: 0,0:03:07.36,0:03:07.56,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:07.56,0:03:07.68,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, {\c&H68A2FF&}we{\c&HEEEEEE&} provide a separate machine-learning
+Dialogue: 0,0:03:07.68,0:03:07.69,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:07.69,0:03:08.07,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we {\c&H68A2FF&}provide{\c&HEEEEEE&} a separate machine-learning
+Dialogue: 0,0:03:08.07,0:03:08.10,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:08.10,0:03:08.16,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide {\c&H68A2FF&}a{\c&HEEEEEE&} separate machine-learning
+Dialogue: 0,0:03:08.16,0:03:08.18,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:08.18,0:03:08.61,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a {\c&H68A2FF&}separate{\c&HEEEEEE&} machine-learning
+Dialogue: 0,0:03:08.61,0:03:08.64,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:08.64,0:03:09.33,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate {\c&H68A2FF&}machine-learning{\c&HEEEEEE&}
+Dialogue: 0,0:03:09.33,0:03:09.48,Caption,,0,0,0,,{\pos(960,1035)}Alongside explicit rules, we provide a separate machine-learning
+Dialogue: 0,0:03:09.34,0:03:09.80,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}signal.{\c&HEEEEEE&} A Random Forest classifies risk, while an
+Dialogue: 0,0:03:09.80,0:03:10.66,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:10.66,0:03:10.77,Caption,,0,0,0,,{\pos(960,1035)}signal. {\c&H68A2FF&}A{\c&HEEEEEE&} Random Forest classifies risk, while an
+Dialogue: 0,0:03:10.77,0:03:10.80,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:10.80,0:03:11.18,Caption,,0,0,0,,{\pos(960,1035)}signal. A {\c&H68A2FF&}Random{\c&HEEEEEE&} Forest classifies risk, while an
+Dialogue: 0,0:03:11.18,0:03:11.20,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:11.20,0:03:11.56,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random {\c&H68A2FF&}Forest{\c&HEEEEEE&} classifies risk, while an
+Dialogue: 0,0:03:11.56,0:03:11.59,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:11.59,0:03:12.20,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest {\c&H68A2FF&}classifies{\c&HEEEEEE&} risk, while an
+Dialogue: 0,0:03:12.20,0:03:12.23,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:12.23,0:03:12.52,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies {\c&H68A2FF&}risk,{\c&HEEEEEE&} while an
+Dialogue: 0,0:03:12.52,0:03:12.76,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:12.76,0:03:12.93,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, {\c&H68A2FF&}while{\c&HEEEEEE&} an
+Dialogue: 0,0:03:12.93,0:03:12.94,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:12.94,0:03:13.03,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while {\c&H68A2FF&}an{\c&HEEEEEE&}
+Dialogue: 0,0:03:13.03,0:03:13.18,Caption,,0,0,0,,{\pos(960,1035)}signal. A Random Forest classifies risk, while an
+Dialogue: 0,0:03:13.05,0:03:13.62,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Isolation{\c&HEEEEEE&} Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:13.62,0:03:13.65,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:13.65,0:03:14.00,Caption,,0,0,0,,{\pos(960,1035)}Isolation {\c&H68A2FF&}Forest{\c&HEEEEEE&} flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:14.00,0:03:14.03,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:14.03,0:03:14.37,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest {\c&H68A2FF&}flags{\c&HEEEEEE&} unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:14.37,0:03:14.40,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:14.40,0:03:14.89,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags {\c&H68A2FF&}unusual{\c&HEEEEEE&} combinations of normalized cryptographic
+Dialogue: 0,0:03:14.89,0:03:14.92,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:14.92,0:03:15.59,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual {\c&H68A2FF&}combinations{\c&HEEEEEE&} of normalized cryptographic
+Dialogue: 0,0:03:15.59,0:03:15.62,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:15.62,0:03:15.71,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations {\c&H68A2FF&}of{\c&HEEEEEE&} normalized cryptographic
+Dialogue: 0,0:03:15.71,0:03:15.73,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:15.73,0:03:16.30,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of {\c&H68A2FF&}normalized{\c&HEEEEEE&} cryptographic
+Dialogue: 0,0:03:16.30,0:03:16.31,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:16.31,0:03:16.96,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized {\c&H68A2FF&}cryptographic{\c&HEEEEEE&}
+Dialogue: 0,0:03:16.96,0:03:17.11,Caption,,0,0,0,,{\pos(960,1035)}Isolation Forest flags unusual combinations of normalized cryptographic
+Dialogue: 0,0:03:16.99,0:03:17.48,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}features.{\c&HEEEEEE&} The models analyze these features, not raw
+Dialogue: 0,0:03:17.48,0:03:18.35,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:18.35,0:03:18.46,Caption,,0,0,0,,{\pos(960,1035)}features. {\c&H68A2FF&}The{\c&HEEEEEE&} models analyze these features, not raw
+Dialogue: 0,0:03:18.46,0:03:18.47,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:18.47,0:03:18.86,Caption,,0,0,0,,{\pos(960,1035)}features. The {\c&H68A2FF&}models{\c&HEEEEEE&} analyze these features, not raw
+Dialogue: 0,0:03:18.86,0:03:18.88,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:18.88,0:03:19.33,Caption,,0,0,0,,{\pos(960,1035)}features. The models {\c&H68A2FF&}analyze{\c&HEEEEEE&} these features, not raw
+Dialogue: 0,0:03:19.33,0:03:19.36,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:19.36,0:03:19.55,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze {\c&H68A2FF&}these{\c&HEEEEEE&} features, not raw
+Dialogue: 0,0:03:19.55,0:03:19.58,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:19.58,0:03:20.01,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these {\c&H68A2FF&}features,{\c&HEEEEEE&} not raw
+Dialogue: 0,0:03:20.01,0:03:20.18,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:20.18,0:03:20.43,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, {\c&H68A2FF&}not{\c&HEEEEEE&} raw
+Dialogue: 0,0:03:20.43,0:03:20.44,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:20.44,0:03:20.60,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not {\c&H68A2FF&}raw{\c&HEEEEEE&}
+Dialogue: 0,0:03:20.60,0:03:20.75,Caption,,0,0,0,,{\pos(960,1035)}features. The models analyze these features, not raw
+Dialogue: 0,0:03:20.63,0:03:21.00,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}email{\c&HEEEEEE&} content. They use synthetic training data, so
+Dialogue: 0,0:03:21.00,0:03:21.02,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:21.02,0:03:21.55,Caption,,0,0,0,,{\pos(960,1035)}email {\c&H68A2FF&}content.{\c&HEEEEEE&} They use synthetic training data, so
+Dialogue: 0,0:03:21.55,0:03:22.42,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:22.42,0:03:22.55,Caption,,0,0,0,,{\pos(960,1035)}email content. {\c&H68A2FF&}They{\c&HEEEEEE&} use synthetic training data, so
+Dialogue: 0,0:03:22.55,0:03:22.58,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:22.58,0:03:22.80,Caption,,0,0,0,,{\pos(960,1035)}email content. They {\c&H68A2FF&}use{\c&HEEEEEE&} synthetic training data, so
+Dialogue: 0,0:03:22.80,0:03:22.82,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:22.82,0:03:23.32,Caption,,0,0,0,,{\pos(960,1035)}email content. They use {\c&H68A2FF&}synthetic{\c&HEEEEEE&} training data, so
+Dialogue: 0,0:03:23.32,0:03:23.33,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:23.33,0:03:23.70,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic {\c&H68A2FF&}training{\c&HEEEEEE&} data, so
+Dialogue: 0,0:03:23.70,0:03:23.72,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:23.72,0:03:24.01,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training {\c&H68A2FF&}data,{\c&HEEEEEE&} so
+Dialogue: 0,0:03:24.01,0:03:24.27,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:24.27,0:03:24.38,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, {\c&H68A2FF&}so{\c&HEEEEEE&}
+Dialogue: 0,0:03:24.38,0:03:24.53,Caption,,0,0,0,,{\pos(960,1035)}email content. They use synthetic training data, so
+Dialogue: 0,0:03:24.40,0:03:24.52,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}they{\c&HEEEEEE&} demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:24.52,0:03:24.55,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:24.55,0:03:25.15,Caption,,0,0,0,,{\pos(960,1035)}they {\c&H68A2FF&}demonstrate{\c&HEEEEEE&} the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:25.15,0:03:25.18,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:25.18,0:03:25.29,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate {\c&H68A2FF&}the{\c&HEEEEEE&} approach without establishing real-world accuracy.
+Dialogue: 0,0:03:25.29,0:03:25.31,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:25.31,0:03:25.72,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the {\c&H68A2FF&}approach{\c&HEEEEEE&} without establishing real-world accuracy.
+Dialogue: 0,0:03:25.72,0:03:25.73,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:25.73,0:03:26.03,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach {\c&H68A2FF&}without{\c&HEEEEEE&} establishing real-world accuracy.
+Dialogue: 0,0:03:26.03,0:03:26.04,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:26.04,0:03:26.67,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without {\c&H68A2FF&}establishing{\c&HEEEEEE&} real-world accuracy.
+Dialogue: 0,0:03:26.67,0:03:26.68,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:26.68,0:03:27.18,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing {\c&H68A2FF&}real-world{\c&HEEEEEE&} accuracy.
+Dialogue: 0,0:03:27.18,0:03:27.20,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:27.20,0:03:27.87,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world {\c&H68A2FF&}accuracy.{\c&HEEEEEE&}
+Dialogue: 0,0:03:27.87,0:03:28.02,Caption,,0,0,0,,{\pos(960,1035)}they demonstrate the approach without establishing real-world accuracy.
+Dialogue: 0,0:03:28.74,0:03:28.88,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}The{\c&HEEEEEE&} score displays rule deductions and a separate
+Dialogue: 0,0:03:28.88,0:03:28.90,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:28.90,0:03:29.16,Caption,,0,0,0,,{\pos(960,1035)}The {\c&H68A2FF&}score{\c&HEEEEEE&} displays rule deductions and a separate
+Dialogue: 0,0:03:29.16,0:03:29.19,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:29.19,0:03:29.66,Caption,,0,0,0,,{\pos(960,1035)}The score {\c&H68A2FF&}displays{\c&HEEEEEE&} rule deductions and a separate
+Dialogue: 0,0:03:29.66,0:03:29.68,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:29.68,0:03:29.90,Caption,,0,0,0,,{\pos(960,1035)}The score displays {\c&H68A2FF&}rule{\c&HEEEEEE&} deductions and a separate
+Dialogue: 0,0:03:29.90,0:03:29.91,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:29.91,0:03:30.49,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule {\c&H68A2FF&}deductions{\c&HEEEEEE&} and a separate
+Dialogue: 0,0:03:30.49,0:03:30.52,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:30.52,0:03:30.62,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions {\c&H68A2FF&}and{\c&HEEEEEE&} a separate
+Dialogue: 0,0:03:30.62,0:03:30.64,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:30.64,0:03:30.70,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and {\c&H68A2FF&}a{\c&HEEEEEE&} separate
+Dialogue: 0,0:03:30.70,0:03:30.73,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:30.73,0:03:31.15,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a {\c&H68A2FF&}separate{\c&HEEEEEE&}
+Dialogue: 0,0:03:31.15,0:03:31.30,Caption,,0,0,0,,{\pos(960,1035)}The score displays rule deductions and a separate
+Dialogue: 0,0:03:31.17,0:03:31.83,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}machine-learning{\c&HEEEEEE&} penalty, allowing us to inspect how the
+Dialogue: 0,0:03:31.83,0:03:31.85,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:31.85,0:03:32.28,Caption,,0,0,0,,{\pos(960,1035)}machine-learning {\c&H68A2FF&}penalty,{\c&HEEEEEE&} allowing us to inspect how the
+Dialogue: 0,0:03:32.28,0:03:32.57,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:32.57,0:03:32.92,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, {\c&H68A2FF&}allowing{\c&HEEEEEE&} us to inspect how the
+Dialogue: 0,0:03:32.92,0:03:32.95,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:32.95,0:03:33.07,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing {\c&H68A2FF&}us{\c&HEEEEEE&} to inspect how the
+Dialogue: 0,0:03:33.07,0:03:33.08,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:33.08,0:03:33.20,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us {\c&H68A2FF&}to{\c&HEEEEEE&} inspect how the
+Dialogue: 0,0:03:33.20,0:03:33.22,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:33.22,0:03:33.62,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to {\c&H68A2FF&}inspect{\c&HEEEEEE&} how the
+Dialogue: 0,0:03:33.62,0:03:33.64,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:33.64,0:03:33.76,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect {\c&H68A2FF&}how{\c&HEEEEEE&} the
+Dialogue: 0,0:03:33.76,0:03:33.78,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:33.78,0:03:33.86,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how {\c&H68A2FF&}the{\c&HEEEEEE&}
+Dialogue: 0,0:03:33.86,0:03:34.01,Caption,,0,0,0,,{\pos(960,1035)}machine-learning penalty, allowing us to inspect how the
+Dialogue: 0,0:03:33.87,0:03:34.27,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}result{\c&HEEEEEE&} was calculated.
+Dialogue: 0,0:03:34.27,0:03:34.29,Caption,,0,0,0,,{\pos(960,1035)}result was calculated.
+Dialogue: 0,0:03:34.29,0:03:34.44,Caption,,0,0,0,,{\pos(960,1035)}result {\c&H68A2FF&}was{\c&HEEEEEE&} calculated.
+Dialogue: 0,0:03:34.44,0:03:34.45,Caption,,0,0,0,,{\pos(960,1035)}result was calculated.
+Dialogue: 0,0:03:34.45,0:03:35.17,Caption,,0,0,0,,{\pos(960,1035)}result was {\c&H68A2FF&}calculated.{\c&HEEEEEE&}
+Dialogue: 0,0:03:35.17,0:03:35.32,Caption,,0,0,0,,{\pos(960,1035)}result was calculated.
+Dialogue: 0,0:03:36.23,0:03:54.81,Chapter,,0,0,0,,{\pos(36,984)}09 / 09    REPORTS AND CLOSING
+Dialogue: 0,0:03:36.33,0:03:36.80,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}Finally,{\c&HEEEEEE&} we can export the assessment as JSON,
+Dialogue: 0,0:03:36.80,0:03:37.01,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:37.01,0:03:37.13,Caption,,0,0,0,,{\pos(960,1035)}Finally, {\c&H68A2FF&}we{\c&HEEEEEE&} can export the assessment as JSON,
+Dialogue: 0,0:03:37.13,0:03:37.14,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:37.14,0:03:37.27,Caption,,0,0,0,,{\pos(960,1035)}Finally, we {\c&H68A2FF&}can{\c&HEEEEEE&} export the assessment as JSON,
+Dialogue: 0,0:03:37.27,0:03:37.29,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:37.29,0:03:37.69,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can {\c&H68A2FF&}export{\c&HEEEEEE&} the assessment as JSON,
+Dialogue: 0,0:03:37.69,0:03:37.70,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:37.70,0:03:37.80,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export {\c&H68A2FF&}the{\c&HEEEEEE&} assessment as JSON,
+Dialogue: 0,0:03:37.80,0:03:37.82,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:37.82,0:03:38.30,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the {\c&H68A2FF&}assessment{\c&HEEEEEE&} as JSON,
+Dialogue: 0,0:03:38.30,0:03:38.33,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:38.33,0:03:38.45,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment {\c&H68A2FF&}as{\c&HEEEEEE&} JSON,
+Dialogue: 0,0:03:38.45,0:03:38.46,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:38.46,0:03:39.04,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as {\c&H68A2FF&}JSON,{\c&HEEEEEE&}
+Dialogue: 0,0:03:39.04,0:03:39.19,Caption,,0,0,0,,{\pos(960,1035)}Finally, we can export the assessment as JSON,
+Dialogue: 0,0:03:39.25,0:03:40.02,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}HTML,{\c&HEEEEEE&} or PDF, including evidence references and recommended
+Dialogue: 0,0:03:40.02,0:03:40.19,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:40.19,0:03:40.30,Caption,,0,0,0,,{\pos(960,1035)}HTML, {\c&H68A2FF&}or{\c&HEEEEEE&} PDF, including evidence references and recommended
+Dialogue: 0,0:03:40.30,0:03:40.31,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:40.31,0:03:40.91,Caption,,0,0,0,,{\pos(960,1035)}HTML, or {\c&H68A2FF&}PDF,{\c&HEEEEEE&} including evidence references and recommended
+Dialogue: 0,0:03:40.91,0:03:41.13,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:41.13,0:03:41.56,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, {\c&H68A2FF&}including{\c&HEEEEEE&} evidence references and recommended
+Dialogue: 0,0:03:41.56,0:03:41.59,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:41.59,0:03:41.96,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including {\c&H68A2FF&}evidence{\c&HEEEEEE&} references and recommended
+Dialogue: 0,0:03:41.96,0:03:41.98,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:41.98,0:03:42.50,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence {\c&H68A2FF&}references{\c&HEEEEEE&} and recommended
+Dialogue: 0,0:03:42.50,0:03:42.52,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:42.52,0:03:42.62,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references {\c&H68A2FF&}and{\c&HEEEEEE&} recommended
+Dialogue: 0,0:03:42.62,0:03:42.65,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:42.65,0:03:43.19,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and {\c&H68A2FF&}recommended{\c&HEEEEEE&}
+Dialogue: 0,0:03:43.19,0:03:43.34,Caption,,0,0,0,,{\pos(960,1035)}HTML, or PDF, including evidence references and recommended
+Dialogue: 0,0:03:43.21,0:03:43.73,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}fixes.{\c&HEEEEEE&} SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:43.73,0:03:44.61,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:44.61,0:03:45.58,Caption,,0,0,0,,{\pos(960,1035)}fixes. {\c&H68A2FF&}SecureMailScope{\c&HEEEEEE&} connects packet-level observations to conclusions
+Dialogue: 0,0:03:45.58,0:03:45.61,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:45.61,0:03:45.98,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope {\c&H68A2FF&}connects{\c&HEEEEEE&} packet-level observations to conclusions
+Dialogue: 0,0:03:45.98,0:03:45.99,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:45.99,0:03:46.64,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects {\c&H68A2FF&}packet-level{\c&HEEEEEE&} observations to conclusions
+Dialogue: 0,0:03:46.64,0:03:46.67,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:46.67,0:03:47.35,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level {\c&H68A2FF&}observations{\c&HEEEEEE&} to conclusions
+Dialogue: 0,0:03:47.35,0:03:47.37,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:47.37,0:03:47.47,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations {\c&H68A2FF&}to{\c&HEEEEEE&} conclusions
+Dialogue: 0,0:03:47.47,0:03:47.49,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:47.49,0:03:48.05,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to {\c&H68A2FF&}conclusions{\c&HEEEEEE&}
+Dialogue: 0,0:03:48.05,0:03:48.20,Caption,,0,0,0,,{\pos(960,1035)}fixes. SecureMailScope connects packet-level observations to conclusions
+Dialogue: 0,0:03:48.07,0:03:48.36,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}people{\c&HEEEEEE&} can inspect and act on helping us
+Dialogue: 0,0:03:48.36,0:03:48.38,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:48.38,0:03:48.52,Caption,,0,0,0,,{\pos(960,1035)}people {\c&H68A2FF&}can{\c&HEEEEEE&} inspect and act on helping us
+Dialogue: 0,0:03:48.52,0:03:48.53,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:48.53,0:03:48.90,Caption,,0,0,0,,{\pos(960,1035)}people can {\c&H68A2FF&}inspect{\c&HEEEEEE&} and act on helping us
+Dialogue: 0,0:03:48.90,0:03:48.92,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:48.92,0:03:49.01,Caption,,0,0,0,,{\pos(960,1035)}people can inspect {\c&H68A2FF&}and{\c&HEEEEEE&} act on helping us
+Dialogue: 0,0:03:49.01,0:03:49.04,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:49.04,0:03:49.23,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and {\c&H68A2FF&}act{\c&HEEEEEE&} on helping us
+Dialogue: 0,0:03:49.23,0:03:49.26,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:49.26,0:03:49.41,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act {\c&H68A2FF&}on{\c&HEEEEEE&} helping us
+Dialogue: 0,0:03:49.41,0:03:49.50,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:49.50,0:03:49.84,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on {\c&H68A2FF&}helping{\c&HEEEEEE&} us
+Dialogue: 0,0:03:49.84,0:03:49.86,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:49.86,0:03:49.98,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping {\c&H68A2FF&}us{\c&HEEEEEE&}
+Dialogue: 0,0:03:49.98,0:03:50.13,Caption,,0,0,0,,{\pos(960,1035)}people can inspect and act on helping us
+Dialogue: 0,0:03:50.01,0:03:50.16,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}look{\c&HEEEEEE&} beyond whether email works, and understand how
+Dialogue: 0,0:03:50.16,0:03:50.17,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:50.17,0:03:50.54,Caption,,0,0,0,,{\pos(960,1035)}look {\c&H68A2FF&}beyond{\c&HEEEEEE&} whether email works, and understand how
+Dialogue: 0,0:03:50.54,0:03:50.56,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:50.56,0:03:50.84,Caption,,0,0,0,,{\pos(960,1035)}look beyond {\c&H68A2FF&}whether{\c&HEEEEEE&} email works, and understand how
+Dialogue: 0,0:03:50.84,0:03:50.86,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:50.86,0:03:51.21,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether {\c&H68A2FF&}email{\c&HEEEEEE&} works, and understand how
+Dialogue: 0,0:03:51.21,0:03:51.23,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:51.23,0:03:51.53,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email {\c&H68A2FF&}works,{\c&HEEEEEE&} and understand how
+Dialogue: 0,0:03:51.53,0:03:51.77,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:51.77,0:03:51.92,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, {\c&H68A2FF&}and{\c&HEEEEEE&} understand how
+Dialogue: 0,0:03:51.92,0:03:51.95,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:51.95,0:03:52.44,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and {\c&H68A2FF&}understand{\c&HEEEEEE&} how
+Dialogue: 0,0:03:52.44,0:03:52.46,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:52.46,0:03:52.59,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand {\c&H68A2FF&}how{\c&HEEEEEE&}
+Dialogue: 0,0:03:52.59,0:03:52.74,Caption,,0,0,0,,{\pos(960,1035)}look beyond whether email works, and understand how
+Dialogue: 0,0:03:52.61,0:03:53.12,Caption,,0,0,0,,{\pos(960,1035)}{\c&H68A2FF&}securely{\c&HEEEEEE&} it connects.
+Dialogue: 0,0:03:53.12,0:03:53.14,Caption,,0,0,0,,{\pos(960,1035)}securely it connects.
+Dialogue: 0,0:03:53.14,0:03:53.23,Caption,,0,0,0,,{\pos(960,1035)}securely {\c&H68A2FF&}it{\c&HEEEEEE&} connects.
+Dialogue: 0,0:03:53.23,0:03:53.25,Caption,,0,0,0,,{\pos(960,1035)}securely it connects.
+Dialogue: 0,0:03:53.25,0:03:53.76,Caption,,0,0,0,,{\pos(960,1035)}securely it {\c&H68A2FF&}connects.{\c&HEEEEEE&}
+Dialogue: 0,0:03:53.76,0:03:53.91,Caption,,0,0,0,,{\pos(960,1035)}securely it connects.
