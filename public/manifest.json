@@ -1,0 +1,14 @@
+{
+  "name": "SecureMailScope",
+  "short_name": "SecureMailScope",
+  "description": "Email security forensics — analyze PCAP captures, inspect TLS handshakes, and export evidence-backed reports.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#e99069",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}

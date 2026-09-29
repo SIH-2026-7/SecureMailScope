@@ -1,0 +1,252 @@
+/* ================================================================
+   launch.css — Production launch pass: 404, ThankYou, Legal,
+   Sticky Mobile CTA, and mobile fixes at 390px
+   ================================================================ */
+
+/* --- 404 Page -------------------------------------------------- */
+.not-found-page { min-height: 100vh; }
+.not-found-main {
+  display: flex; justify-content: center; align-items: center;
+  min-height: calc(100vh - 86px); padding: 40px 6%;
+}
+.not-found-content { max-width: 540px; width: 100%; }
+.not-found-code {
+  font: 700 120px/1 Outfit, system-ui, sans-serif;
+  letter-spacing: -6px; color: var(--accent); margin-bottom: 8px;
+}
+.not-found-content h1 {
+  font-size: 36px; font-weight: 500; letter-spacing: -1px; margin: 0 0 16px;
+}
+.not-found-content > p { font-size: 16px; color: var(--muted); line-height: 1.7; margin: 0 0 32px; }
+.not-found-nav {
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+}
+.not-found-nav a, .not-found-nav button {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 20px; border: 0; border-bottom: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); text-decoration: none;
+  text-align: left; font-size: 14px; cursor: pointer;
+  transition: background .15s;
+}
+.not-found-nav a:last-child, .not-found-nav button:last-child { border-bottom: 0; }
+.not-found-nav a:hover, .not-found-nav button:hover { background: var(--surface-raised); }
+.not-found-nav svg:first-child { color: var(--accent); flex-shrink: 0; }
+.not-found-nav svg:last-child { margin-left: auto; color: var(--muted); flex-shrink: 0; }
+.not-found-nav div { flex: 1; }
+.not-found-nav strong { display: block; font-size: 15px; font-weight: 600; }
+.not-found-nav small { display: block; color: var(--muted); font-size: 13px; margin-top: 3px; }
+.not-found-contact { font-size: 14px; color: var(--muted); margin-top: 28px; }
+.not-found-contact a { color: var(--accent); }
+
+/* --- Thank You Overlay ----------------------------------------- */
+.thank-you-overlay {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8, 8, 8, 0.82); backdrop-filter: blur(8px);
+  animation: ty-fadein .3s ease both;
+}
+.thank-you-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 40px 36px 32px; max-width: 440px;
+  width: 92%; text-align: center;
+  box-shadow: 0 20px 80px rgba(0,0,0,.4);
+  animation: ty-slidein .4s cubic-bezier(.2,.8,.2,1) both;
+}
+.thank-you-icon {
+  width: 56px; height: 56px; margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+  border: 2px solid var(--accent); border-radius: 50%;
+  color: var(--accent);
+}
+.thank-you-card h2 { font-size: 22px; font-weight: 600; margin: 0 0 10px; }
+.thank-you-card > p { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0 0 28px; }
+.thank-you-actions { display: flex; gap: 12px; justify-content: center; }
+.thank-you-actions button {
+  padding: 12px 22px; font-size: 14px; border-radius: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.thank-you-privacy {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; font-size: 12px; color: var(--muted); margin-top: 24px;
+}
+@keyframes ty-fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ty-slidein { from { opacity: 0; transform: translateY(20px) scale(.95); } to { opacity: 1; transform: none; } }
+
+/* --- Legal Pages ----------------------------------------------- */
+.legal-page {
+  min-height: 100vh; background: var(--bg); color: var(--ink);
+  font-family: Outfit, 'Segoe UI', sans-serif;
+}
+.legal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 6%; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; background: var(--bg); z-index: 10;
+}
+.legal-header button {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); padding: 10px 18px;
+  font-size: 14px; border-radius: 5px;
+}
+.legal-content {
+  max-width: 680px; margin: 0 auto; padding: 48px 6% 80px;
+}
+.legal-content h1 {
+  font-size: 36px; font-weight: 600; letter-spacing: -1px; margin: 0 0 8px;
+}
+.legal-updated { color: var(--muted); font-size: 14px; margin: 0 0 40px; }
+.legal-content h2 {
+  font-size: 20px; font-weight: 600; margin: 36px 0 12px;
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.legal-content h2:first-of-type { border-top: 0; padding-top: 0; }
+.legal-content p { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 0 16px; }
+.legal-content ul {
+  padding-left: 0; list-style: none; margin: 0 0 20px;
+}
+.legal-content li {
+  font-size: 16px; line-height: 1.75; color: var(--muted);
+  padding: 8px 0 8px 20px; position: relative;
+}
+.legal-content li::before {
+  content: ''; position: absolute; left: 0; top: 18px;
+  width: 6px; height: 6px; background: var(--accent); border-radius: 1px;
+}
+.legal-content a { color: var(--accent); }
+
+/* --- Footer Legal Links ---------------------------------------- */
+.footer-legal {
+  display: flex; gap: 16px; font-size: 12px; margin-top: 16px;
+}
+.footer-legal a {
+  color: var(--muted); text-decoration: none;
+  transition: color .15s;
+}
+.footer-legal a:hover { color: var(--accent); }
+.landing-footer .footer-legal { margin-top: 0; }
+
+/* --- Sticky Mobile CTA ----------------------------------------- */
+.sticky-mobile-cta {
+  display: none; /* Hidden on desktop */
+}
+@media (max-width: 760px) {
+  .sticky-mobile-cta {
+    display: block; position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 35; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(transparent, var(--bg) 30%);
+    pointer-events: none;
+  }
+  .sticky-mobile-cta button {
+    pointer-events: auto; width: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    background: var(--accent); color: var(--accent-ink);
+    border: 1px solid var(--ink); border-radius: 8px;
+    padding: 16px 24px; font-size: 16px; font-weight: 600;
+    box-shadow: 0 -4px 20px rgba(0,0,0,.3);
+    min-height: 52px; /* Exceeds 44px tap target */
+  }
+  .sticky-mobile-cta button:hover { background: var(--ink); color: var(--bg); }
+}
+
+/* --- Mobile Fixes at 390px ------------------------------------- */
+@media (max-width: 760px) {
+  /* Prevent horizontal overflow on hero resource actions */
+  .hero-resource-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-resource-actions .hero-guide-link {
+    padding: 12px 14px;
+    font-size: 13px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Fix header button text clipping */
+  .landing-header-actions > button {
+    font-size: 11px !important;
+    padding: 10px 10px;
+    white-space: nowrap;
+  }
+
+  /* Ensure minimum tap target of 44px on all interactive elements */
+  .landing-header-actions > a,
+  .landing-header-actions > button,
+  .landing-header .theme-toggle {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Project guide journey nav buttons >= 44px */
+  .journey-route button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+  .journey-controls button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Workspace nav buttons: bigger text and tap targets */
+  .layout .nav button {
+    min-height: 44px;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  /* Topbar overflow fix */
+  .topbar > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Make body copy at least 16px on mobile */
+  .landing p,
+  .evidence-slip p,
+  .capability-list p,
+  .honesty-note p {
+    font-size: 16px;
+  }
+  .evidence-slip h3 {
+    font-size: 22px;
+  }
+
+  /* Landing footer: better layout at 390px */
+  .landing-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 6%;
+  }
+
+  /* Pad bottom to avoid sticky CTA overlap */
+  .landing { padding-bottom: 80px; }
+  .layout { padding-bottom: 70px; }
+
+  /* 404 responsive */
+  .not-found-code { font-size: 80px; letter-spacing: -3px; }
+  .not-found-content h1 { font-size: 28px; }
+
+  /* Legal responsive */
+  .legal-content h1 { font-size: 28px; }
+
+  /* Thank-you responsive */
+  .thank-you-card { padding: 32px 24px 28px; }
+  .thank-you-actions { flex-direction: column; }
+}
+
+/* Extra small screens (< 400px) */
+@media (max-width: 400px) {
+  .landing h1 { font-size: 52px !important; letter-spacing: -2.5px !important; }
+  .hero-actions { flex-direction: column; gap: 12px; align-items: stretch; }
+  .hero-actions .landing-cta,
+  .hero-actions .quiet-cta { width: 100%; text-align: center; justify-content: center; }
+  .header-social { width: 38px; height: 38px; }
+  .evidence-slip { width: 90%; }
+}

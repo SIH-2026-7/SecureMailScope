@@ -6,8 +6,9 @@ import './style.css';
 import './design.css';
 import './motion.css';
 import './landing-type.css';
+import './launch.css';
+import './project-guide.css';
 
 createRoot(document.getElementById('app')).render(
   <React.StrictMode><AuthGate>{auth => <Startup key={auth.user?.id || 'local'} auth={auth} />}</AuthGate></React.StrictMode>,
 );
-import './project-guide.css';

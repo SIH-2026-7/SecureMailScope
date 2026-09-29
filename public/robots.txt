@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://securemailscope-xljd.onrender.com/sitemap.xml

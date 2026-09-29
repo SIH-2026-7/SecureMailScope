@@ -11,6 +11,12 @@ import CaptureWorkspace from './CaptureWorkspace.tsx';
 import AnalysisHistory from './AnalysisHistory.tsx';
 import Landing from './Landing.jsx';
 import ProjectGuide from './ProjectGuide.jsx';
+import NotFound from './NotFound.jsx';
+import ThankYou from './ThankYou.jsx';
+import {PrivacyPolicy, TermsOfUse} from './Legal.jsx';
+import StickyMobileCTA from './StickyMobileCTA.jsx';
+import {usePageMeta} from './seo.js';
+import {trackPageView, trackCaptureUpload, trackSimulationRun, trackReportExport} from './analytics.js';
 
 const navigation = [
   ['Capture analysis', 'layers'], ['Past file analyses', 'file'], ['Overview', 'grid'], ['Sessions', 'activity'],
@@ -20,6 +26,14 @@ const navigation = [
 export default function App({auth}) {
   const [guide, setGuide] = useState(() => window.location.hash === '#guide');
   const [workspace, setWorkspace] = useState(() => /^#(workspace|frame-)/.test(window.location.hash));
+  const [legalPage, setLegalPage] = useState(() => {
+    const h = window.location.hash;
+    if (h === '#privacy') return 'privacy';
+    if (h === '#terms') return 'terms';
+    return null;
+  });
+  const [notFound, setNotFound] = useState(false);
+  const [thankYou, setThankYou] = useState(null);
   const [theme, setTheme] = useState(() => {try {return localStorage.getItem('sms-theme') === 'light' ? 'light' : 'dark';} catch {return 'dark';}});
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -29,10 +43,22 @@ export default function App({auth}) {
     const sync = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#frame-')) return;
+      setLegalPage(hash === '#privacy' ? 'privacy' : hash === '#terms' ? 'terms' : null);
+      if (hash === '#privacy' || hash === '#terms') {
+        setWorkspace(false); setGuide(false); setNotFound(false);
+        window.scrollTo(0, 0);
+        return;
+      }
       setWorkspace(hash.startsWith('#workspace'));
       setGuide(hash === '#guide');
+      setNotFound(false);
       if (hash === '#guide' || hash === '#workspace' || !hash) window.scrollTo(0, 0);
       setDetail(null);
+      // Handle unknown hashes as 404
+      const known = ['', '#', '#guide', '#workspace', '#solution', '#evidence', '#capabilities', '#privacy', '#terms'];
+      if (hash && !hash.startsWith('#frame-') && !hash.startsWith('#workspace') && !known.includes(hash)) {
+        setNotFound(true);
+      }
     };
     window.addEventListener('hashchange', sync);
     return () => window.removeEventListener('hashchange', sync);
@@ -47,6 +73,13 @@ export default function App({auth}) {
   const timers = useRef(new Set());
   stateRef.current = state;
 
+  // Dynamic page title
+  const currentPage = notFound ? 'notfound' : legalPage ? legalPage : guide ? 'guide' : workspace ? state.page : 'landing';
+  usePageMeta(currentPage);
+
+  // Analytics: fire page_view on every view change
+  useEffect(() => { trackPageView(currentPage); }, [currentPage]);
+
   useEffect(() => () => {timers.current.forEach(clearTimeout); timers.current.clear();}, []);
   useEffect(() => {
     if (!message) return;
@@ -57,6 +90,8 @@ export default function App({auth}) {
   const closeDetails = useCallback(() => setDetail(null), []);
   const navigate = useCallback(page => {
     setCaptureJob('');
+    setThankYou(null);
+    trackPageView(page);
     dispatch({type: 'navigate', page});
     window.scrollTo(0, 0);
   }, []);
@@ -80,6 +115,8 @@ export default function App({auth}) {
           dispatch({type: 'load', scenario: key});
           runLock.current = false;
           setMessage('Simulation complete — explore the assessment.');
+          trackSimulationRun(key);
+          setThankYou('simulation');
         }
       }, (index + 1) * 650);
       timers.current.add(timer);
@@ -126,6 +163,8 @@ export default function App({auth}) {
         reportWindow.focus();
       }
       setMessage(format === 'print' ? 'Report opened. Choose Print / Save as PDF.' : 'Report download prepared with evidence integrity hash.');
+      setThankYou('report');
+      trackReportExport(format);
     } catch (error) {reportWindow?.close(); setMessage('Report export failed: ' + error.message);}
   }
 
@@ -142,6 +181,8 @@ export default function App({auth}) {
         Size: `${metadata.bytes.toLocaleString()} bytes`, 'SHA-256': fingerprint, 'Security posture': 'Not assessed',
       }});
       setMessage('Capture structure validated locally.');
+      setThankYou('capture');
+      trackCaptureUpload(file.name, file.size);
     } catch (error) {dispatch({type: 'capture', capture: null}); setMessage(error.message);}
     finally {setUploading(false);}
   }
@@ -162,11 +203,21 @@ export default function App({auth}) {
   }
   const Page = pages[state.page];
   const session = state.sessions.find(item => item.id === detail?.sessionId);
-  function enterWorkspace(page = 'Capture analysis') {setGuide(false); navigate(page); window.location.hash = 'workspace'; setWorkspace(true);}
+  function enterWorkspace(page = 'Capture analysis') {setGuide(false); setLegalPage(null); setNotFound(false); navigate(page); window.location.hash = 'workspace'; setWorkspace(true);}
   const themeButton = <button className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}><Icon name={theme === 'dark' ? 'sun' : 'moon'} size={18} /><span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span></button>;
 
+  // Legal pages
+  if (legalPage === 'privacy') return <PrivacyPolicy onBack={() => {window.location.hash = ''; setLegalPage(null);}} />;
+  if (legalPage === 'terms') return <TermsOfUse onBack={() => {window.location.hash = ''; setLegalPage(null);}} />;
+
+  // 404 page
+  if (notFound) return <NotFound onEnter={enterWorkspace} />;
+
   if (guide) return <ProjectGuide onEnter={enterWorkspace} themeButton={themeButton} />;
-  if (!workspace) return <Landing onEnter={enterWorkspace} themeButton={themeButton} />;
+  if (!workspace) return <>
+    <Landing onEnter={enterWorkspace} themeButton={themeButton} />
+    <StickyMobileCTA onClick={() => enterWorkspace()} label="Examine a capture" icon="arrow" />
+  </>;
 
   return <DemoContext.Provider value={value}>
     <div className="layout">
@@ -180,15 +231,23 @@ export default function App({auth}) {
           </button></React.Fragment>)}</nav>
         <div className="sidebottom">{themeButton}<div className="offline"><strong><Icon name="lock" size={14} /> &nbsp; {auth?.required ? 'Private workspace' : 'Local analysis'}</strong><br /><span className="muted">{auth?.required ? 'Your captures belong to your account.' : 'Your captures stay on this device.'}</span></div>
           {auth?.user && <div className="account-controls"><small>{auth.user.email}</small><button onClick={auth.signOut}>Sign out</button></div>}
-          <div className="profile"><div className="avatar">CP</div><div>Crypterpillars<small>SIH 2026 · PS 26159</small></div></div></div>
+          <div className="profile"><div className="avatar">CP</div><div>Crypterpillars<small>SIH 2026 · PS 26159</small></div></div>
+          <nav className="footer-legal" aria-label="Legal links">
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
+            <a href="mailto:securemailscope@proton.me">Contact</a>
+          </nav>
+        </div>
       </aside>
       <main className="main"><div className="topbar"><span><Icon name="mail" size={18} /> &nbsp; Workspace &nbsp; / &nbsp; <strong>{state.page}</strong></span><div className="topbar-tools"><Badge><span className="status-dot" /> {isCapturePage ? 'LOCAL CAPTURE ANALYSIS' : 'SYNTHETIC SIMULATION'}</Badge><div className="mobile-theme">{themeButton}</div><a href="#guide" className="home-link">About the project <Icon name="arrow" size={15}/></a></div></div>
         <div className="content"><Page initialJob={captureJob} onOpen={openPastAnalysis} /><div className="footnote"><span><Icon name="shield" size={13} /> SecureMailScope · Passive email security assessment</span><span>{isCapturePage ? 'Capture evidence · Local backend' : 'Synthetic evidence · Rules-based demonstration'}</span></div></div>
       </main>
     </div>
+    {thankYou && <ThankYou type={thankYou} onAction={() => {setThankYou(null); navigate(thankYou === 'simulation' ? 'Overview' : thankYou === 'report' ? 'Reports' : 'Capture analysis');}} onHome={() => setThankYou(null)} />}
     {detail && <Modal title={detail.scoring ? 'How posture is scored' : `${session?.id} · ${session?.protocol}`} onClose={closeDetails}>
       {detail.scoring ? <Scoring /> : session && <SessionDetails session={session} />}
     </Modal>}
     <div id="toast" role="status" style={{display: message ? 'block' : 'none'}}>{message}</div>
+    <StickyMobileCTA onClick={() => {navigate('Capture analysis'); requestAnimationFrame(() => document.querySelector('.upload')?.scrollIntoView({block: 'center', behavior: 'smooth'}));}} label="Analyze capture" icon="layers" />
   </DemoContext.Provider>;
 }
